@@ -3,8 +3,13 @@ Rails.application.routes.draw do
 
   root 'homepage#homepage'
 
-  get '/profile' => 'profile#profile'
-  get '/analysis' => 'analysis#analysis'
-  get '/save' => 'save#save'
-  get '/rewards' => 'rewards#rewards'
+  get 'profile' => 'profile#profile'
+
+  get 'analysis' => 'analysis#analysis'
+
+  get 'save' => 'save#save'
+
+  get 'rewards' => 'rewards#rewards'
+  get 'rewards/:id' => 'rewards#rewards_id'
+
 end

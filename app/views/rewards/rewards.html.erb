@@ -1,1 +1,37 @@
-<h1>REWARDS TEST</h1>
+<h1>WELCOME TO YOUR REWARDS PAGE!</h1>
+<h3>Reach the amount in your savings and unlock each tier of rewards!</h3>
+<br>
+
+<h2>YOUR CACHE SAVINGS ACCOUNT HAS $<%=@total_savings%> !</h2>
+<h4 class="savings_message"><%= @milestone_savings.fetch(@total_savings, @random_message) %> </h4>
+
+<br>
+<div>
+  <h2>LIST OF REWARDS</h2>
+
+  <table>
+    <thead>
+      <th>#</th>
+        <th>Points</th>
+        <th>Merchant</th>
+        <th>Item/Service</th>
+        <th>Redeem</th>
+
+    </thead>
+    <tbody>
+      <tr>
+        <% @rewards_list_simulation.each do | each | %>
+
+        <td><%=each[:id]%></td>
+        <td><%=each[:points]%></td>
+        <td><%=each[:merchant]%></td>
+        <td><%=each[:item]%></td>
+        <td><button>
+          <a href="/rewards/rewards_id<">REDEEM</a>
+        </button>
+        </td>
+      </tr>
+      <%end%>
+    </tbody>
+  </table>
+</div>

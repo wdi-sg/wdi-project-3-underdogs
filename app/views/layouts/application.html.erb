@@ -1,14 +1,24 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>WdiProject3Underdogs</title>
+    <title>Cache</title>
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag 'application', 'https://fonts.googleapis.com/css?family=Questrial', media: 'all' %>
+
   </head>
 
   <body>
+    <nav>
+      <ul class="navbar">
+        <li class="navitems"><a href="/profile">Profile</a></li>
+        <li class="navitems"><a href="/analysis">Analysis</a></li>
+        <li class="navitems"><a href="/save">Save</a></li>
+        <li class="navitems"><a href="/rewards">Rewards</a></li>
+      </ul>
+    </nav>
     <%= yield %>
   </body>
 </html>
