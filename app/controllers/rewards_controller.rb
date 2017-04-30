@@ -27,8 +27,8 @@ class RewardsController < ApplicationController
         10000 => 'WOW Congratulations on hitting $10,000 Savings! Your friends want to be you right now!'
       }
 
-      @total_savings = rand(1..10000)
-      # @total_savings = 8000
+      # @total_savings = rand(1..10000)
+      @total_savings = 8000
 
       @rewards_list_simulation = [
         {id: 1, points: 100, merchant: "Starbucks", item: "Free Venti Frappacino", value: 7.90},
