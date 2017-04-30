@@ -1,6 +1,7 @@
 class ProfileController < ApplicationController
 
 def profile
+  
 end
 
 def profile2

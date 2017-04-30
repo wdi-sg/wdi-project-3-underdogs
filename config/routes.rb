@@ -5,17 +5,13 @@ Rails.application.routes.draw do
 
 
   get 'profile' => 'profile#profile'
-  get '/profile2' => 'profile#profile2'
-  
+  get 'profile/2' => 'profile#profile2'
+
   get 'analysis' => 'analysis#analysis'
 
   get 'save' => 'save#save'
 
   get 'rewards' => 'rewards#rewards'
   get 'rewards/:id' => 'rewards#rewards_id'
-
-
-
-
 
 end
