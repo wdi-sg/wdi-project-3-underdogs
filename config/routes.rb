@@ -6,5 +6,8 @@ Rails.application.routes.draw do
   get '/profile' => 'profile#profile'
   get '/analysis' => 'analysis#analysis'
   get '/save' => 'save#save'
+  get '/save/topup'
+  get '/save/withdraw'
+  get '/save/history' 
   get '/rewards' => 'rewards#rewards'
 end
