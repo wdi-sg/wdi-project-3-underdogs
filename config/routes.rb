@@ -10,6 +10,9 @@ Rails.application.routes.draw do
   get 'analysis' => 'analysis#analysis'
 
   get 'save' => 'save#save'
+  get '/save/topup'
+  get '/save/withdraw'
+  get '/save/history'
 
   get 'rewards' => 'rewards#rewards'
   get 'rewards/:id' => 'rewards#rewards_id'
