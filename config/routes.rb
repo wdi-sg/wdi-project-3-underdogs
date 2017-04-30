@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   root 'homepage#homepage'
 
   get '/profile' => 'profile#profile'
+  get '/profile2' => 'profile#profile2'
   get '/analysis' => 'analysis#analysis'
   get '/save' => 'save#save'
   get '/rewards' => 'rewards#rewards'
