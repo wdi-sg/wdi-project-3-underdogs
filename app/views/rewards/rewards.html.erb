@@ -12,7 +12,7 @@
   <table>
     <thead>
       <th>#</th>
-        <th>Points</th>
+        <th>Value</th>
         <th>Merchant</th>
         <th>Item/Service</th>
         <th>Redeem</th>
@@ -23,7 +23,7 @@
         <% @rewards_list_simulation.each do | each | %>
 
         <td><%=each[:id]%></td>
-        <td><%=each[:points]%></td>
+        <td><%=each[:value]%></td>
         <td><%=each[:merchant]%></td>
         <td><%=each[:item]%></td>
         <td><button>
