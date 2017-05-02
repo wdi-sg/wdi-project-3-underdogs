@@ -15,6 +15,7 @@ gem 'sqlite3'
 # Using postgres as the database for Active Record
 gem 'pg'
 
+
 # Use Puma as the app server
 gem 'puma', '~> 3.0'
 # Use SCSS for stylesheets
@@ -61,7 +62,9 @@ group :development do
 end
 
 group :production do
+
   gem 'pg'
+
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
