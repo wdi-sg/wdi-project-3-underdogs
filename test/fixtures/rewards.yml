@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  merchant: MyString
+  merchant_code: MyString
+  item: MyString
+  value: 1
+  expiry_date: MyString
+  category: MyString
+
+two:
+  merchant: MyString
+  merchant_code: MyString
+  item: MyString
+  value: 1
+  expiry_date: MyString
+  category: MyString
