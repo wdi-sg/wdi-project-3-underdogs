@@ -11,15 +11,12 @@
   </head>
 
   <body>
-    <nav>
-      <ul class="navbar">
-        <li class="navitems"><a href="/">Homepage</a></li>
-        <li class="navitems"><a href="/profile">Profile</a></li>
-        <li class="navitems"><a href="/analysis">Analysis</a></li>
-        <li class="navitems"><a href="/save">Save</a></li>
-        <li class="navitems"><a href="/rewards">Rewards</a></li>
-      </ul>
-    </nav>
+
+    <% if user_signed_in? %>
+        <%= render 'partials/nav' %>
+    <%end%>
+
+
     <div class = "devise-alerts">
       <p class="notice"><%= notice %></p>
       <p class="alert"><%= alert %></p>

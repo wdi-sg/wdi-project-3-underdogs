@@ -2,15 +2,12 @@
 
 <a href="publicanalysis">Public Financial Analysis</a>
 
-<a href="/users/sign_up">Sign Up</a>
+<a href="/signup">Sign Up</a>
 
-<a href="/users/sign_in">Log In</a>
+<a href="/login">Log In</a>
 
 <% if user_signed_in? %>
-  <li>
     <%= link_to('Logout', destroy_user_session_path, :method => :delete) %>
-  </li>
-    <% else %>
 <%end%>
 
 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam accumsan quam neque, eget mattis sem dignissim eu. Maecenas vitae tellus ullamcorper, pretium elit eget, egestas velit. Maecenas tincidunt pretium purus sit amet molestie. Sed eu suscipit neque. Duis nec libero ipsum. Ut rhoncus dui vitae sapien sollicitudin, et imperdiet sem consequat. Nam sit amet blandit tortor, interdum pretium nibh. Donec eget leo non quam placerat ullamcorper. Donec eu scelerisque massa, sit amet feugiat ex. Sed et lorem rhoncus, finibus massa at, fringilla augue. Nullam id velit volutpat augue cursus pretium. Praesent dui felis, accumsan eget nulla nec, mattis congue urna.
