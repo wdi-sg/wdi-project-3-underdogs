@@ -1,8 +1,8 @@
 <nav>
   <ul class="navbar">
-    <li class="navitems"><a href="/">Homepage</a></li>
-    <li class="navitems"><a href="/publicanalysis">Financial Analysis</a></li>
-    <li class="navitems"><a href="/signup">Sign Up</a></li>
-    <li class="navitems"><a href="/login">Login</a></li>
+    <li class="navitems"><%= link_to('Homepage', root_path, :method => :get) %></li>
+    <li class="navitems"><%= link_to('Public Analysis', publicanalysis_path, :method => :get) %></li>
+    <li class="navitems"><%= link_to('Sign Up', new_user_registration_path, :method => :get) %></li>
+    <li class="navitems"><%= link_to('Login', new_user_session_path, :method => :get) %></li>
   </ul>
 </nav>
