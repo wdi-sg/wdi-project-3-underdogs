@@ -1,4 +1,5 @@
 class DeviseCreateUsers < ActiveRecord::Migration[5.0]
+
   def change
     create_table :users do |t|
       ## Database authenticatable
@@ -18,6 +19,17 @@ class DeviseCreateUsers < ActiveRecord::Migration[5.0]
       t.datetime :last_sign_in_at
       t.string   :current_sign_in_ip
       t.string   :last_sign_in_ip
+
+      #additional fields
+      t.string :first_name
+      t.string :last_name
+      t.string :id_no
+      t.string :dob
+      t.string :gender
+      t.string :nationality
+      t.string :address
+      t.string :postal_code
+      t.integer :mobile_no
 
       ## Confirmable
       # t.string   :confirmation_token
