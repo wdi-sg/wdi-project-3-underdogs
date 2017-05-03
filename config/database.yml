@@ -37,7 +37,7 @@ cucumber:
 production:
   <<: *default
   database: cache_production
-  # username: eedaqhdakasmbi
-  # password: 383c16e6dfe0e25928c6aca65989f72c795b37473080f7de999ca58c95d341c8
+  username: eedaqhdakasmbi
+  password: 383c16e6dfe0e25928c6aca65989f72c795b37473080f7de999ca58c95d341c8
   # URI: postgres://eedaqhdakasmbi:383c16e6dfe0e25928c6aca65989f72c795b37473080f7de999ca58c95d341c8@ec2-54-204-0-88.compute-1.amazonaws.com:5432/d2djd4nf76n8di
   url: <%= ENV['DATABASE_URL'] %>
