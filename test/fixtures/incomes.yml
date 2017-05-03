@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  email: MyString
+  monthly_income: 1
+  monthly_savings_goal: 1
+  final_savings_goal: 1
+
+two:
+  email: MyString
+  monthly_income: 1
+  monthly_savings_goal: 1
+  final_savings_goal: 1
