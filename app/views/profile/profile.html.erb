@@ -1,5 +1,7 @@
 <h1>Update Profile</h1>
 
+<li><%= link_to('Change Password', edit_user_registration_path) %></li>
+
 <h2>Part 1 of 2</h2>
 
 <h3>Update Account Details</h3>
@@ -22,8 +24,8 @@
     <input type="radio" name="gender" value="Male">Male<br>
     <input type="radio" name="gender" value="Female">Female<br>
 
-    <label for="country">Nationality</label>
-    <select id="country" form="savingtarg">
+    <label for="nationality">Nationality</label>
+    <select id="nationality" form="savingtarg">
       <option value="AFG">Afghanistan</option>
       <option value="ALA">Åland Islands</option>
       <option value="ALB">Albania</option>
@@ -276,8 +278,8 @@
     </select><br>
     <label for="address">Address</label>
     <input type="text" name="address" id="address">
-    <label for="postal">Postal Code</label>
-    <input type="text" name="postalcode" id="postal" maxlength="6">
+    <label for="postal_code">Postal Code</label>
+    <input type="text" name="postal_code" id="postal_code" maxlength="6">
     <label for="monthincome">Monthly Income</label>
     <input type="text" name="monthincome" id="monthincome">
     <label for="annbonus">Annual Bonus</label>
