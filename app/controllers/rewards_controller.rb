@@ -37,15 +37,23 @@ class RewardsController < ApplicationController
         {id: 4, points: 100, merchant: "Lazada", item: "$20.50 Off Appliances", value: 20.50}
       ]
 
+      @rewards_list=Reward.all.order(:value)
+
   end
 
   def rewards_id
-
     #to find the specific reward
-    #@rewards = Rewards.find(params[:id])
+    @rewards = Reward.find(params[:id])
+  end
 
-
-
+  def claimed
+    @rewards = Reward.find(params[:id])
+    @claim= Redeemed.new
+    @claim.reward_id=@rewards
+    # @user = current_user.id
+    # @claim.user_id=@user
+    @claim.save
+    redirect_to rewards_path
   end
 
 end

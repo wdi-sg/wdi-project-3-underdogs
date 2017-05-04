@@ -11,7 +11,7 @@
 
   <table>
     <thead>
-      <th>#</th>
+        <th>#</th>
         <th>Value</th>
         <th>Merchant</th>
         <th>Item/Service</th>
@@ -20,15 +20,14 @@
     </thead>
     <tbody>
       <tr>
-        <% @rewards_list_simulation.each do | each | %>
+        <% @rewards_list.each do | each | %>
 
         <td><%=each[:id]%></td>
         <td><%=each[:value]%></td>
         <td><%=each[:merchant]%></td>
         <td><%=each[:item]%></td>
-        <td><button>
-          <a href="/rewards/rewards_id">REDEEM</a>
-        </button>
+        <td>
+          <%= link_to "View More", :controller => "rewards", :action => "rewards_id", :id => each[:id]%>
         </td>
       </tr>
       <%end%>

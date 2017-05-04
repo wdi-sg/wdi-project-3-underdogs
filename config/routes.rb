@@ -26,6 +26,8 @@ Rails.application.routes.draw do
   get 'rewards' => 'rewards#rewards'
   get 'rewards/:id' => 'rewards#rewards_id'
 
+  post 'rewards/:id' => 'rewards#claimed' ,as:"claimed"
+
 
 
 end

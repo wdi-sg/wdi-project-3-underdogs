@@ -1,8 +1,15 @@
-<h1>You have successfully redeemed this reward</h1>
+<h1>Confirmation Page</h1>
 
 
 <p>Picture of the Retailer Coupon</p>
 <p>or print out the details</p>
 
 
-<!-- <%=@rewards.name=> -->
+<%=@rewards.item%>
+<%=@rewards.merchant%>
+<%=@rewards.value%>
+<%=@rewards.expiry_date%>
+<%=@rewards.category%>
+
+
+<%= link_to "Claim", claimed_path, :id => @rewards.id, class: "button is-primary",method: :post%>

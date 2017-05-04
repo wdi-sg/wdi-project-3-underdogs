@@ -19,13 +19,13 @@
   )
 end
 
-5.times do
-  BankAccountInfo.create(
-  email: Faker::Internet.email,
-  bank_name: Faker::Bank.name,
-  bank_currency: Faker::Address.state_abbr,
-  account_no: rand(1000),
-  name_on_account: Faker::StarWars.character,
-  branch_code: Faker::Bank.swift_bic
-  )
-end
+# 5.times do
+#   BankAccountInfo.create(
+#   email: Faker::Internet.email,
+#   bank_name: Faker::Bank.name,
+#   bank_currency: Faker::Address.state_abbr,
+#   account_no: rand(1000),
+#   name_on_account: Faker::StarWars.character,
+#   branch_code: Faker::Bank.swift_bic
+#   )
+# end
