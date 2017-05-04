@@ -4,6 +4,8 @@
 <p>If you would like to edit your details, please contact us at account@cache.com.</p>
 <%= current_user.inspect %>
 
+<%= link_to('Change Password', edit_user_registration_path) %>
+
 <%= form_for @user, url: profile_path, method: :put do |f| %>
 
   <%= f.label :first_name %>
