@@ -13,8 +13,7 @@ Rails.application.routes.draw do
 
   get 'publicanalysis' => 'homepage#publicanalysis'
 
-  get 'profile' => 'profile#profile'
-  get 'profile/2' => 'profile#profile2'
+  resources :profiles
 
   get 'analysis' => 'analysis#analysis'
 

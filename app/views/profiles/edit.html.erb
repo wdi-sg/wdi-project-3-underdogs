@@ -1,0 +1,24 @@
+<h1>COMPLETE YOUR FREAKIN PROFILE: <%=current_user.email%></h1>
+
+<%= form_for @user, url: profile_path, method: :put do |f| %>
+
+  <%= f.label :first_name %>
+  <%= f.text_field :first_name %>
+  <%= f.label :last_name %>
+  <%= f.text_field :last_name %>
+  <%= f.label :id_no %>
+  <%= f.text_field :id_no %>
+  <%= f.label :dob %>
+  <%= f.date_field :dob %>
+  <%= f.label :gender %>
+  <%= f.text_field :gender %>
+  <%= f.label :nationality %>
+  <%= f.text_field :nationality %>
+  <%= f.label :address %>
+  <%= f.text_field :address %>
+  <%= f.label :postal_code %>
+  <%= f.text_field :postal_code %>
+  <%= f.label :mobile_no %>
+  <%= f.text_field :mobile_no %>
+  <%= f.submit "Update Profile"%>
+<% end %>
