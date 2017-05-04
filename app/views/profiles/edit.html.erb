@@ -71,8 +71,19 @@
   <% end%>
 <br>
 
-  <% if true && true  %>
-    <!-- true -->
+  <% if current_user.first_name.present? &&
+    current_user.last_name.present? &&
+    current_user.id_no.present? &&
+    current_user.dob.present? &&
+    current_user.dob.present? &&
+    current_user.gender.present? &&
+    current_user.nationality.present? &&
+    current_user.address.present? &&
+    current_user.postal_code.present? &&
+    current_user.mobile_no.present? &&
+    %>
+        <%= link_to "Go back to Dashboard", save_path %>
+    <% else %>
+        <%= f.submit "Update Profile"%>
   <% end %>
-  <%= f.submit "Update Profile", :id=> "profile_one"%>
 <% end %>
