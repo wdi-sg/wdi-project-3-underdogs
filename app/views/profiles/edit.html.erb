@@ -1,24 +1,78 @@
 <h1>COMPLETE YOUR FREAKIN PROFILE: <%=current_user.email%></h1>
 
+<p>Your profile can only be inputted once so please check your details carefully before you update your fields.</p>
+<p>If you would like to edit your details, please contact us at account@cache.com.</p>
+<%= current_user.inspect %>
+
 <%= form_for @user, url: profile_path, method: :put do |f| %>
 
   <%= f.label :first_name %>
-  <%= f.text_field :first_name %>
+  <%  if current_user.first_name.blank? %>
+    <%= f.text_field :first_name %>
+  <% else %>
+  : <%= current_user.first_name%>
+  <% end%>
+<br>
   <%= f.label :last_name %>
+
+  <%  if current_user.last_name.blank? %>
   <%= f.text_field :last_name %>
+    <% else %>
+    : <%= current_user.last_name%>
+    <% end%>
+<br>
   <%= f.label :id_no %>
-  <%= f.text_field :id_no %>
+  <%  if current_user.id_no.blank? %>
+      <%= f.text_field :id_no %>
+  <% else %>
+    : <%= current_user.id_no %>
+  <% end%>
+<br>
   <%= f.label :dob %>
-  <%= f.date_field :dob %>
+  <%  if current_user.dob.blank? %>
+      <%= f.text_field :dob %>
+  <% else %>
+    : <%= current_user.dob %>
+  <% end%>
+<br>
   <%= f.label :gender %>
-  <%= f.text_field :gender %>
+  <%  if current_user.gender.blank? %>
+      <%= f.text_field :gender %>
+  <% else %>
+    : <%= current_user.gender %>
+  <% end%>
+<br>
   <%= f.label :nationality %>
-  <%= f.text_field :nationality %>
+  <%  if current_user.nationality.blank? %>
+    <%= f.text_field :nationality %>
+  <% else %>
+    : <%= current_user.nationality %>
+  <% end%>
+<br>
   <%= f.label :address %>
-  <%= f.text_field :address %>
+  <%  if current_user.address.blank? %>
+      <%= f.text_field :address %>
+  <% else %>
+    : <%= current_user.address %>
+  <% end%>
+<br>
   <%= f.label :postal_code %>
-  <%= f.text_field :postal_code %>
+  <%  if current_user.postal_code.blank? %>
+      <%= f.text_field :postal_code %>
+  <% else %>
+    : <%= current_user.postal_code %>
+  <% end%>
+<br>
   <%= f.label :mobile_no %>
-  <%= f.text_field :mobile_no %>
-  <%= f.submit "Update Profile"%>
+  <%  if current_user.mobile_no.blank? %>
+      <%= f.text_field :mobile_no %>
+  <% else %>
+    : <%= current_user.mobile_no %>
+  <% end%>
+<br>
+
+  <% if true && true  %>
+    <!-- true -->
+  <% end %>
+  <%= f.submit "Update Profile", :id=> "profile_one"%>
 <% end %>

@@ -13,7 +13,7 @@ end
 def update
   @user = User.find(current_user)
     if @user.update(user_params)
-      redirect_to analysis_path
+      redirect_to save_path
     else
       render html:'ARGH'
     end
