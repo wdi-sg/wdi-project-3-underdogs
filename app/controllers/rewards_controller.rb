@@ -47,12 +47,8 @@ class RewardsController < ApplicationController
   end
 
   def claimed
-    @rewards = Reward.find(params[:id])
-    @claim= Redeemed.new
-    @claim.reward_id=@rewards
-    # @user = current_user.id
-    # @claim.user_id=@user
-    @claim.save
+    current_user.rewards << Reward.find(params[:id])
+    current_user.save
     redirect_to rewards_path
   end
 

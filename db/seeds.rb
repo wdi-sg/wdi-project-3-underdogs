@@ -14,7 +14,7 @@
   merchant_code: Faker::Company.suffix,
   item: Faker::Commerce.promotion_code,
   value: rand(100),
-  expiry_date:Faker::Date.forward(180),
+  expiry:Faker::Date.forward(180),
   category:Faker::Commerce.department
   )
 end
