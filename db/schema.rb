@@ -1,4 +1,3 @@
-
 # This file is auto-generated from the current state of the database. Instead
 # of editing this file, please use the migrations feature of Active Record to
 # incrementally modify your database, and then regenerate this schema definition.
@@ -11,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170503064805) do
+ActiveRecord::Schema.define(version: 20170505092707) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -38,24 +37,18 @@ ActiveRecord::Schema.define(version: 20170503064805) do
     t.index ["user_id"], name: "index_incomes_on_user_id", using: :btree
   end
 
-  create_table "redeemeds", force: :cascade do |t|
-    t.integer  "reward_id"
-    t.integer  "user_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["reward_id"], name: "index_redeemeds_on_reward_id", using: :btree
-    t.index ["user_id"], name: "index_redeemeds_on_user_id", using: :btree
+  create_table "rewards", force: :cascade do |t|
+    t.string  "merchant"
+    t.string  "merchant_code"
+    t.string  "item"
+    t.integer "value"
+    t.string  "expiry"
+    t.string  "category"
   end
 
-  create_table "rewards", force: :cascade do |t|
-    t.string   "merchant"
-    t.string   "merchant_code"
-    t.string   "item"
-    t.integer  "value"
-    t.string   "expiry_date"
-    t.string   "category"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
+  create_table "rewards_users", id: false, force: :cascade do |t|
+    t.integer "user_id",   null: false
+    t.integer "reward_id", null: false
   end
 
   create_table "transactions", force: :cascade do |t|
@@ -88,6 +81,7 @@ ActiveRecord::Schema.define(version: 20170503064805) do
     t.string   "gender"
     t.string   "nationality"
     t.string   "address"
+    t.string   "country"
     t.string   "postal_code"
     t.integer  "mobile_no"
     t.datetime "created_at",                          null: false

@@ -8,7 +8,10 @@ def create
   puts "params"
   @transaction = Transaction.new(transaction_params)
   puts @transaction.inspect
-
+  @bank = BankAccountInfo.find(current_user.bank_account_info)
+  @transaction.bank_account_info_id = @bank.id
+  @user = User.find(current_user)
+  @transaction.user_id = @user.id
   if @transaction.save
     redirect_to root_path
   else

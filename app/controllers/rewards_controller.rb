@@ -1,4 +1,5 @@
 class RewardsController < ApplicationController
+before_action :authenticate_user!
 
   def rewards
       #to list all rewards
@@ -37,15 +38,22 @@ class RewardsController < ApplicationController
         {id: 4, points: 100, merchant: "Lazada", item: "$20.50 Off Appliances", value: 20.50}
       ]
 
+      @rewards_list=Reward.all.order(:value)
+
   end
 
   def rewards_id
-
     #to find the specific reward
-    #@rewards = Rewards.find(params[:id])
+    @rewards = Reward.find(params[:id])
+  end
 
-
-
+  def claimed
+    @rewards = Reward.find(params[:id])
+    current_user.rewards << Reward.find(params[:id])
+    if current_user.save
+      flash[:notice] = "Promo Code for #{@rewards.merchant} is #{@rewards.item}"
+    end
+    redirect_to rewards_path
   end
 
 end

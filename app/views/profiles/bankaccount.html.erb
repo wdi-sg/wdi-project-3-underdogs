@@ -1,0 +1,35 @@
+<h1>COMPLETE YOUR BANK ACCOUNT DETAILS</h1>
+
+<h2>Part 2 of 2</h2>
+
+<h3>Bank Account Details</h3>
+
+<%= form_for @bank_account_info, url: profileaccount_path, method: :put do |f| %>
+  <%= f.label :bank_name %>
+  <%= f.text_field :bank_name %>
+
+<br>
+  <%= f.label :bank_currency %>
+  <%= f.text_field :bank_currency %>
+<br>
+  <%= f.label :account_no %>
+  <%= f.text_field :account_no %>
+<br>
+  <%= f.label :name_on_account %>
+  <%= f.text_field :name_on_account %>
+<br>
+  <%= f.label :branch_code %>
+  <%= f.text_field :branch_code %>
+
+<br>
+<%= f.submit "Enter Bank Details"%>
+
+  <p>I confirm that all information provided above are true
+  and correct to the best of my knowledge and you may rely on the accuracy thereof.</p>
+
+<% end %>
+
+
+
+  <p>Your account information was approved.
+ If you wish to update part 2 of your profile, please email us at cs@gmail.com.</p>

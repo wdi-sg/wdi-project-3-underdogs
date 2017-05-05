@@ -1,9 +1,10 @@
 <nav>
   <ul class="navbar">
     <li class="navitems"><%= link_to('Homepage', root_path, :method => :get) %></li>
-    <li class="navitems"><%= link_to('Profile', profile_path, :method => :get) %></li>
-    <li class="navitems"><%= link_to('Analysis', analysis_path, :method => :get) %></li>
-    <li class="navitems"><%= link_to('Save', transactions_path, :method => :get) %></li>
+
+    <li class="navitems"><%= link_to('Profile', profiles_path, :method => :get) %></li>
+    <li class="navitems"><%= link_to('Analysis', analysis_index_path, :method => :get) %></li>
+    <li class="navitems"><%= link_to('My Savings', transactions_path, :method => :get) %></li>
     <li class="navitems"><%= link_to('Rewards', rewards_path, :method => :get) %></li>
     <li class="navitems"><%= link_to('Logout', destroy_user_session_path, :method => :delete) %></li>
   </ul>
