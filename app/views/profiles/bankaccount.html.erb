@@ -5,54 +5,25 @@
 <h3>Bank Account Details</h3>
 
 <%= form_for @bank_account_info, url: profileaccount_path, method: :put do |f| %>
-<%= f.label :bank_name %>
-  <% if @user.bank_account_info.bank_name.blank? %>
-    <%= f.text_field :bank_name %>
-  <% else %>
-    : <%= @user.bank_account_info.bank_name %>
-  <% end %>
+  <%= f.label :bank_name %>
+  <%= f.text_field :bank_name %>
+
 <br>
   <%= f.label :bank_currency %>
-  <% if @user.bank_account_info.bank_currency.blank? %>
-    <%= f.text_field :bank_currency %>
-  <% else %>
-    : <%= @user.bank_account_info.bank_currency %>
-  <% end %>
+  <%= f.text_field :bank_currency %>
 <br>
   <%= f.label :account_no %>
-  <% if @user.bank_account_info.account_no.blank? %>
-    <%= f.text_field :account_no %>
-  <% else %>
-    : <%= @user.bank_account_info.account_no %>
-  <% end %>
-
+  <%= f.text_field :account_no %>
 <br>
   <%= f.label :name_on_account %>
-  <% if @user.bank_account_info.name_on_account.blank? %>
-    <%= f.text_field :name_on_account %>
-  <% else %>
-    : <%= @user.bank_account_info.name_on_account %>
-  <% end %>
+  <%= f.text_field :name_on_account %>
 <br>
   <%= f.label :branch_code %>
-  <% if @user.bank_account_info.branch_code.blank? %>
-    <%= f.text_field :branch_code %>
-  <% else %>
-    : <%= @user.bank_account_info.branch_code %>
-  <% end %>
+  <%= f.text_field :branch_code %>
+
 <br>
+<%= f.submit "Enter Bank Details"%>
 
-<% if @user.bank_account_info.bank_name.present? &&
-  @user.bank_account_info.bank_currency.present? &&
-  @user.bank_account_info.account_no.present? &&
-  @user.bank_account_info.name_on_account.present? &&
-  @user.bank_account_info.branch_code.present? &&
-  %>
-      <%= link_to "Go back to Dashboard", save_path %>
-  <% else %>
-
-  <%= f.submit "Enter Bank Details"%>
-<% end %>
   <p>I confirm that all information provided above are true
   and correct to the best of my knowledge and you may rely on the accuracy thereof.</p>
 

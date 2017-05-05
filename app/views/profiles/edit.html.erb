@@ -89,7 +89,7 @@
     current_user.postal_code.present? &&
     current_user.mobile_no.present? &&
     %>
-        <%= link_to "Go back to Dashboard", save_path %>
+        <%= link_to "Go back to Dashboard", transactions_path %>
     <% else %>
         <%= f.submit "Update Profile"%>
   <% end %>

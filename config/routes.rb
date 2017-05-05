@@ -23,6 +23,7 @@ Rails.application.routes.draw do
 
   resources :analysis
 
+
   get 'transactions' => 'transactions#index'
   get 'transactions/new' => 'transactions#new'
   post 'transactions/new' => 'transactions#create'
