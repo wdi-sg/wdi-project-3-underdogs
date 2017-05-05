@@ -47,11 +47,11 @@ class RewardsController < ApplicationController
   end
 
   def claimed
+    @rewards = Reward.find(params[:id])
     current_user.rewards << Reward.find(params[:id])
-    puts "=========================="
-    puts Reward.find(params[:id])
-    puts current_user.rewards
-    current_user.save
+    if current_user.save
+      flash[:notice] = "Promo Code for #{@rewards.merchant} is #{@rewards.item}"
+    end
     redirect_to rewards_path
   end
 

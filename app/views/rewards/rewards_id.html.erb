@@ -2,14 +2,26 @@
 
 
 <p>Picture of the Retailer Coupon</p>
-<p>or print out the details</p>
+
+<h2>Reward Chosen</h2>
+<table>
+  <thead>
+    <th>ID</th>
+    <th>Retailer</th>
+    <th>Value</th>
+    <th>Expiry Date</th>
+    <th>Category</th>
+  </thead>
+  <tbody>
+    <tr>
+    <td><%=@rewards.id %></td>
+    <td><%=@rewards.merchant%></td>
+    <td><%=@rewards.value%></td>
+    <td><%=@rewards.expiry%></td>
+    <td><%=@rewards.category%></td>
+  </tr>
+  </tbody>
+</table>
 
 
-<%=@rewards.item%>
-<%=@rewards.merchant%>
-<%=@rewards.value%>
-<%=@rewards.expiry%>
-<%=@rewards.category%>
-
-
-<%= link_to "Claim", claimed_path, :id => @rewards.id, class: "button is-primary",method: :post%>
+<%= link_to "Claim", claimed_path, :id => @rewards.id, class: "button",method: :post%>
