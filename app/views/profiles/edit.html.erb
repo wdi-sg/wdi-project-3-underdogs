@@ -89,3 +89,16 @@
         <%= f.submit "Update Profile"%>
   <% end %>
 <% end %>
+
+<h1>ENTER SAVINGS GOALS FORM</h1>
+<%= form_for @income, url: analysis_path, method: :put do |f| %>
+
+  <%= f.label :monthly_income %>
+  <%= f.text_field :monthly_income %>
+  <%= f.label :monthly_savings_goal %>
+  <%= f.text_field :monthly_savings_goal %>
+  <%= f.label :final_savings_goal %>
+  <%= f.text_field :final_savings_goal %>
+  <%= f.submit "Update Savings Goals"%>
+
+<% end %>

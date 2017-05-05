@@ -39,7 +39,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   protected
 
   def after_update_path_for(resource)
-    save_path(resource)
+    profile_path(resource)
   end
 
   # If you have extra params to permit, append them to the sanitizer.

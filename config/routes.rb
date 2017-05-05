@@ -18,8 +18,7 @@ Rails.application.routes.draw do
   get 'publicanalysis' => 'homepage#publicanalysis'
 
   resources :profiles
-
-  get 'analysis' => 'analysis#analysis'
+  resources :analysis
 
   get 'save' => 'save#save'
   get '/save/topup'

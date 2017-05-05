@@ -8,6 +8,7 @@ end
 
 def edit
   @user = User.find(current_user)
+  @income = Income.new
 end
 
 def update
@@ -17,6 +18,7 @@ def update
     else
       render html:'ARGH'
     end
+
 end
 
 private
