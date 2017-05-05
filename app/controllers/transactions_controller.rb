@@ -34,7 +34,7 @@ end
   private
 
   def transaction_params
-    puts params.require(:transaction).inspect
-    params.require(:transaction).permit(:transacted_amount, :transacted_date, :transaction_no)
+    #puts params.require(:transaction).inspect
+    #params.require(:transaction).permit(:transacted_amount, #:transacted_date, :transaction_no)
   end
 end
