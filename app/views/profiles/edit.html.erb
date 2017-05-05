@@ -5,6 +5,9 @@
 
 <%= link_to('Change Password', edit_user_registration_path) %>
 
+<%= link_to('Enter your Bank Account Details', profileaccount_path) %>
+
+
 <%= form_for @user, url: profile_path, method: :put do |f| %>
 
   <%= f.label :first_name %>
@@ -93,8 +96,6 @@
 <% end %>
 
 <h1>CREATE OR UPDATE YOUR SAVINGS GOALS</h1>
-
-<%= @user.income.monthly_income %>
 
 <%= form_for @income, url: analysis_path, method: :put do |f| %>
 

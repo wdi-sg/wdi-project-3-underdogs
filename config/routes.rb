@@ -18,6 +18,9 @@ Rails.application.routes.draw do
   get 'publicanalysis' => 'homepage#publicanalysis'
 
   resources :profiles
+  get 'profileaccount' => 'profiles#bankaccount'
+  put 'profileaccount' => 'profiles#addbankdetails'
+
   resources :analysis
 
   get 'save' => 'save#save'
