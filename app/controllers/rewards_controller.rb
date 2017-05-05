@@ -47,8 +47,8 @@ class RewardsController < ApplicationController
   end
 
   def claimed
-    # current_user.rewards << Reward.find(params[:id])
-      puts "=========================="
+    current_user.rewards << Reward.find(params[:id])
+    puts "=========================="
     puts Reward.find(params[:id])
     puts current_user.rewards
     current_user.save

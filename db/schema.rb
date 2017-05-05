@@ -15,11 +15,6 @@ ActiveRecord::Schema.define(version: 20170505092707) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "Rewards_Users", id: false, force: :cascade do |t|
-    t.integer "user_id",   null: false
-    t.integer "reward_id", null: false
-  end
-
   create_table "bank_account_infos", force: :cascade do |t|
     t.string   "bank_name"
     t.string   "bank_currency"
@@ -49,6 +44,11 @@ ActiveRecord::Schema.define(version: 20170505092707) do
     t.integer "value"
     t.string  "expiry"
     t.string  "category"
+  end
+
+  create_table "rewards_users", id: false, force: :cascade do |t|
+    t.integer "user_id",   null: false
+    t.integer "reward_id", null: false
   end
 
   create_table "transactions", force: :cascade do |t|
