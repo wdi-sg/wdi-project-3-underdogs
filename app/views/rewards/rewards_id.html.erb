@@ -23,5 +23,7 @@
   </tbody>
 </table>
 
+<p>Promo Code for <%=@rewards.merchant%> will be shown on the next page after claiming selected reward!</p>
+
 
 <%= link_to "Claim", claimed_path, :id => @rewards.id, class: "button",method: :post%>
