@@ -2,7 +2,6 @@
 
 <p>Your profile can only be inputted once so please check your details carefully before you update your fields.</p>
 <p>If you would like to edit your details, please contact us at account@cache.com.</p>
-<%= current_user.inspect %>
 
 <%= link_to('Change Password', edit_user_registration_path) %>
 
@@ -32,17 +31,20 @@
 <br>
   <%= f.label :dob %>
   <%  if current_user.dob.blank? %>
-      <%= f.text_field :dob %>
+      <%= f.date_field :dob %>
   <% else %>
     : <%= current_user.dob %>
   <% end%>
 <br>
-  <%= f.label :gender %>
-  <%  if current_user.gender.blank? %>
-      <%= f.text_field :gender %>
+    <%= f.label :gender %>
+  <% if current_user.gender.blank? %>
+    <%= f.radio_button :gender, "Female" %>
+    <%= f.label :gender, 'Female', :value => 'Female' %>
+    <%= f.radio_button :gender, 'Male' %>
+    <%= f.label :gender, 'Male', :value => 'Male' %>
   <% else %>
-    : <%= current_user.gender %>
-  <% end%>
+    :  <%= current_user.gender %>
+  <% end %>
 <br>
   <%= f.label :nationality %>
   <%  if current_user.nationality.blank? %>
@@ -90,7 +92,10 @@
   <% end %>
 <% end %>
 
-<h1>ENTER SAVINGS GOALS FORM</h1>
+<h1>CREATE OR UPDATE YOUR SAVINGS GOALS</h1>
+
+<%= @user.income.monthly_income %>
+
 <%= form_for @income, url: analysis_path, method: :put do |f| %>
 
   <%= f.label :monthly_income %>
@@ -99,6 +104,10 @@
   <%= f.text_field :monthly_savings_goal %>
   <%= f.label :final_savings_goal %>
   <%= f.text_field :final_savings_goal %>
-  <%= f.submit "Update Savings Goals"%>
 
+  <% if @income_user.present? %>
+    <%= f.submit "Update Savings Goals"%>
+  <% else %>
+    <%= f.submit "Create Savings Goals"%>
+  <% end %>
 <% end %>

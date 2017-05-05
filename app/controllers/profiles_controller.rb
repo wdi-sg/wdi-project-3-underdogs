@@ -9,6 +9,7 @@ end
 def edit
   @user = User.find(current_user)
   @income = Income.new
+  @income_user = Income.where(user_id: current_user.id)
 end
 
 def update
