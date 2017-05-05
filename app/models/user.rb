@@ -1,4 +1,5 @@
 class User < ApplicationRecord
+  has_and_belongs_to_many :rewards
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
@@ -7,7 +8,6 @@ class User < ApplicationRecord
   has_one :income
   has_one :bank_account_info
   has_many :transactions
-  # has_many :redeemed
-  has_and_belongs_to_many :rewards
+
 
 end
