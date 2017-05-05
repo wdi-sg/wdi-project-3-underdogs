@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
   devise_for :users,
+  controllers: {
+    :sessions => 'users/sessions',
+    :registrations =>'users/registrations'
+  },
   path: '/',
   path_names: {
     sign_in: 'login',
@@ -13,10 +17,11 @@ Rails.application.routes.draw do
 
   get 'publicanalysis' => 'homepage#publicanalysis'
 
-  get 'profile' => 'profile#profile'
-  get 'profile/2' => 'profile#profile2'
+  resources :profiles
+  get 'profileaccount' => 'profiles#bankaccount'
+  put 'profileaccount' => 'profiles#addbankdetails'
 
-  get 'analysis' => 'analysis#analysis'
+  resources :analysis
 
   get 'transactions' => 'transactions#index'
   get 'transactions/new' => 'transactions#new'

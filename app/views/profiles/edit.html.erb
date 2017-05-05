@@ -1,0 +1,114 @@
+<h1>COMPLETE YOUR FREAKIN PROFILE: <%=current_user.email%></h1>
+
+<p>Your profile can only be inputted once so please check your details carefully before you update your fields.</p>
+<p>If you would like to edit your details, please contact us at account@cache.com.</p>
+
+<%= link_to('Change Password', edit_user_registration_path) %>
+
+<%= link_to('Enter your Bank Account Details', profileaccount_path) %>
+
+
+<%= form_for @user, url: profile_path, method: :put do |f| %>
+
+  <%= f.label :first_name %>
+  <%  if current_user.first_name.blank? %>
+    <%= f.text_field :first_name %>
+  <% else %>
+  : <%= current_user.first_name%>
+  <% end%>
+<br>
+  <%= f.label :last_name %>
+
+  <%  if current_user.last_name.blank? %>
+  <%= f.text_field :last_name %>
+    <% else %>
+    : <%= current_user.last_name%>
+    <% end%>
+<br>
+  <%= f.label :id_no %>
+  <%  if current_user.id_no.blank? %>
+      <%= f.text_field :id_no %>
+  <% else %>
+    : <%= current_user.id_no %>
+  <% end%>
+<br>
+  <%= f.label :dob %>
+  <%  if current_user.dob.blank? %>
+      <%= f.date_field :dob %>
+  <% else %>
+    : <%= current_user.dob %>
+  <% end%>
+<br>
+    <%= f.label :gender %>
+  <% if current_user.gender.blank? %>
+    <%= f.radio_button :gender, "Female" %>
+    <%= f.label :gender, 'Female', :value => 'Female' %>
+    <%= f.radio_button :gender, 'Male' %>
+    <%= f.label :gender, 'Male', :value => 'Male' %>
+  <% else %>
+    :  <%= current_user.gender %>
+  <% end %>
+<br>
+  <%= f.label :nationality %>
+  <%  if current_user.nationality.blank? %>
+    <%= f.text_field :nationality %>
+  <% else %>
+    : <%= current_user.nationality %>
+  <% end%>
+<br>
+  <%= f.label :address %>
+  <%  if current_user.address.blank? %>
+      <%= f.text_field :address %>
+  <% else %>
+    : <%= current_user.address %>
+  <% end%>
+<br>
+  <%= f.label :postal_code %>
+  <%  if current_user.postal_code.blank? %>
+      <%= f.text_field :postal_code %>
+  <% else %>
+    : <%= current_user.postal_code %>
+  <% end%>
+<br>
+  <%= f.label :mobile_no %>
+  <%  if current_user.mobile_no.blank? %>
+      <%= f.text_field :mobile_no %>
+  <% else %>
+    : <%= current_user.mobile_no %>
+  <% end%>
+<br>
+
+  <% if current_user.first_name.present? &&
+    current_user.last_name.present? &&
+    current_user.id_no.present? &&
+    current_user.dob.present? &&
+    current_user.dob.present? &&
+    current_user.gender.present? &&
+    current_user.nationality.present? &&
+    current_user.address.present? &&
+    current_user.postal_code.present? &&
+    current_user.mobile_no.present? &&
+    %>
+        <%= link_to "Go back to Dashboard", save_path %>
+    <% else %>
+        <%= f.submit "Update Profile"%>
+  <% end %>
+<% end %>
+
+<h1>CREATE OR UPDATE YOUR SAVINGS GOALS</h1>
+
+<%= form_for @income, url: analysis_path, method: :put do |f| %>
+
+  <%= f.label :monthly_income %>
+  <%= f.text_field :monthly_income %>
+  <%= f.label :monthly_savings_goal %>
+  <%= f.text_field :monthly_savings_goal %>
+  <%= f.label :final_savings_goal %>
+  <%= f.text_field :final_savings_goal %>
+
+  <% if @income_user.present? %>
+    <%= f.submit "Update Savings Goals"%>
+  <% else %>
+    <%= f.submit "Create Savings Goals"%>
+  <% end %>
+<% end %>

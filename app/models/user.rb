@@ -7,6 +7,7 @@ class User < ApplicationRecord
   has_one :income
   has_one :bank_account_info
   has_many :transactions
-  has_many :redeemed
+  # has_many :redeemed
+  has_and_belongs_to_many :rewards
 
 end
