@@ -53,4 +53,10 @@ Rails.application.configure do
   config.file_watcher = ActiveSupport::EventedFileUpdateChecker
 
   config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
+  
+  #braintree stuff
+  Braintree::Configuration.environment = :sandbox
+  Braintree::Configuration.merchant_id = 'd26dsr8rffptvg3b'
+  Braintree::Configuration.public_key = 'q8h652yw5xcpffst'
+  Braintree::Configuration.private_key = '44384226d1ce4dc02fa644010e88686a'
 end

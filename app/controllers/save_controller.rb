@@ -5,6 +5,9 @@ class SaveController < ApplicationController
   end
 
   def topup
+    @client_token = Braintree::ClientToken.generate
+    puts "****************************************"
+    puts @client_token
   end
 
   def withdraw
