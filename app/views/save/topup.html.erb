@@ -1,25 +1,6 @@
-<h1>Top UP</h1>
+<section class="section">
+  <h1 class="title">Top Up</h1>
 
-<form action = '/save/topup' method = 'POST'>
-  <div class="form-group">
-    <label for="Amount">Amount</label>
-    <input id="Amount" class="form-control" type="text" name="amount" placeholder ='Amount' >
-  </div>
-  <div class="form-group">
-    <label for="Transaction">Transaction Number</label>
-    <input id="Transaction" class="form-control" type="text" name="transaction" placeholder = 'Transaction Number'>
-  </div>
-  <div class="form-group">
-    <label for="Name">Internet Transfer Name</label>
-    <input id="Name" class="form-control" type="text" name="name" placeholder = 'Name'>
-  </div>
-  <div class="form-group">
-    <label for="TransactionDate1 ">Transaction Date</label>
-    <input id="TransactionDate1" class="form-control" type="date" name="transaction date">
-  </div>
-<div class="form-group">
-  <label for="Comment">Comment</label>
-  <input id="Comment" class="form-control" type="text" name="comment" placeholder = 'Comment'>
-</div>
-<input class="btn btn-primary" type="submit">
-</form>
+  <%= render "save/form"%>
+
+</section>

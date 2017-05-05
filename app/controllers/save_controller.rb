@@ -5,11 +5,16 @@ class SaveController < ApplicationController
   end
 
   def topup
+    @topup = Transaction.new
+    @topup.save
   end
 
   def withdraw
+    @withdraw = Transaction.new
+    @withdraw.save
   end
 
   def history
+      
   end
 end
