@@ -51,7 +51,7 @@
 <br>
   <%= f.label :nationality %>
   <%  if current_user.nationality.blank? %>
-    <%= f.text_field :nationality %>
+    <%= f.select :nationality, options_for_select(Nationality::Nationality.default_option("singaporean"), :selected => f.object.nationality) %>
   <% else %>
     : <%= current_user.nationality %>
   <% end%>
