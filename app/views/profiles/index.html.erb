@@ -1,0 +1,10 @@
+<h1>Update Profile <%= @user.email %></h1>
+
+<%= @user.inspect %>
+
+<br>
+<br>
+<br>
+
+<%= link_to('Change Password', edit_user_registration_path) %>
+<a href="/profiles/<%=current_user.id%>/edit">Complete Profile</a>
