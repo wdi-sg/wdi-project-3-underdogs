@@ -1,4 +1,5 @@
 @import "materialize/components/color";
+@import "variables";
 @import "materialize";
 
 /*
@@ -17,13 +18,14 @@
  *= require_self
  */
 
-// body {
-//   font-family: 'Questrial', sans-serif;
-//   line-height: 150%;
-// }
+body {
+  font-family: 'Questrial', sans-serif;
+  // line-height: 150%;
+}
 
-
-
+#logo{
+  color: $secondary-color;
+}
 
 // .navbar {
 //     list-style-type: none;
