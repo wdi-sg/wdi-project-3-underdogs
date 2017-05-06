@@ -1,4 +1,7 @@
+<%= link_to("Complete Your Profile", edit_profile_path(current_user.id), :method => "get") %>
+<br>
 <a href = '<%= transactions_new_path%>'>Top Up</a>
+<br>
 <a href = '<%= rewards_path%>'>Rewards</a>
 
 <h1>Transaction History</h1>

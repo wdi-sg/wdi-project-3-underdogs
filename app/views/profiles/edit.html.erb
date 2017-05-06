@@ -3,9 +3,9 @@
 <p>Your profile can only be inputted once so please check your details carefully before you update your fields.</p>
 <p>If you would like to edit your details, please contact us at account@cache.com.</p>
 
-<%= link_to('Change Password', edit_user_registration_path) %>
-
 <%= link_to('Enter your Bank Account Details', profileaccount_path) %>
+<br>
+<%= link_to('Change Password', edit_user_registration_path) %>
 
 
 <%= form_for @user, url: profile_path, method: :put do |f| %>
@@ -107,10 +107,13 @@
 
   <%= f.label :monthly_income %>
   <%= f.text_field :monthly_income %>
+  <br>
   <%= f.label :monthly_savings_goal %>
   <%= f.text_field :monthly_savings_goal %>
+  <br>
   <%= f.label :final_savings_goal %>
   <%= f.text_field :final_savings_goal %>
+  <br>
   <%= f.submit "Update Savings Goals"%>
 
 <% end %>

@@ -9,5 +9,4 @@ class User < ApplicationRecord
   has_one :bank_account_info
   has_many :transactions
 
-
 end
