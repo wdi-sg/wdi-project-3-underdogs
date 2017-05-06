@@ -19,7 +19,7 @@ Rails.application.routes.draw do
 
   resources :profiles
   get 'profileaccount' => 'profiles#bankaccount'
-  put 'profileaccount' => 'profiles#addbankdetails'
+  put 'profileaccount' => 'profiles#updatebankdetails'
 
   resources :analysis
 

@@ -10,7 +10,7 @@ before_action :authenticate_user!
   def update
     @income = Income.where(user_id: current_user.id)
     @income.update(income_params)
-    flash[:notice] = "Your income is successfully updated. Check out your analysis page!"
+    flash[:notice] = "You have updated your savings goals. Check out your new analysis report!"
     redirect_to analysis_index_path
   end
 

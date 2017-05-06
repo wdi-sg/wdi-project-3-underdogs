@@ -63,6 +63,13 @@
     : <%= current_user.address %>
   <% end%>
 <br>
+  <%= f.label :country %>
+  <%  if current_user.country.blank? %>
+      <%= f.text_field :country %>
+  <% else %>
+    : <%= current_user.country %>
+  <% end%>
+<br>
   <%= f.label :postal_code %>
   <%  if current_user.postal_code.blank? %>
       <%= f.text_field :postal_code %>
@@ -81,7 +88,6 @@
   <% if current_user.first_name.present? &&
     current_user.last_name.present? &&
     current_user.id_no.present? &&
-    current_user.dob.present? &&
     current_user.dob.present? &&
     current_user.gender.present? &&
     current_user.nationality.present? &&

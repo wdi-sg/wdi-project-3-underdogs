@@ -20,13 +20,14 @@ end
 
 def bankaccount
   @user = User.find(current_user)
-  @bank_account_info = BankAccountInfo.new()
+  @bank = BankAccountInfo.where(user_id: current_user.id)[0]
 end
 
-def addbankdetails
-  @bank_account_info = BankAccountInfo.new(bank_account_info_params)
-  @bank_account_info.user_id = current_user.id
-  @bank_account_info.save
+def updatebankdetails
+
+  @income = BankAccountInfo.where(user_id: current_user.id)
+  @income.update(bank_account_info_params)
+  flash[:notice] = "You have updated your bank details!"
 
   redirect_to profileaccount_path
 
@@ -35,7 +36,7 @@ end
 private
 
 def user_params
-  params.require(:user).permit(:first_name, :last_name, :id_no, :dob, :gender, :nationality, :address, :postal_code, :mobile_no)
+  params.require(:user).permit(:first_name, :last_name, :id_no, :dob, :gender, :nationality, :address, :country, :postal_code, :mobile_no)
 end
 
 def bank_account_info_params
