@@ -105,10 +105,6 @@
   <%= f.text_field :monthly_savings_goal %>
   <%= f.label :final_savings_goal %>
   <%= f.text_field :final_savings_goal %>
+  <%= f.submit "Update Savings Goals"%>
 
-  <% if @income_user.present? %>
-    <%= f.submit "Update Savings Goals"%>
-  <% else %>
-    <%= f.submit "Create Savings Goals"%>
-  <% end %>
 <% end %>

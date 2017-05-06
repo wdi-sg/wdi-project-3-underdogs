@@ -39,6 +39,15 @@ class Users::RegistrationsController < Devise::RegistrationsController
   protected
 
   def after_sign_up_path_for(resource)
+
+    @user = User.find(current_user)
+    @income = Income.new
+    @income.monthly_income = 0
+    @income.monthly_savings_goal = 0
+    @income.final_savings_goal = 0
+    @income.user_id = @user.id
+    @income.save
+    
     transactions_path(resource)
   end
 
