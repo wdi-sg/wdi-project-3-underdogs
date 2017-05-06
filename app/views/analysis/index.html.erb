@@ -10,16 +10,19 @@
        <th>Annual Salary $</th>
        <th>Savings Ratio %</th>
        <th>Annual Savings $</th>
-       <th>Total Cache Benefits</th>
        <th>Cache Awards</th>
-       <th>Cash Awards</th>
+       <th>Cash Back</th>
+       <th>Total Incentives</th>
    </thead>
    <tbody>
      <tr>
        <td><%= @user.income.monthly_income %></td>
        <td><%= @user.income.monthly_income * 12 %></td>
-       <td></td>
-       <td></td>
+       <td><%= @user.income.monthly_savings_goal / @user.income.monthly_income%></td>
+       <td><%= @user.income.monthly_savings_goal * 12%></td>
+       <td><%= @user.income.monthly_savings_goal * 12 * 0.09%></td>
+       <td><%= @user.income.monthly_savings_goal * 12 * 0.03%></td>
+       <td><%= @user.income.monthly_savings_goal * 12 * 0.12%></td>
      </tr>
    </tbody>
 </table>
@@ -27,14 +30,320 @@
 <table>
    <thead>
        <th># of Years</th>
-       <th>Total Savings and Cash Awards</th>
+       <th>Total Savings and Cash Back</th>
        <th>Total Cache Awards</th>
-       <th>Total Cash Awards</th>
+       <th>Total Cash Back</th>
        <th>Total Incentives</th>
    </thead>
    <tbody>
      <tr>
+       <td>1</td>
+       <td><%= (@user.income.monthly_savings_goal * 12) + (@user.income.monthly_savings_goal * 12 * 0.03)%></td>
+       <td><%= @user.income.monthly_savings_goal * 12 * 0.09%></td>
+       <td><%= @user.income.monthly_savings_goal * 12 * 0.03%></td>
+       <td><%= @user.income.monthly_savings_goal * 12 * 0.12%></td>
+     </tr>
+     <tr>
+       <td>2</td>
+       <td><%= (@user.income.monthly_savings_goal * 12) + (@user.income.monthly_savings_goal * 12 * 0.03) + (@user.income.monthly_savings_goal * 12 * 1.1) + (@user.income.monthly_savings_goal * 12 * 0.03) + (@user.income.monthly_savings_goal * 12 * 0.03 * 1.1)%></td>
        <td></td>
+       <td></td>
+       <td></td>
+     </tr>
+     <tr>
+       <td>3</td>
+       <td><%=
+      #  year 1
+       (@user.income.monthly_savings_goal * 12) + (@user.income.monthly_savings_goal * 12 * 0.03) +
+      #  year 2
+       (@user.income.monthly_savings_goal * 12 * 1.1) + (@user.income.monthly_savings_goal * 12 * 0.03) + (@user.income.monthly_savings_goal * 12 * 0.03 * 1.1) +
+      #  year 3
+      (@user.income.monthly_savings_goal * 12 * 1.1 * 1.1) + (@user.income.monthly_savings_goal * 12 * 0.03) + (@user.income.monthly_savings_goal * 12 * 0.03 * 1.1) +
+      (@user.income.monthly_savings_goal * 12 * 0.03 * 1.1 * 1.1)
+       %></td>
+       <td></td>
+       <td></td>
+       <td></td>
+     </tr>
+     <tr>
+       <td>4</td>
+       <td><%=
+      #  year 1
+       (@user.income.monthly_savings_goal * 12) + (@user.income.monthly_savings_goal * 12 * 0.03) +
+      #  year 2
+       (@user.income.monthly_savings_goal * 12 * 1.1) + (@user.income.monthly_savings_goal * 12 * 0.03) + (@user.income.monthly_savings_goal * 12 * 0.03 * 1.1) +
+      #  year 3
+      (@user.income.monthly_savings_goal * 12 * 1.1 * 1.1) + (@user.income.monthly_savings_goal * 12 * 0.03) + (@user.income.monthly_savings_goal * 12 * 0.03 * 1.1) +
+      (@user.income.monthly_savings_goal * 12 * 0.03 * 1.1 * 1.1) +
+      # year 4
+      (@user.income.monthly_savings_goal * 12 * 1.1 * 1.1 * 1.1) + (@user.income.monthly_savings_goal * 12 * 0.03) + (@user.income.monthly_savings_goal * 12 * 0.03 * 1.1) +
+      (@user.income.monthly_savings_goal * 12 * 0.03 * 1.1 * 1.1) +
+      (@user.income.monthly_savings_goal * 12 * 0.03 * 1.1 * 1.1 * 1.1)
+       %></td>
+       <td></td>
+       <td></td>
+       <td></td>
+     </tr>
+     <tr>
+       <td>5</td>
+       <td><%=
+      #  year 1
+       (@user.income.monthly_savings_goal * 12) + (@user.income.monthly_savings_goal * 12 * 0.03) +
+      #  year 2
+       (@user.income.monthly_savings_goal * 12 * 1.1) + (@user.income.monthly_savings_goal * 12 * 0.03) + (@user.income.monthly_savings_goal * 12 * 0.03 * 1.1) +
+      #  year 3
+      (@user.income.monthly_savings_goal * 12 * 1.1 * 1.1) + (@user.income.monthly_savings_goal * 12 * 0.03) + (@user.income.monthly_savings_goal * 12 * 0.03 * 1.1) +
+      (@user.income.monthly_savings_goal * 12 * 0.03 * 1.1 * 1.1) +
+      # year 4
+      (@user.income.monthly_savings_goal * 12 * 1.1 * 1.1 * 1.1) + (@user.income.monthly_savings_goal * 12 * 0.03) + (@user.income.monthly_savings_goal * 12 * 0.03 * 1.1) +
+      (@user.income.monthly_savings_goal * 12 * 0.03 * 1.1 * 1.1) +
+      (@user.income.monthly_savings_goal * 12 * 0.03 * 1.1 * 1.1 * 1.1) +
+      # year 5
+      (@user.income.monthly_savings_goal * 12 * 1.1 * 1.1 * 1.1 * 1.1) + (@user.income.monthly_savings_goal * 12 * 0.03) + (@user.income.monthly_savings_goal * 12 * 0.03 * 1.1) +
+      (@user.income.monthly_savings_goal * 12 * 0.03 * 1.1 * 1.1) +
+      (@user.income.monthly_savings_goal * 12 * 0.03 * 1.1 * 1.1 * 1.1) +
+      (@user.income.monthly_savings_goal * 12 * 0.03 * 1.1 * 1.1 * 1.1 * 1.1)
+       %></td>
+       <td></td>
+       <td></td>
+       <td></td>
+     </tr>
+     <tr>
+       <td>6</td>
+       <td><%=
+      #  year 1
+      (@user.income.monthly_savings_goal * 12) + (@user.income.monthly_savings_goal * 12 * 0.03) +
+      #  year 2
+      (@user.income.monthly_savings_goal * 12 * 1.1) + (@user.income.monthly_savings_goal * 12 * 0.03) + (@user.income.monthly_savings_goal * 12 * 0.03 * 1.1) +
+      #  year 3
+      (@user.income.monthly_savings_goal * 12 * 1.1 * 1.1) + (@user.income.monthly_savings_goal * 12 * 0.03) + (@user.income.monthly_savings_goal * 12 * 0.03 * 1.1) +
+      (@user.income.monthly_savings_goal * 12 * 0.03 * 1.1 * 1.1) +
+      # year 4
+      (@user.income.monthly_savings_goal * 12 * 1.1 * 1.1 * 1.1) + (@user.income.monthly_savings_goal * 12 * 0.03) + (@user.income.monthly_savings_goal * 12 * 0.03 * 1.1) +
+      (@user.income.monthly_savings_goal * 12 * 0.03 * 1.1 * 1.1) +
+      (@user.income.monthly_savings_goal * 12 * 0.03 * 1.1 * 1.1 * 1.1) +
+      # year 5
+      (@user.income.monthly_savings_goal * 12 * 1.1 * 1.1 * 1.1 * 1.1) + (@user.income.monthly_savings_goal * 12 * 0.03) + (@user.income.monthly_savings_goal * 12 * 0.03 * 1.1) +
+      (@user.income.monthly_savings_goal * 12 * 0.03 * 1.1 * 1.1) +
+      (@user.income.monthly_savings_goal * 12 * 0.03 * 1.1 * 1.1 * 1.1) +
+      (@user.income.monthly_savings_goal * 12 * 0.03 * 1.1 * 1.1 * 1.1 * 1.1) +
+      # year 6
+      (@user.income.monthly_savings_goal * 12 * 1.1 * 1.1 * 1.1 * 1.1 * 1.1) + (@user.income.monthly_savings_goal * 12 * 0.03) + (@user.income.monthly_savings_goal * 12 * 0.03 * 1.1) +
+      (@user.income.monthly_savings_goal * 12 * 0.03 * 1.1 * 1.1) +
+      (@user.income.monthly_savings_goal * 12 * 0.03 * 1.1 * 1.1 * 1.1) +
+      (@user.income.monthly_savings_goal * 12 * 0.03 * 1.1 * 1.1 * 1.1 * 1.1) +
+      (@user.income.monthly_savings_goal * 12 * 0.03 * 1.1 * 1.1 * 1.1 * 1.1 * 1.1)
+       %></td>
+       <td></td>
+       <td></td>
+       <td></td>
+     </tr>
+     <tr>
+       <td>7</td>
+       <td><%=
+      #  year 1
+      (@user.income.monthly_savings_goal * 12) + (@user.income.monthly_savings_goal * 12 * 0.03) +
+      #  year 2
+      (@user.income.monthly_savings_goal * 12 * 1.1) + (@user.income.monthly_savings_goal * 12 * 0.03) + (@user.income.monthly_savings_goal * 12 * 0.03 * 1.1) +
+      #  year 3
+      (@user.income.monthly_savings_goal * 12 * 1.1 * 1.1) + (@user.income.monthly_savings_goal * 12 * 0.03) + (@user.income.monthly_savings_goal * 12 * 0.03 * 1.1) +
+      (@user.income.monthly_savings_goal * 12 * 0.03 * 1.1 * 1.1) +
+      # year 4
+      (@user.income.monthly_savings_goal * 12 * 1.1 * 1.1 * 1.1) + (@user.income.monthly_savings_goal * 12 * 0.03) + (@user.income.monthly_savings_goal * 12 * 0.03 * 1.1) +
+      (@user.income.monthly_savings_goal * 12 * 0.03 * 1.1 * 1.1) +
+      (@user.income.monthly_savings_goal * 12 * 0.03 * 1.1 * 1.1 * 1.1) +
+      # year 5
+      (@user.income.monthly_savings_goal * 12 * 1.1 * 1.1 * 1.1 * 1.1) + (@user.income.monthly_savings_goal * 12 * 0.03) + (@user.income.monthly_savings_goal * 12 * 0.03 * 1.1) +
+      (@user.income.monthly_savings_goal * 12 * 0.03 * 1.1 * 1.1) +
+      (@user.income.monthly_savings_goal * 12 * 0.03 * 1.1 * 1.1 * 1.1) +
+      (@user.income.monthly_savings_goal * 12 * 0.03 * 1.1 * 1.1 * 1.1 * 1.1) +
+      # year 6
+      (@user.income.monthly_savings_goal * 12 * 1.1 * 1.1 * 1.1 * 1.1 * 1.1) + (@user.income.monthly_savings_goal * 12 * 0.03) + (@user.income.monthly_savings_goal * 12 * 0.03 * 1.1) +
+      (@user.income.monthly_savings_goal * 12 * 0.03 * 1.1 * 1.1) +
+      (@user.income.monthly_savings_goal * 12 * 0.03 * 1.1 * 1.1 * 1.1) +
+      (@user.income.monthly_savings_goal * 12 * 0.03 * 1.1 * 1.1 * 1.1 * 1.1) +
+      (@user.income.monthly_savings_goal * 12 * 0.03 * 1.1 * 1.1 * 1.1 * 1.1 * 1.1) +
+      # year 7
+      (@user.income.monthly_savings_goal * 12 * 1.1 * 1.1 * 1.1 * 1.1 * 1.1 * 1.1) +
+      (@user.income.monthly_savings_goal * 12 * 0.03) + (@user.income.monthly_savings_goal * 12 * 0.03 * 1.1) +
+      (@user.income.monthly_savings_goal * 12 * 0.03 * 1.1 * 1.1) +
+      (@user.income.monthly_savings_goal * 12 * 0.03 * 1.1 * 1.1 * 1.1) +
+      (@user.income.monthly_savings_goal * 12 * 0.03 * 1.1 * 1.1 * 1.1 * 1.1) +
+      (@user.income.monthly_savings_goal * 12 * 0.03 * 1.1 * 1.1 * 1.1 * 1.1 * 1.1) +
+      (@user.income.monthly_savings_goal * 12 * 0.03 * 1.1 * 1.1 * 1.1 * 1.1 * 1.1 * 1.1)
+       %></td>
+       <td></td>
+       <td></td>
+       <td></td>
+     </tr>
+     <tr>
+       <td>8</td>
+       <td><%=
+      #  year 1
+      (@user.income.monthly_savings_goal * 12) + (@user.income.monthly_savings_goal * 12 * 0.03) +
+      #  year 2
+      (@user.income.monthly_savings_goal * 12 * 1.1) + (@user.income.monthly_savings_goal * 12 * 0.03) + (@user.income.monthly_savings_goal * 12 * 0.03 * 1.1) +
+      #  year 3
+      (@user.income.monthly_savings_goal * 12 * 1.1 * 1.1) + (@user.income.monthly_savings_goal * 12 * 0.03) + (@user.income.monthly_savings_goal * 12 * 0.03 * 1.1) +
+      (@user.income.monthly_savings_goal * 12 * 0.03 * 1.1 * 1.1) +
+      # year 4
+      (@user.income.monthly_savings_goal * 12 * 1.1 * 1.1 * 1.1) + (@user.income.monthly_savings_goal * 12 * 0.03) + (@user.income.monthly_savings_goal * 12 * 0.03 * 1.1) +
+      (@user.income.monthly_savings_goal * 12 * 0.03 * 1.1 * 1.1) +
+      (@user.income.monthly_savings_goal * 12 * 0.03 * 1.1 * 1.1 * 1.1) +
+      # year 5
+      (@user.income.monthly_savings_goal * 12 * 1.1 * 1.1 * 1.1 * 1.1) + (@user.income.monthly_savings_goal * 12 * 0.03) + (@user.income.monthly_savings_goal * 12 * 0.03 * 1.1) +
+      (@user.income.monthly_savings_goal * 12 * 0.03 * 1.1 * 1.1) +
+      (@user.income.monthly_savings_goal * 12 * 0.03 * 1.1 * 1.1 * 1.1) +
+      (@user.income.monthly_savings_goal * 12 * 0.03 * 1.1 * 1.1 * 1.1 * 1.1) +
+      # year 6
+      (@user.income.monthly_savings_goal * 12 * 1.1 * 1.1 * 1.1 * 1.1 * 1.1) + (@user.income.monthly_savings_goal * 12 * 0.03) + (@user.income.monthly_savings_goal * 12 * 0.03 * 1.1) +
+      (@user.income.monthly_savings_goal * 12 * 0.03 * 1.1 * 1.1) +
+      (@user.income.monthly_savings_goal * 12 * 0.03 * 1.1 * 1.1 * 1.1) +
+      (@user.income.monthly_savings_goal * 12 * 0.03 * 1.1 * 1.1 * 1.1 * 1.1) +
+      (@user.income.monthly_savings_goal * 12 * 0.03 * 1.1 * 1.1 * 1.1 * 1.1 * 1.1) +
+      # year 7
+      (@user.income.monthly_savings_goal * 12 * 1.1 * 1.1 * 1.1 * 1.1 * 1.1 * 1.1) +
+      (@user.income.monthly_savings_goal * 12 * 0.03) + (@user.income.monthly_savings_goal * 12 * 0.03 * 1.1) +
+      (@user.income.monthly_savings_goal * 12 * 0.03 * 1.1 * 1.1) +
+      (@user.income.monthly_savings_goal * 12 * 0.03 * 1.1 * 1.1 * 1.1) +
+      (@user.income.monthly_savings_goal * 12 * 0.03 * 1.1 * 1.1 * 1.1 * 1.1) +
+      (@user.income.monthly_savings_goal * 12 * 0.03 * 1.1 * 1.1 * 1.1 * 1.1 * 1.1) +
+      (@user.income.monthly_savings_goal * 12 * 0.03 * 1.1 * 1.1 * 1.1 * 1.1 * 1.1 * 1.1) +
+      # year 8
+      (@user.income.monthly_savings_goal * 12 * 1.1 * 1.1 * 1.1 * 1.1 * 1.1 * 1.1 * 1.1) +
+      (@user.income.monthly_savings_goal * 12 * 0.03) + (@user.income.monthly_savings_goal * 12 * 0.03 * 1.1) +
+      (@user.income.monthly_savings_goal * 12 * 0.03 * 1.1 * 1.1) +
+      (@user.income.monthly_savings_goal * 12 * 0.03 * 1.1 * 1.1 * 1.1) +
+      (@user.income.monthly_savings_goal * 12 * 0.03 * 1.1 * 1.1 * 1.1 * 1.1) +
+      (@user.income.monthly_savings_goal * 12 * 0.03 * 1.1 * 1.1 * 1.1 * 1.1 * 1.1) +
+      (@user.income.monthly_savings_goal * 12 * 0.03 * 1.1 * 1.1 * 1.1 * 1.1 * 1.1 * 1.1) +
+      (@user.income.monthly_savings_goal * 12 * 0.03 * 1.1 * 1.1 * 1.1 * 1.1 * 1.1 * 1.1 * 1.1)
+       %></td>
+       <td></td>
+       <td></td>
+       <td></td>
+     </tr>
+     <tr>
+       <td>9</td>
+       <td><%=
+      #  year 1
+      (@user.income.monthly_savings_goal * 12) + (@user.income.monthly_savings_goal * 12 * 0.03) +
+      #  year 2
+      (@user.income.monthly_savings_goal * 12 * 1.1) + (@user.income.monthly_savings_goal * 12 * 0.03) + (@user.income.monthly_savings_goal * 12 * 0.03 * 1.1) +
+      #  year 3
+      (@user.income.monthly_savings_goal * 12 * 1.1 * 1.1) + (@user.income.monthly_savings_goal * 12 * 0.03) + (@user.income.monthly_savings_goal * 12 * 0.03 * 1.1) +
+      (@user.income.monthly_savings_goal * 12 * 0.03 * 1.1 * 1.1) +
+      # year 4
+      (@user.income.monthly_savings_goal * 12 * 1.1 * 1.1 * 1.1) + (@user.income.monthly_savings_goal * 12 * 0.03) + (@user.income.monthly_savings_goal * 12 * 0.03 * 1.1) +
+      (@user.income.monthly_savings_goal * 12 * 0.03 * 1.1 * 1.1) +
+      (@user.income.monthly_savings_goal * 12 * 0.03 * 1.1 * 1.1 * 1.1) +
+      # year 5
+      (@user.income.monthly_savings_goal * 12 * 1.1 * 1.1 * 1.1 * 1.1) + (@user.income.monthly_savings_goal * 12 * 0.03) + (@user.income.monthly_savings_goal * 12 * 0.03 * 1.1) +
+      (@user.income.monthly_savings_goal * 12 * 0.03 * 1.1 * 1.1) +
+      (@user.income.monthly_savings_goal * 12 * 0.03 * 1.1 * 1.1 * 1.1) +
+      (@user.income.monthly_savings_goal * 12 * 0.03 * 1.1 * 1.1 * 1.1 * 1.1) +
+      # year 6
+      (@user.income.monthly_savings_goal * 12 * 1.1 * 1.1 * 1.1 * 1.1 * 1.1) + (@user.income.monthly_savings_goal * 12 * 0.03) + (@user.income.monthly_savings_goal * 12 * 0.03 * 1.1) +
+      (@user.income.monthly_savings_goal * 12 * 0.03 * 1.1 * 1.1) +
+      (@user.income.monthly_savings_goal * 12 * 0.03 * 1.1 * 1.1 * 1.1) +
+      (@user.income.monthly_savings_goal * 12 * 0.03 * 1.1 * 1.1 * 1.1 * 1.1) +
+      (@user.income.monthly_savings_goal * 12 * 0.03 * 1.1 * 1.1 * 1.1 * 1.1 * 1.1) +
+      # year 7
+      (@user.income.monthly_savings_goal * 12 * 1.1 * 1.1 * 1.1 * 1.1 * 1.1 * 1.1) +
+      (@user.income.monthly_savings_goal * 12 * 0.03) + (@user.income.monthly_savings_goal * 12 * 0.03 * 1.1) +
+      (@user.income.monthly_savings_goal * 12 * 0.03 * 1.1 * 1.1) +
+      (@user.income.monthly_savings_goal * 12 * 0.03 * 1.1 * 1.1 * 1.1) +
+      (@user.income.monthly_savings_goal * 12 * 0.03 * 1.1 * 1.1 * 1.1 * 1.1) +
+      (@user.income.monthly_savings_goal * 12 * 0.03 * 1.1 * 1.1 * 1.1 * 1.1 * 1.1) +
+      (@user.income.monthly_savings_goal * 12 * 0.03 * 1.1 * 1.1 * 1.1 * 1.1 * 1.1 * 1.1) +
+      # year 8
+      (@user.income.monthly_savings_goal * 12 * 1.1 * 1.1 * 1.1 * 1.1 * 1.1 * 1.1 * 1.1) +
+      (@user.income.monthly_savings_goal * 12 * 0.03) + (@user.income.monthly_savings_goal * 12 * 0.03 * 1.1) +
+      (@user.income.monthly_savings_goal * 12 * 0.03 * 1.1 * 1.1) +
+      (@user.income.monthly_savings_goal * 12 * 0.03 * 1.1 * 1.1 * 1.1) +
+      (@user.income.monthly_savings_goal * 12 * 0.03 * 1.1 * 1.1 * 1.1 * 1.1) +
+      (@user.income.monthly_savings_goal * 12 * 0.03 * 1.1 * 1.1 * 1.1 * 1.1 * 1.1) +
+      (@user.income.monthly_savings_goal * 12 * 0.03 * 1.1 * 1.1 * 1.1 * 1.1 * 1.1 * 1.1) +
+      (@user.income.monthly_savings_goal * 12 * 0.03 * 1.1 * 1.1 * 1.1 * 1.1 * 1.1 * 1.1 * 1.1) +
+      # year 9
+      (@user.income.monthly_savings_goal * 12 * 1.1 * 1.1 * 1.1 * 1.1 * 1.1 * 1.1 * 1.1 * 1.1) +
+      (@user.income.monthly_savings_goal * 12 * 0.03) + (@user.income.monthly_savings_goal * 12 * 0.03 * 1.1) +
+      (@user.income.monthly_savings_goal * 12 * 0.03 * 1.1 * 1.1) +
+      (@user.income.monthly_savings_goal * 12 * 0.03 * 1.1 * 1.1 * 1.1) +
+      (@user.income.monthly_savings_goal * 12 * 0.03 * 1.1 * 1.1 * 1.1 * 1.1) +
+      (@user.income.monthly_savings_goal * 12 * 0.03 * 1.1 * 1.1 * 1.1 * 1.1 * 1.1) +
+      (@user.income.monthly_savings_goal * 12 * 0.03 * 1.1 * 1.1 * 1.1 * 1.1 * 1.1 * 1.1) +
+      (@user.income.monthly_savings_goal * 12 * 0.03 * 1.1 * 1.1 * 1.1 * 1.1 * 1.1 * 1.1 * 1.1) +
+      (@user.income.monthly_savings_goal * 12 * 0.03 * 1.1 * 1.1 * 1.1 * 1.1 * 1.1 * 1.1 * 1.1 * 1.1)
+       %></td>
+       <td></td>
+       <td></td>
+       <td></td>
+     </tr>
+     <tr>
+       <td>10</td>
+       <td><%=
+      #  year 1
+      (@user.income.monthly_savings_goal * 12) + (@user.income.monthly_savings_goal * 12 * 0.03) +
+      #  year 2
+      (@user.income.monthly_savings_goal * 12 * 1.1) + (@user.income.monthly_savings_goal * 12 * 0.03) + (@user.income.monthly_savings_goal * 12 * 0.03 * 1.1) +
+      #  year 3
+      (@user.income.monthly_savings_goal * 12 * 1.1 * 1.1) + (@user.income.monthly_savings_goal * 12 * 0.03) + (@user.income.monthly_savings_goal * 12 * 0.03 * 1.1) +
+      (@user.income.monthly_savings_goal * 12 * 0.03 * 1.1 * 1.1) +
+      # year 4
+      (@user.income.monthly_savings_goal * 12 * 1.1 * 1.1 * 1.1) + (@user.income.monthly_savings_goal * 12 * 0.03) + (@user.income.monthly_savings_goal * 12 * 0.03 * 1.1) +
+      (@user.income.monthly_savings_goal * 12 * 0.03 * 1.1 * 1.1) +
+      (@user.income.monthly_savings_goal * 12 * 0.03 * 1.1 * 1.1 * 1.1) +
+      # year 5
+      (@user.income.monthly_savings_goal * 12 * 1.1 * 1.1 * 1.1 * 1.1) + (@user.income.monthly_savings_goal * 12 * 0.03) + (@user.income.monthly_savings_goal * 12 * 0.03 * 1.1) +
+      (@user.income.monthly_savings_goal * 12 * 0.03 * 1.1 * 1.1) +
+      (@user.income.monthly_savings_goal * 12 * 0.03 * 1.1 * 1.1 * 1.1) +
+      (@user.income.monthly_savings_goal * 12 * 0.03 * 1.1 * 1.1 * 1.1 * 1.1) +
+      # year 6
+      (@user.income.monthly_savings_goal * 12 * 1.1 * 1.1 * 1.1 * 1.1 * 1.1) + (@user.income.monthly_savings_goal * 12 * 0.03) + (@user.income.monthly_savings_goal * 12 * 0.03 * 1.1) +
+      (@user.income.monthly_savings_goal * 12 * 0.03 * 1.1 * 1.1) +
+      (@user.income.monthly_savings_goal * 12 * 0.03 * 1.1 * 1.1 * 1.1) +
+      (@user.income.monthly_savings_goal * 12 * 0.03 * 1.1 * 1.1 * 1.1 * 1.1) +
+      (@user.income.monthly_savings_goal * 12 * 0.03 * 1.1 * 1.1 * 1.1 * 1.1 * 1.1) +
+      # year 7
+      (@user.income.monthly_savings_goal * 12 * 1.1 * 1.1 * 1.1 * 1.1 * 1.1 * 1.1) +
+      (@user.income.monthly_savings_goal * 12 * 0.03) + (@user.income.monthly_savings_goal * 12 * 0.03 * 1.1) +
+      (@user.income.monthly_savings_goal * 12 * 0.03 * 1.1 * 1.1) +
+      (@user.income.monthly_savings_goal * 12 * 0.03 * 1.1 * 1.1 * 1.1) +
+      (@user.income.monthly_savings_goal * 12 * 0.03 * 1.1 * 1.1 * 1.1 * 1.1) +
+      (@user.income.monthly_savings_goal * 12 * 0.03 * 1.1 * 1.1 * 1.1 * 1.1 * 1.1) +
+      (@user.income.monthly_savings_goal * 12 * 0.03 * 1.1 * 1.1 * 1.1 * 1.1 * 1.1 * 1.1) +
+      # year 8
+      (@user.income.monthly_savings_goal * 12 * 1.1 * 1.1 * 1.1 * 1.1 * 1.1 * 1.1 * 1.1) +
+      (@user.income.monthly_savings_goal * 12 * 0.03) + (@user.income.monthly_savings_goal * 12 * 0.03 * 1.1) +
+      (@user.income.monthly_savings_goal * 12 * 0.03 * 1.1 * 1.1) +
+      (@user.income.monthly_savings_goal * 12 * 0.03 * 1.1 * 1.1 * 1.1) +
+      (@user.income.monthly_savings_goal * 12 * 0.03 * 1.1 * 1.1 * 1.1 * 1.1) +
+      (@user.income.monthly_savings_goal * 12 * 0.03 * 1.1 * 1.1 * 1.1 * 1.1 * 1.1) +
+      (@user.income.monthly_savings_goal * 12 * 0.03 * 1.1 * 1.1 * 1.1 * 1.1 * 1.1 * 1.1) +
+      (@user.income.monthly_savings_goal * 12 * 0.03 * 1.1 * 1.1 * 1.1 * 1.1 * 1.1 * 1.1 * 1.1) +
+      # year 9
+      (@user.income.monthly_savings_goal * 12 * 1.1 * 1.1 * 1.1 * 1.1 * 1.1 * 1.1 * 1.1 * 1.1) +
+      (@user.income.monthly_savings_goal * 12 * 0.03) + (@user.income.monthly_savings_goal * 12 * 0.03 * 1.1) +
+      (@user.income.monthly_savings_goal * 12 * 0.03 * 1.1 * 1.1) +
+      (@user.income.monthly_savings_goal * 12 * 0.03 * 1.1 * 1.1 * 1.1) +
+      (@user.income.monthly_savings_goal * 12 * 0.03 * 1.1 * 1.1 * 1.1 * 1.1) +
+      (@user.income.monthly_savings_goal * 12 * 0.03 * 1.1 * 1.1 * 1.1 * 1.1 * 1.1) +
+      (@user.income.monthly_savings_goal * 12 * 0.03 * 1.1 * 1.1 * 1.1 * 1.1 * 1.1 * 1.1) +
+      (@user.income.monthly_savings_goal * 12 * 0.03 * 1.1 * 1.1 * 1.1 * 1.1 * 1.1 * 1.1 * 1.1) +
+      (@user.income.monthly_savings_goal * 12 * 0.03 * 1.1 * 1.1 * 1.1 * 1.1 * 1.1 * 1.1 * 1.1 * 1.1) +
+      # year 10
+      (@user.income.monthly_savings_goal * 12 * 1.1 * 1.1 * 1.1 * 1.1 * 1.1 * 1.1 * 1.1 * 1.1 * 1.1) +
+      (@user.income.monthly_savings_goal * 12 * 0.03) + (@user.income.monthly_savings_goal * 12 * 0.03 * 1.1) +
+      (@user.income.monthly_savings_goal * 12 * 0.03 * 1.1 * 1.1) +
+      (@user.income.monthly_savings_goal * 12 * 0.03 * 1.1 * 1.1 * 1.1) +
+      (@user.income.monthly_savings_goal * 12 * 0.03 * 1.1 * 1.1 * 1.1 * 1.1) +
+      (@user.income.monthly_savings_goal * 12 * 0.03 * 1.1 * 1.1 * 1.1 * 1.1 * 1.1) +
+      (@user.income.monthly_savings_goal * 12 * 0.03 * 1.1 * 1.1 * 1.1 * 1.1 * 1.1 * 1.1) +
+      (@user.income.monthly_savings_goal * 12 * 0.03 * 1.1 * 1.1 * 1.1 * 1.1 * 1.1 * 1.1 * 1.1) +
+      (@user.income.monthly_savings_goal * 12 * 0.03 * 1.1 * 1.1 * 1.1 * 1.1 * 1.1 * 1.1 * 1.1 * 1.1) +
+      (@user.income.monthly_savings_goal * 12 * 0.03 * 1.1 * 1.1 * 1.1 * 1.1 * 1.1 * 1.1 * 1.1 * 1.1 * 1.1)
+       %></td>
        <td></td>
        <td></td>
        <td></td>
