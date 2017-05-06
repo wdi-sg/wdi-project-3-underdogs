@@ -1,8 +1,8 @@
 class RewardsController < ApplicationController
+before_action :authenticate_user!
 
   def rewards
-      #to list all rewards
-      #@rewards = Rewards.all
+
       my_array = [
         'A Good Start With Saving!',
         'Great Job On Saving!',
@@ -27,15 +27,8 @@ class RewardsController < ApplicationController
         10000 => 'WOW Congratulations on hitting $10,000 Savings! Your friends want to be you right now!'
       }
 
-      # @total_savings = rand(1..10000)
-      @total_savings = 8000
+      @total_savings = rand(1..10000)
 
-      @rewards_list_simulation = [
-        {id: 1, points: 100, merchant: "Starbucks", item: "Free Venti Frappacino", value: 7.90},
-        {id: 2, points: 250, merchant: "Ding Tai Fung", item: "25% Off Total Bill", value: 25},
-        {id: 3, points: 100, merchant: "Zalora", item: "$10 Off Cart", value: 10},
-        {id: 4, points: 100, merchant: "Lazada", item: "$20.50 Off Appliances", value: 20.50}
-      ]
 
       @rewards_list=Reward.all.order(:value)
 
