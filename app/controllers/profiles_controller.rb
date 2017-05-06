@@ -27,7 +27,7 @@ def updatebankdetails
 
   @income = BankAccountInfo.where(user_id: current_user.id)
   @income.update(bank_account_info_params)
-  flash[:notice] = "You have updated your bank details!"
+  flash[:notice] = "You have updated your bank details! Your bank details will be verified within the next 3 days."
 
   redirect_to profileaccount_path
 
