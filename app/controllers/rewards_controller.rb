@@ -2,6 +2,7 @@ class RewardsController < ApplicationController
 before_action :authenticate_user!
 
   def rewards
+    
       #to list all rewards
       #@rewards = Rewards.all
       my_array = [

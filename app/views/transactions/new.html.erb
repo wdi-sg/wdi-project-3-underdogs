@@ -1,12 +1,12 @@
 <section class="section">
   <h1 class="title">Top Up</h1>
 
-  <%= form_for :transaction, url: transactions_new_path do |f| %>
-  <%= :transaction %>
+  <%= form_for @transaction, url: transactions_new_path, method: :put do |f| %>
+
     <div class="field">
       <%= f.label :transacted_amount, class: 'label' %>
       <p class="control">
-        <%= f.text_field :transacted_amount, class: 'input' %>
+        <%= f.number_field :transacted_amount, class: 'input' %>
       </p>
     </div>
 
@@ -20,13 +20,11 @@
     <div class="field">
       <%= f.label :transaction_no, class: 'label' %>
       <p class="control">
-        <%= f.text_field :transaction_no, class: 'input' %>
+        <%= f.number_field :transaction_no, class: 'input' %>
       </p>
     </div>
 
 
-    <%= check_box_tag(:topup) %>
-    <%= label_tag(:topup, "Top Up") %>
 
     <div class="field">
       <p class="control">
