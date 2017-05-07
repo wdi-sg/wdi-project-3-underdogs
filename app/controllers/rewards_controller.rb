@@ -3,6 +3,10 @@ before_action :authenticate_user!
 
   def rewards
 
+    @total=  Transaction.select("transacted_amount").where(user_id: current_user).sum("transacted_amount")
+      #to list all rewards
+      #@rewards = Rewards.all
+
       my_array = [
         'A Good Start With Saving!',
         'Great Job On Saving!',

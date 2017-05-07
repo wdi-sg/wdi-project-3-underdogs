@@ -5,6 +5,7 @@ class ApplicationController < ActionController::Base
   before_action :check_for_notificiations
 
   def check_for_notificiations
+    
     # populate your flash data
   end
 
