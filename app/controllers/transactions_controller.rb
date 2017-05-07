@@ -6,11 +6,13 @@ def index
 user_id: current_user.id
 )
 @total=  Transaction.select("transacted_amount").where(user_id: current_user).sum("transacted_amount")
+@date = Transaction.select("created_at").where("created_at >?", 2/4/2017 )
 end
 
-def date
-@date = Transaction.find(created_at: :from)
-end
+# def date
+# @date = Transaction.select("created_at").where("created_at >?", :from )
+# end
+
 def new
   @transaction = Transaction.new
 end
