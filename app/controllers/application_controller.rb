@@ -5,7 +5,7 @@ class ApplicationController < ActionController::Base
   before_action :check_for_notificiations
 
   def check_for_notificiations
-    @total=  Transaction.select("transacted_amount").where(user_id: current_user).sum("transacted_amount")
+    
     # populate your flash data
   end
 

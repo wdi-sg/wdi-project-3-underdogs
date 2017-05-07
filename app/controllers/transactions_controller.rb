@@ -2,15 +2,15 @@ class TransactionsController < ApplicationController
 
 def index
   @user = User.find(current_user)
-@sumofmoney = Transaction.select("transacted_amount", "transacted_date", "created_at").where(
+@sumofmoney = Transaction.select("transacted_amount", "transacted_date").where(
 user_id: current_user.id
 )
-
+@total=  Transaction.select("transacted_amount").where(user_id: current_user).sum("transacted_amount")
 end
 
-# def date
-# @date = Transaction.find(created_at: :from)
-# end
+def date
+@date = Transaction.find(created_at: :from)
+end
 def new
   @transaction = Transaction.new
 end
@@ -31,19 +31,26 @@ def create
 
 end
 
-def withdraw
-  @withdraw = Transaction.new
+def withdrawnew
+  @user = User.find(current_user)
+  @withdraw = Transaction.new()
 end
   def withdrawcreate
     @withdraw = Transaction.new(withdraw_params)
+    @totalamt=  Transaction.select("transacted_amount").where(user_id: current_user).sum("transacted_amount")
+    if @totalamt < @withdraw.transacted_amount
+      flash[:notice] = 'fuck you'
+      redirect_to transactions_withdraw_path
+    else
+    @withdraw.transacted_amount = @withdraw.transacted_amount * -1
     @bank = BankAccountInfo.find(current_user.bank_account_info)
     @withdraw.bank_account_info_id = @bank.id
     @user = User.find(current_user)
     @withdraw.user_id = @user.id
     @withdraw.save
-      redirect_to transactions_path
+      redirect_to transactions_withdraw_path
   end
-
+end
   private
 
   def transaction_params
@@ -53,6 +60,6 @@ end
 
   def withdraw_params
     params.require(:withdraw).permit(:transacted_amount, :transacted_date, :transaction_no)
-    params[:transacted_amount] = params[:transacted_amount]*-1
+
   end
 end
