@@ -12,6 +12,24 @@ def create
   @transaction.bank_account_info_id = @bank.id
   @user = User.find(current_user)
   @transaction.user_id = @user.id
+  # Amount in cents
+  @amount = 500
+
+  customer = Stripe::Customer.create(
+    :email => params[:stripeEmail],
+    :source  => params[:stripeToken]
+  )
+
+  charge = Stripe::Charge.create(
+    :customer    => customer.id,
+    :amount      => @amount,
+    :description => 'Rails Stripe customer',
+    :currency    => 'usd'
+  )
+
+rescue Stripe::CardError => e
+  flash[:error] = e.message
+  redirect_to new_charge_path
   if @transaction.save
     redirect_to root_path
   else

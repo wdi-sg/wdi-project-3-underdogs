@@ -24,12 +24,29 @@
       </p>
     </div>
 
-
     <div class="field">
       <p class="control">
         <%= f.submit 'Submit', class: 'button is-primary' %>
       </p>
     </div>
+  <% end %>
+  <%= form_tag transactions_new_path do %>
+    <article>
+      <% if flash[:error].present? %>
+        <div id="error_explanation">
+          <p><%= flash[:error] %></p>
+        </div>
+      <% end %>
+      <label class="amount">
+        <span>Amount: <%= number_to_currency(@amount * 100) %></span>
+      </label>
+    </article>
+
+    <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+            data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+            data-description="Desposit"
+            data-amount="<%= @amount %>"
+            data-locale="auto"></script>
   <% end %>
 
 
