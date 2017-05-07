@@ -2,11 +2,15 @@ class TransactionsController < ApplicationController
 
 def index
   @user = User.find(current_user)
-@sumofmoney = Transaction.select("transacted_amount", "transacted_date").where(
+@sumofmoney = Transaction.select("transacted_amount", "transacted_date", "created_at").where(
 user_id: current_user.id
 )
 
 end
+
+# def date
+# @date = Transaction.find(created_at: :from)
+# end
 def new
   @transaction = Transaction.new
 end

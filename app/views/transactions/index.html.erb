@@ -2,6 +2,36 @@
 <a href = '<%= rewards_path%>'>Rewards</a>
 <a href = '<%= transactions_withdraw_path%>'>Withdraw</a>
 <br />
+
+<!-- <section class="section">
+  <h1 class="title">Top Up</h1>
+
+  <%= form_for :date, url: transactions_path do |f| %>
+
+    <div class="field">
+      <%= f.label :From, class: 'label' %>
+      <p class="control">
+        <%= f.date_field :transacted_date, class: 'input' %>
+      </p>
+    </div>
+
+    <div class="field">
+      <%= f.label :To, class: 'label' %>
+      <p class="control">
+        <%= f.date_field :transacted_date, class: 'input' %>
+      </p>
+    </div>
+
+    <div class="field">
+      <p class="control">
+        <%= f.submit 'Submit', class: 'button is-primary' %>
+      </p>
+    </div>
+  <% end %>
+
+
+</section>
+<%= @date %> -->
 <table>
 <thead>
   <th>
@@ -15,6 +45,7 @@
 <td>
  <%= tran.transacted_date %>
  $<%= tran.transacted_amount %>
+ $<%= tran.created_at %>
 </td>
 </tr>
 <%end%>
