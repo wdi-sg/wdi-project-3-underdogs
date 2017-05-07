@@ -39,6 +39,21 @@ class Users::RegistrationsController < Devise::RegistrationsController
   protected
 
   def after_sign_up_path_for(resource)
+
+    # Creating a zero-value income and savings goals for the user
+    @user = User.find(current_user)
+    @income = Income.new
+    @income.monthly_income = 0
+    @income.monthly_savings_goal = 0
+    @income.final_savings_goal = 0
+    @income.user_id = @user.id
+    @income.save
+
+    # Creating a slot for bank acount for this user first
+    @bank_account_info = BankAccountInfo.new
+    @bank_account_info.user_id = @user.id
+    @bank_account_info.save
+
     transactions_path(resource)
   end
 

@@ -19,10 +19,9 @@ Rails.application.routes.draw do
 
   resources :profiles
   get 'profileaccount' => 'profiles#bankaccount'
-  put 'profileaccount' => 'profiles#addbankdetails'
+  put 'profileaccount' => 'profiles#updatebankdetails'
 
   resources :analysis
-
 
   get 'transactions' => 'transactions#index'
   get 'transactions/new' => 'transactions#new'
@@ -34,7 +33,5 @@ Rails.application.routes.draw do
   get 'rewards/:id' => 'rewards#rewards_id'
 
   post 'rewards/:id' => 'rewards#claimed' ,as:"claimed"
-
-
 
 end
