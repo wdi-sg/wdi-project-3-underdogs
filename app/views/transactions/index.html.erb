@@ -1,10 +1,16 @@
-Total Savings: <%= @total %>
-Credits: <%= @total * 0.0075 %>
+<h1>Total Savings: <%= @total %></h1>
+
+<h1>Credits: <%= @credit %></h1>
+
 <br />
 <br />
-<a href = '<%= transactions_new_path%>'>Top Up</a>
-<a href = '<%= rewards_path%>'>Rewards</a>
-<a href = '<%= transactions_withdraw_path%>'>Withdraw</a>
+<%= link_to('Complete Profile', edit_profile_path(current_user.id), :method => :get) %>
+<br>
+
+<%= link_to('Top Up', transactions_new_path, :method => :get) %>
+<%= link_to('Withdraw', transactions_withdraw_path, :method => :get) %>
+<%= link_to('Rewards', rewards_path, :method => :get) %>
+
 <br />
 
 <!-- <section class="section">
@@ -33,21 +39,17 @@ Credits: <%= @total * 0.0075 %>
 </section> -->
 <%= @date %>
 
-<table>
-<thead>
-  <th>
-  Transaction Date:
-  Transaction Amount:
-  </th>
-</thead>
-<tbody>
-  <% @sumofmoney.each do |tran| %>
-<tr>
-<td>
- <%= tran.transacted_date %>
- $<%= tran.transacted_amount %>
-</td>
-</tr>
-<%end%>
-</tbody>
+<table class="responsive-table">
+  <thead>
+    <th>Transaction Date:</th>
+    <th>Transaction Amount:</th>
+  </thead>
+  <tbody>
+    <% @sumofmoney.each do |tran| %>
+      <tr>
+        <td><%= tran.transacted_date %></td>
+        <td>$<%= tran.transacted_amount %></td>
+      </tr>
+    <%end%>
+  </tbody>
 </table>
