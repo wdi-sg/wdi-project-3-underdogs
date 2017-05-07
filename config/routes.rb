@@ -27,8 +27,8 @@ Rails.application.routes.draw do
   get 'transactions' => 'transactions#index'
   get 'transactions/new' => 'transactions#new'
   put 'transactions/new' => 'transactions#create'
-  get 'transactions/withdraw' => 'transactions#new'
-  put 'transactions/withdraw' => 'transactions#withdraw'
+  get 'transactions/withdraw' => 'transactions#withdraw'
+  put 'transactions/withdraw' => 'transactions#withdrawcreate'
 
   get 'rewards' => 'rewards#rewards'
   get 'rewards/:id' => 'rewards#rewards_id'

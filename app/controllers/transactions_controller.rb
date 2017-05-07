@@ -31,7 +31,10 @@ def create
 
 end
 
-  def withdraw
+def withdraw
+  @withdraw = Transaction.new
+end
+  def withdrawcreate
     @withdraw = Transaction.new(withdraw_params)
     @bank = BankAccountInfo.find(current_user.bank_account_info)
     @withdraw.bank_account_info_id = @bank.id
@@ -50,5 +53,6 @@ end
 
   def withdraw_params
     params.require(:withdraw).permit(:transacted_amount, :transacted_date, :transaction_no)
+    params[:transacted_amount] = params[:transacted_amount]*-1
   end
 end
