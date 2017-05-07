@@ -1,6 +1,10 @@
 <section class="section">
   <h1 class="title">Top Up</h1>
 
+  <%= link_to "Go back to Dashboard", transactions_path %>
+  <br>
+  <br>
+
   <%= form_for @transaction, url: transactions_new_path, method: :put do |f| %>
 
     <div class="field">

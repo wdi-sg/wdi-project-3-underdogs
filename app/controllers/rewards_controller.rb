@@ -4,6 +4,7 @@ before_action :authenticate_user!
   def rewards
 
     @total=  Transaction.select("transacted_amount").where(user_id: current_user).sum("transacted_amount")
+    @credit = (@total*0.0075).round(0)
       #to list all rewards
       #@rewards = Rewards.all
 
