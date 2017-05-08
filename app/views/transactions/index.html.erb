@@ -1,38 +1,30 @@
-<a href = '<%= transactions_new_path%>'>Top Up</a>
-<a href = '<%= rewards_path%>'>Rewards</a>
+<h1>Total Savings: <%= @total %></h1>
 
-<h1>Transaction History</h1>
+<h1>Credits: <%= @credit %></h1>
 
-From: <form action = '/save/history' method = 'POST'>
-  <div class="form-group">
-    <label for="Date"></label>
-    <input id="Date" class="form-control" type="date" name="date">
-  </div>
-To: <form action = '/save/history' method = 'POST'>
-  <div class="form-group">
-    <label for="Date"></label>
-    <input id="Date" class="form-control" type="date" name="date">
-  </div>
-  <input class="btn btn-primary" type="submit">
-</form>
+<br />
+<br />
+<%= link_to('Complete Profile', edit_profile_path(current_user.id), :method => :get) %>
+<br>
 
-<table>
+<%= link_to('Top Up', transactions_new_path, :method => :get) %>
+<%= link_to('Withdraw', transactions_withdraw_path, :method => :get) %>
+<%= link_to('Rewards', rewards_path, :method => :get) %>
+
+<br />
+
+
+<table class="responsive-table">
   <thead>
-    <th>
-      Date
-    </th>
-    <th>
-      Transaction Amount
-    </th>
+    <th>Transaction Date:</th>
+    <th>Transaction Amount:</th>
   </thead>
   <tbody>
-    <tr>
-      <td>
-        bbb
-      </td>
-      <td>
-        ddd
-      </td>
-    </tr>
+    <% @sumofmoney.each do |tran| %>
+      <tr>
+        <td><%= tran.transacted_date %></td>
+        <td>$<%= tran.transacted_amount %></td>
+      </tr>
+    <%end%>
   </tbody>
 </table>

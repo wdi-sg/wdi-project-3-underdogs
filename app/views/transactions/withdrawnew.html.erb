@@ -1,11 +1,10 @@
 <section class="section">
-  <h1 class="title">Top Up</h1>
+  <h1 class="title">Withdraw</h1>
 
   <%= link_to "Go back to Dashboard", transactions_path %>
   <br>
   <br>
-
-  <%= form_for @transaction, url: transactions_new_path, method: :put do |f| %>
+  <%= form_for :withdraw, url: transactions_withdraw_path, method: :put do |f| %>
 
     <div class="field">
       <%= f.label :transacted_amount, class: 'label' %>
@@ -28,10 +27,12 @@
       </p>
     </div>
 
+
     <div class="field">
       <p class="control">
         <%= f.submit 'Submit', class: 'button is-primary' %>
       </p>
+
     </div>
   <% end %>
 

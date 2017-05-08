@@ -19,20 +19,19 @@ Rails.application.routes.draw do
 
   resources :profiles
   get 'profileaccount' => 'profiles#bankaccount'
-  put 'profileaccount' => 'profiles#addbankdetails'
+  put 'profileaccount' => 'profiles#updatebankdetails'
 
   resources :analysis
 
-
   get 'transactions' => 'transactions#index'
   get 'transactions/new' => 'transactions#new'
-  post 'transactions/new' => 'transactions#create'
+  put 'transactions/new' => 'transactions#create'
+  get 'transactions/withdraw' => 'transactions#withdrawnew'
+  put 'transactions/withdraw' => 'transactions#withdrawcreate'
 
   get 'rewards' => 'rewards#rewards'
   get 'rewards/:id' => 'rewards#rewards_id'
 
   post 'rewards/:id' => 'rewards#claimed' ,as:"claimed"
-
-
 
 end

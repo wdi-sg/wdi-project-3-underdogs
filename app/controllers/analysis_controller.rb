@@ -1,20 +1,17 @@
 class AnalysisController < ApplicationController
 before_action :authenticate_user!
+
+
   def index
     @user = User.find(current_user)
+    @income = Income.where(user_id: current_user.id)
   end
 
   def update
-
     @income = Income.where(user_id: current_user.id)
-    if @income.blank?
-      @income = Income.new (income_params)
-      @income.user_id = current_user.id
-      @income.save
-    else
-      @income.update(income_params)
-    end
-      redirect_to profiles_path
+    @income.update(income_params)
+    flash[:notice] = "You have updated your savings goals. Check out your new analysis report!"
+    redirect_to analysis_index_path
   end
 
   private

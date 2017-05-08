@@ -1,35 +1,58 @@
 <h1>COMPLETE YOUR BANK ACCOUNT DETAILS</h1>
+<%= @user.bank_account_info.inspect %>
 
 <h2>Part 2 of 2</h2>
 
 <h3>Bank Account Details</h3>
 
-<%= form_for @bank_account_info, url: profileaccount_path, method: :put do |f| %>
+<%= form_for @bank, url: profileaccount_path, method: :put do |f| %>
   <%= f.label :bank_name %>
-  <%= f.text_field :bank_name %>
-
+  <%  if current_user.bank_account_info.bank_name.blank? %>
+    <%= f.text_field :bank_name %>
+  <% else %>
+  : <%= current_user.bank_account_info.bank_name%>
+  <% end%>
 <br>
   <%= f.label :bank_currency %>
-  <%= f.text_field :bank_currency %>
+  <%  if current_user.bank_account_info.bank_currency.blank? %>
+    <%= f.text_field :bank_currency %>
+  <% else %>
+  : <%= current_user.bank_account_info.bank_currency%>
+  <% end%>
 <br>
   <%= f.label :account_no %>
-  <%= f.text_field :account_no %>
+  <%  if current_user.bank_account_info.account_no.blank? %>
+    <%= f.text_field :account_no %>
+  <% else %>
+  : <%= current_user.bank_account_info.account_no%>
+  <% end%>
 <br>
   <%= f.label :name_on_account %>
-  <%= f.text_field :name_on_account %>
+  <%  if current_user.bank_account_info.name_on_account.blank? %>
+    <%= f.text_field :name_on_account %>
+  <% else %>
+  : <%= current_user.bank_account_info.name_on_account%>
+  <% end %>
 <br>
   <%= f.label :branch_code %>
-  <%= f.text_field :branch_code %>
-
+  <%  if current_user.bank_account_info.branch_code.blank? %>
+    <%= f.text_field :branch_code %>
+  <% else %>
+  : <%= current_user.bank_account_info.branch_code%>
+  <% end %>
 <br>
-<%= f.submit "Enter Bank Details"%>
-
-  <p>I confirm that all information provided above are true
-  and correct to the best of my knowledge and you may rely on the accuracy thereof.</p>
+<% if current_user.bank_account_info.bank_name.present? &&
+  current_user.bank_account_info.bank_currency.present? &&
+  current_user.bank_account_info.account_no.present? &&
+  current_user.bank_account_info.name_on_account.present? &&
+  current_user.bank_account_info.branch_code.present? &&  %>
+      <%= link_to "Go back to Dashboard", transactions_path %>
+  <% else %>
+    <%= f.submit "Enter Bank Details"%>
 
 <% end %>
 
+<% end %>
 
-
-  <p>Your account information was approved.
- If you wish to update part 2 of your profile, please email us at cs@gmail.com.</p>
+<p>I confirm that by entering your bank details, all information provided above are true and correct to the best of my knowledge and you may rely on the accuracy thereof.</p>
+<p>To update your bank account details, please email us at allaboutcache@gmail.com.</p>
