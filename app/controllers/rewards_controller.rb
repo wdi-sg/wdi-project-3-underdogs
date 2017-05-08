@@ -2,14 +2,16 @@ class RewardsController < ApplicationController
 before_action :authenticate_user!
 
   def rewards
+
     @total=  Transaction.select("transacted_amount").where(user_id: current_user).sum("transacted_amount")
     puts "total #{@total}"
 
     if @total == 0
       redirect_to rewards_rewardslist_path
     else
+      @user = User.find(current_user)
       @credit = (@total*0.0075).round(0)
-
+@rewarding = @user.rewards.select("value").sum("value")
         my_array = [
           'A Good Start With Saving!',
           'Great Job On Saving!',
@@ -60,7 +62,6 @@ before_action :authenticate_user!
         end
           @percentage_from_final_goal = (@total.round(2) / @x) * 100
       end
-
   end
 
   def rewards_id
@@ -72,14 +73,23 @@ before_action :authenticate_user!
 
   def claimed
     @rewards = Reward.find(params[:id])
-    @total=  Transaction.select("transacted_amount").where(user_id: current_user).sum("transacted_amount")
-    @credit = (@total*0.0075).round(0)
-    current_user.rewards << Reward.find(params[:id])
-    if current_user.save
-      @credit = @credit - @rewards.value
-      flash[:notice] = "Promo Code for #{@rewards.merchant} is #{@rewards.item}"
+    @total =  Transaction.select("transacted_amount").where(user_id: current_user).sum("transacted_amount")
+    @credit = @total*0.007
+    @user = User.find(current_user)
+    @rewarding = @user.rewards.select("value").sum("value")
+    if @rewards.value < @credit-@rewarding
+      current_user.rewards << Reward.find(params[:id])
+      current_user.save
+        flash[:notice] = "Promo Code for #{@rewards.merchant} is #{@rewards.item}"
+        redirect_to rewards_path
+    else
+      flash[:notice] = "not enough money"
+      redirect_to rewards_path
     end
-    redirect_to rewards_path
+    # if current_user.save
+    #   flash[:notice] = "Promo Code for #{@rewards.merchant} is #{@rewards.item}"
+    # end
+  #   redirect_to rewards_path
   end
 
   def rewardslist

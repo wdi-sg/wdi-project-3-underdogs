@@ -1,7 +1,8 @@
-<h2>Total Savings: <%= @total %></h2>
-
-<h1>Credits: <%= @credit %></h1>
-
+<h4>Total Savings: <%= @total %></h4>
+<h4>Total Credits Used: <%= @rewarding %></h4>
+<h4>Credits: <%= @credit-@rewarding %></h4>
+<h4>Cash Back: <%= @cashback %></h4>
+<h4>Savings + Cash Back: <%= @total+@cashback %></h4>
 <br />
 <br />
 <%= link_to('Complete Profile', edit_profile_path(current_user.id), :method => :get) %>
@@ -13,6 +14,31 @@
 
 <br />
 
+<!-- <section class="section">
+  <%= form_for :date, url: transactions_path, method: :get do |f| %>
+
+    <div class="field">
+      <%= f.label :From, class: 'label' %>
+      <p class="control">
+        <%= f.date_field :transacted_date, class: 'input' %>
+      </p>
+    </div>
+
+    <div class="field">
+      <%= f.label :To, class: 'label' %>
+      <p class="control">
+        <%= f.date_field :transacted_date, class: 'input' %>
+      </p>
+    </div>
+
+    <div class="field">
+      <p class="control">
+        <%= f.submit 'Submit', class: 'button is-primary' %>
+      </p>
+    </div>
+  <% end %>
+</section> -->
+<%= @date %>
 
 <table class="responsive-table">
   <thead>

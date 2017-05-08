@@ -1,5 +1,15 @@
 <h3>YOUR CACHE SAVINGS ACCOUNT HAS $<%=@total%>!</h3>
 <br>
+
+
+<h2>YOUR CACHE SAVINGS ACCOUNT HAS $<%=@total%> with <%= @credit-@rewarding %> credits!</h2>
+<h4>
+  total credits used: <%= @rewarding %>
+</h4>
+
+<h4 class="savings_message"><%= @milestone_savings.fetch(@total_savings, @random_message) %> </h4>
+
+
 <br>
 
 
