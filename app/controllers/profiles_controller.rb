@@ -3,7 +3,7 @@ before_action :authenticate_user!
 
 def index
   @user = User.find(current_user)
-  
+
 end
 
 def edit
@@ -22,7 +22,6 @@ end
 def bankaccount
   @user = User.find(current_user)
   @bank = BankAccountInfo.where(user_id: current_user.id)[0]
-  @bank_array = %w(DBS POSB)
 end
 
 def updatebankdetails

@@ -15,7 +15,7 @@ class TransactionsController < ApplicationController
   def new
     @transaction = Transaction.new
 
-end
+  end
 
   def createstripe
     @amount = params[:amount]
@@ -40,7 +40,7 @@ end
 
      Stripe::Charge.create(
        :amount => @amount,
-       :currency => 'usd',
+       :currency => 'SGD',
        :source => params[:stripeToken],
        :description => 'Custom donation'
      )
@@ -60,7 +60,6 @@ end
         flash
       end
 
-
      rescue Stripe::CardError => e
        flash[:error] = e.message
        redirect_to new_charge_path
@@ -77,6 +76,9 @@ end
     @bank = BankAccountInfo.find(current_user.bank_account_info)
     @transaction.bank_account_info_id = @bank.id
     @user = User.find(current_user)
+    if @transaction.transacted_date.blank?
+      @transaction.transacted_date = DateTime.now.to_date
+    end
     @transaction.user_id = @user.id
     @transaction.save
     flash[:notice] = 'You have successfully topped up your Cache savings account!'
@@ -99,6 +101,7 @@ end
       @bank = BankAccountInfo.find(current_user.bank_account_info)
       @withdraw.bank_account_info_id = @bank.id
       @user = User.find(current_user)
+      @withdraw.transacted_date = DateTime.now.to_date
       @withdraw.user_id = @user.id
       @withdraw.save
       flash[:notice] = 'We will process your withdrawal request within 3 working days.'

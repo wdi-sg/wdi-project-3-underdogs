@@ -1,3 +1,4 @@
+<div class="container">
   <section class="section">
     <h1 class="title">Top Up</h1>
   <%= link_to "Go back to Dashboard", transactions_path %>
@@ -37,7 +38,7 @@
   </div>
 
   <div class="stripeform">
-    <button type="button" id="offbtn">Offline Transfer</button>
+    <button type="button" id="offbtn">Internet Banking Transfer</button>
     <%= form_tag transactions_newstripe_path do %>
     <div id="error_explanation">
       <% if flash[:error].present? %>
@@ -111,3 +112,4 @@
   </script>
 
   </section>
+</div>

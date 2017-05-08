@@ -83,7 +83,7 @@ before_action :authenticate_user!
         flash[:notice] = "Promo Code for #{@rewards.merchant} is #{@rewards.item}"
         redirect_to rewards_path
     else
-      flash[:notice] = "not enough money"
+      flash[:notice] = "You do not have enough Cache Dollars to redeem this reward."
       redirect_to rewards_path
     end
     # if current_user.save
@@ -93,7 +93,7 @@ before_action :authenticate_user!
   end
 
   def rewardslist
-    @rewards_list = []
+    @rewards_list = Reward.all.order(:value)
 
   end
 

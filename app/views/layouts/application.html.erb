@@ -8,8 +8,7 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <%= stylesheet_link_tag 'application', 'https://fonts.googleapis.com/css?family=Questrial', media: 'all' %>
   </head>
-
-  <body>
+    <body>
 
     <% if user_signed_in? %>
         <%= render 'partials/nav' %>
@@ -17,15 +16,16 @@
         <%=render 'partials/publicnav' %>
     <%end%>
 
-
     <div class = "devise-alerts">
       <p class="notice"><%= notice %></p>
       <p class="alert"><%= alert %></p>
     </div>
 
     <%= yield %>
+
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link href="https://afeld.github.io/emoji-css/emoji.css" rel="stylesheet">
   </body>
   <%= render 'partials/footer' %>
+
 </html>

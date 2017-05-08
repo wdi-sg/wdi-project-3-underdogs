@@ -1,29 +1,30 @@
-<h1>Confirmation Page</h1>
+<div class="container">
+  <h1>Confirmation Page</h1>
 
 
-<p>Picture of the Retailer Coupon</p>
+  <p>Picture of the Retailer Coupon</p>
 
-<h2>Reward Chosen</h2>
-<table>
-  <thead>
-    <th>ID</th>
-    <th>Retailer</th>
-    <th>Value</th>
-    <th>Expiry Date</th>
-    <th>Category</th>
-  </thead>
-  <tbody>
-    <tr>
-    <td><%=@rewards.id %></td>
-    <td><%=@rewards.merchant%></td>
-    <td><%=@rewards.value%></td>
-    <td><%=@rewards.expiry%></td>
-    <td><%=@rewards.category%></td>
-  </tr>
-  </tbody>
-</table>
+  <h2>Reward Chosen</h2>
+  <table>
+    <thead>
+      <th>ID</th>
+      <th>Retailer</th>
+      <th>Value</th>
+      <th>Expiry Date</th>
+      <th>Category</th>
+    </thead>
+    <tbody>
+      <tr>
+      <td><%=@rewards.id %></td>
+      <td><%=@rewards.merchant%></td>
+      <td><%=@rewards.value%></td>
+      <td><%=@rewards.expiry%></td>
+      <td><%=@rewards.category%></td>
+    </tr>
+    </tbody>
+  </table>
 
-<p>Promo Code for <%=@rewards.merchant%> will be shown on the next page after claiming selected reward!</p>
+  <p>Promo Code for <%=@rewards.merchant%> will be shown on the next page after claiming selected reward!</p>
 
-
-<%= link_to "Claim", claimed_path, :id => @rewards.id, class: "button",method: :post%>
+  <%= link_to "Claim", claimed_path, :id => @rewards.id, class: "button",method: :post%>
+</div>
