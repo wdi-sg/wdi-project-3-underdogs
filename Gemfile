@@ -38,10 +38,16 @@ gem 'jbuilder', '~> 2.5'
 # gem 'redis', '~> 3.0'
 # Use ActiveModel has_secure_password
 gem 'bcrypt', '~> 3.1.7'
+
+# # Using braintree for transcations
+# gem 'braintree'
+# Using stripe for transcations
+gem 'stripe'
 # Using materialize for the framework
 gem 'materialize-sass'
 # Using jquery with turbolinks for materlize
 gem 'jquery-turbolinks'
+
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
