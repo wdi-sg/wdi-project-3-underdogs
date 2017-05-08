@@ -1,7 +1,8 @@
-<h1>Total Savings: <%= @total %></h1>
-
-<h1>Credits: <%= @credit %></h1>
-
+<h4>Total Savings: <%= @total %></h4>
+<h4>Total Credits Used: <%= @rewarding %></h4>
+<h4>Credits: <%= @credit-@rewarding %></h4>
+<h4>Cash Back: <%= @cashback %></h4>
+<h4>Savings + Cash Back: <%= @total+@cashback %></h4>
 <br />
 <br />
 <%= link_to('Complete Profile', edit_profile_path(current_user.id), :method => :get) %>
