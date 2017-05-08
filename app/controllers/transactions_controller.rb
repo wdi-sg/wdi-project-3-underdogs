@@ -6,7 +6,7 @@ class TransactionsController < ApplicationController
     @sumofmoney = Transaction.select("transacted_amount", "transacted_date").where(user_id: current_user.id)
     @total =  Transaction.select("transacted_amount").where(user_id: current_user).sum("transacted_amount")
     @credit = (@total*0.0075).round(0)
-    @date = Transaction.select("created_at").where("created_at >?", 2/4/2017 )
+    # @date = Transaction.select("created_at").where("created_at >?", 2/4/2017 )
   end
 
   def new
