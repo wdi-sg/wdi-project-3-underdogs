@@ -7,7 +7,7 @@
   total credits used: <%= @rewarding %>
 </h4>
 
-<h4 class="savings_message"><%= @milestone_savings.fetch(@total_savings, @random_message) %> </h4>
+<h4 class="savings_message"><%= @milestone_savings.fetch(@total, @random_message) %> </h4>
 
 
 <br>
@@ -26,7 +26,7 @@
 
   </div>
   <br>
-  <p><%= @milestone_savings.fetch(@total_savings, @random_message) %> </p>
+  <p><%= @milestone_savings.fetch(@total, @random_message) %> </p>
 <br>
 <br>
 

@@ -25,7 +25,9 @@ Rails.application.routes.draw do
 
   get 'transactions' => 'transactions#index'
   get 'transactions/new' => 'transactions#new'
-  put 'transactions/new' => 'transactions#create'
+  # put 'transactions/new' => 'transactions#create'
+  post 'transactions/new' => 'transactions#create'
+  post 'transactions/newstripe' => 'transactions#createstripe'
   get 'transactions/withdraw' => 'transactions#withdrawnew'
   put 'transactions/withdraw' => 'transactions#withdrawcreate'
 

@@ -39,13 +39,19 @@ gem 'jbuilder', '~> 2.5'
 # Use ActiveModel has_secure_password
 gem 'bcrypt', '~> 3.1.7'
 
+
+
+# Using stripe for transcations
+gem 'stripe'
 # Using materialize for the framework
 gem 'materialize-sass'
 # Using jquery with turbolinks for materlize
 gem 'jquery-turbolinks'
 
+
 gem 'country_select'
 gem 'nationality', '~> 1.0.3'
+
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
