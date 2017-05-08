@@ -7,25 +7,22 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+merchant = ['Starbucks', 'Llao Llao', 'Ding Tai Fung', 'Old Chang Kee', 'Nespresso']
+merchant_code = ['ST001', 'L028', 'DTF012', 'OCK009', 'NS012']
+item = ['Cup of Coffee', 'Petit Yogurt with 1 Topping', '$10 off Total Bill', '2 Curry Puffs', '5 Lungo Capsules']
+value = [3, 2, 10, 2, 8]
+expiry = ['10-Jul-2017', '5-May-2017', '1-Jun-2017', '30-May-2017', '28-April-2017']
+category = ["F&B", "F&B", "F&B", "F&B", "F&B"]
 
-5.times do
+limit = merchant.length
+
+limit.times do |n|
   Reward.create(
-  merchant: Faker::Company.name,
-  merchant_code: Faker::Company.suffix,
-  item: Faker::Commerce.promotion_code,
-  value: rand(100),
-  expiry:Faker::Date.forward(180),
-  category:Faker::Commerce.department
+    merchant: merchant.fetch(n),
+    merchant_code: merchant_code.fetch(n),
+    item: item.fetch(n),
+    value: value.fetch(n),
+    expiry: expiry.fetch(n),
+    category: category.fetch(n)
   )
 end
-
-# 5.times do
-#   BankAccountInfo.create(
-#   email: Faker::Internet.email,
-#   bank_name: Faker::Bank.name,
-#   bank_currency: Faker::Address.state_abbr,
-#   account_no: rand(1000),
-#   name_on_account: Faker::StarWars.character,
-#   branch_code: Faker::Bank.swift_bic
-#   )
-# end
