@@ -43,9 +43,9 @@ class Users::RegistrationsController < Devise::RegistrationsController
     # Creating a zero-value income and savings goals for the user
     @user = User.find(current_user)
     @income = Income.new
-    @income.monthly_income = 0
-    @income.monthly_savings_goal = 0
-    @income.final_savings_goal = 0
+    @income.monthly_income = 0.0
+    @income.monthly_savings_goal = 0.0
+    @income.final_savings_goal = 0.0
     @income.user_id = @user.id
     @income.save
 
