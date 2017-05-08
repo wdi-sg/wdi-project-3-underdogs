@@ -1,6 +1,9 @@
 <section class="section">
   <h1 class="title">Top Up</h1>
 
+
+<div class="manualform">
+  <button type="button" id="stripebtn">Stripe Transfer</button>
   <%= form_for :transaction, url: transactions_new_path do |f| %>
   <%= :transaction %>
     <div class="field">
@@ -30,64 +33,80 @@
       </p>
     </div>
   <% end %>
+</div>
 
-  <%= form_tag transactions_new_path do %>
+<div class="stripeform">
+  <button type="button" id="offbtn">Offline Transfer</button>
+  <%= form_tag transactions_newstripe_path do %>
   <div id="error_explanation">
     <% if flash[:error].present? %>
       <p><%= flash[:error] %></p>
     <% end %>
   </div>
   <article>
-    <%= label_tag(:amount, 'Donation Amount:') %>
+    <%= label_tag(:amount, 'Deposit Amount:') %>
     <%= text_field_tag(:amount) %>
   </article>
   <article>
     <%= hidden_field_tag(:stripeToken) %>
   </article>
-  <button id='donateButton'>Donate</button>
+  <button id='depositButton'>Deposit</button>
 <% end %>
 
 <script src="https://checkout.stripe.com/checkout.js"></script>
 <script>
-var handler = StripeCheckout.configure({
-  key: "<%= Rails.configuration.stripe[:publishable_key] %>",
-  locale: 'auto',
-  name: 'Cache',
-  description: 'deposit',
-  token: function(token) {
-    $('input#stripeToken').val(token.id);
-    $('form').submit();
-  }
-});
-$('#donateButton').on('click', function(e) {
-  e.preventDefault();
+$(document).on('turbolinks:load', function () {
+  var handler = StripeCheckout.configure({
+    key: "<%= Rails.configuration.stripe[:publishable_key] %>",
+    locale: 'auto',
+    name: 'Cache',
+    description: 'deposit',
+    token: function(token) {
+      $('input#stripeToken').val(token.id);
+      $('form').submit();
+    }
+  });
+  $('#depositButton').on('click', function(e) {
+    e.preventDefault();
 
-  $('#error_explanation').html('');
+    $('#error_explanation').html('');
 
-  var amount = $('input#amount').val();
-  amount = amount.replace(/\$/g, '').replace(/\,/g, '')
+    var amount = $('input#amount').val();
+    amount = amount.replace(/\$/g, '').replace(/\,/g, '')
 
-  amount = parseFloat(amount);
+    amount = parseFloat(amount);
 
-  if (isNaN(amount)) {
-    $('#error_explanation').html('<p>Please enter a valid amount in USD ($).</p>');
-  }
-  else if (amount < 5.00) {
-    $('#error_explanation').html('<p>Donation amount must be at least $5.</p>');
-  }
-  else {
-    amount = amount * 100; // Needs to be an integer!
-    handler.open({
-      amount: Math.round(amount)
-    })
-  }
-});
+    if (isNaN(amount)) {
+      $('#error_explanation').html('<p>Please enter a valid amount in USD ($).</p>');
+    }
+    else if (amount < 5.00) {
+      $('#error_explanation').html('<p>Donation amount must be at least $5.</p>');
+    }
+    else {
+      amount = amount * 100; // Needs to be an integer!
+      handler.open({
+        amount: Math.round(amount)
+      })
+    }
+  });
+})
 
 // Close Checkout on page navigation
 $(window).on('popstate', function() {
   handler.close();
 });
 </script>
+</div>
 
+<script type="text/javascript">
+$('#stripebtn').click(function(){
+  $('.manualform').hide()
+  $('.stripeform').show()
+})
+$('#offbtn').click(function(){
+  $('.stripeform').hide()
+  $('.manualform').show()
+})
+</script>
 
 </section>
