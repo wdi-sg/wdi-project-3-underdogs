@@ -1,58 +1,69 @@
 <div class="container">
   <section class="section">
-    <h1 class="title">Top Up</h1>
-  <%= link_to "Go back to Dashboard", transactions_path %>
-<br >
-<br >
+    <%= link_to "Go back to My Savings", transactions_path %>
+    <h3 class="title">Top Up</h3>
+
+<%= render 'rewards/progressbar' %>
+
+<br>
+
   <div class="manualform">
-    <button type="button" id="stripebtn">Stripe Transfer</button>
+    <button type="button" id="stripebtn" class="waves-effect waves-light btn z-depth-5">Click Here for Stripe Transfer</button>
+    <br>
+    <br>
+
     <%= form_for :transaction, url: transactions_new_path do |f| %>
-    <%= :transaction %>
+
       <div class="field">
-        <%= f.label :transacted_amount, class: 'label' %>
+        <%= f.label :transacted_amount, 'Internet Banking Top Up Amount ($):', class: 'label' %>
         <p class="control">
-          <%= f.text_field :transacted_amount, class: 'input' %>
+          <%= f.number_field :transacted_amount, class: 'input' %>
         </p>
       </div>
 
       <div class="field">
-        <%= f.label :transaction_date, class: 'label' %>
+        <%= f.label :transaction_date, 'Transaction Date:',class: 'label' %>
         <p class="control">
           <%= f.date_field :transacted_date, class: 'input' %>
         </p>
       </div>
 
       <div class="field">
-        <%= f.label :transaction_no, class: 'label' %>
+        <%= f.label :transaction_no, 'Transaction Number:', class: 'label' %>
         <p class="control">
-          <%= f.text_field :transaction_no, class: 'input' %>
+          <%= f.number_field :transaction_no, class: 'input' %>
         </p>
       </div>
 
       <div class="field">
         <p class="control">
-          <%= f.submit 'Submit', class: 'button is-primary' %>
+          <%= f.submit 'Submit', class: "waves-effect waves-light btn" %>
         </p>
       </div>
     <% end %>
   </div>
 
   <div class="stripeform">
-    <button type="button" id="offbtn">Internet Banking Transfer</button>
+    <button type="button" id="offbtn" class="waves-effect waves-light btn z-depth-5">Click Here for Internet Banking Transfer</button>
+    <br>
+      <blockquote>You can now top up your Cache savings account via Debit Card here by entering your Top Up amount below.</blockquote>
     <%= form_tag transactions_newstripe_path do %>
     <div id="error_explanation">
       <% if flash[:error].present? %>
         <p><%= flash[:error] %></p>
       <% end %>
     </div>
+
+    <br>
+    <br>
     <article>
-      <%= label_tag(:amount, 'Deposit Amount:') %>
+      <%= label_tag(:amount, 'Stripe Top Up Amount ($):') %>
       <%= text_field_tag(:amount) %>
     </article>
     <article>
       <%= hidden_field_tag(:stripeToken) %>
     </article>
-    <button id='depositButton'>Deposit</button>
+    <button id='depositButton' class="waves-effect waves-light btn">Deposit</button>
   <% end %>
 
   <script src="https://checkout.stripe.com/checkout.js"></script>

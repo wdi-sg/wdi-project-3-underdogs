@@ -1,11 +1,11 @@
 class HomepageController < ApplicationController
 
-def homepage
+  def homepage
+    @user = User.new
+  end
 
-end
-
-def publicanalysis
-
-end
+  def publicanalysis
+    @user = User.new
+  end
 
 end

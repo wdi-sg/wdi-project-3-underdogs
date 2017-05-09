@@ -1,0 +1,30 @@
+<div class = "modal" id= "modal2">
+  <div class = "modal-content">
+    <div class = "container">
+      <h3 class="title">Log in</h3>
+
+      <%= form_for(@user, as: @user, url: user_session_path(@user)) do |f| %>
+        <div class="field">
+          <%= f.label :email %><br />
+          <%= f.email_field :email, autofocus: true %>
+        </div>
+
+        <div class="field">
+          <%= f.label :password %><br />
+          <%= f.password_field :password, autocomplete: "off" %>
+        </div>
+
+        <br>
+
+        <div class="actions">
+          <%= f.submit "Log in", class: "modal-trigger waves-effect waves-light btn" %>
+        </div>
+      <% end %>
+
+      <br>
+      <p>Don't have an account yet? <%= link_to 'Sign Up Here', '#modal1', class: 'modal-close' %></p>
+      <br>
+
+    </div>
+  </div>
+</div>

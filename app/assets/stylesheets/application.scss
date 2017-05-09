@@ -20,7 +20,9 @@
  */
 
 body {
+
   font-family: 'Raleway', sans-serif;
+
   display: flex;
   min-height: 100vh;
   flex-direction: column;
@@ -41,8 +43,20 @@ body {
   height: 15px;
 }
 
+.progress {
+  height: 10px;
+}
+
 .manualform{
   display: none;
+}
+
+#modal1, #modal2, #modal3 {
+  color: black;
+}
+
+.devise-alerts, .flash {
+  text-align: center;
 }
 
 .page-footer {
