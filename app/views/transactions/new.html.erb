@@ -17,7 +17,7 @@
       <div class="field">
         <%= f.label :transacted_amount, 'Internet Banking Top Up Amount ($):', class: 'label' %>
         <p class="control">
-          <%= f.text_field :transacted_amount, class: 'input' %>
+          <%= f.number_field :transacted_amount, class: 'input' %>
         </p>
       </div>
 
@@ -31,7 +31,7 @@
       <div class="field">
         <%= f.label :transaction_no, 'Transaction Number:', class: 'label' %>
         <p class="control">
-          <%= f.text_field :transaction_no, class: 'input' %>
+          <%= f.number_field :transaction_no, class: 'input' %>
         </p>
       </div>
 
