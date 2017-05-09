@@ -37,6 +37,7 @@ class TransactionsController < ApplicationController
     @total=  Transaction.select("transacted_amount").where(user_id: current_user).sum("transacted_amount")
     @credit = (@total*0.007).round(0)
     @cashback = (@total*0.003).round(0)
+    @rewarding = @user.rewards.select("value").sum("value")
 
     if @total > 0 && @total <= 1000
       @x = 1000
@@ -133,12 +134,10 @@ end
   def withdrawnew
     @user = User.find(current_user)
     @withdraw = Transaction.new()
-
-    @user = User.find(current_user)
     @total=  Transaction.select("transacted_amount").where(user_id: current_user).sum("transacted_amount")
     @credit = (@total*0.007).round(0)
     @cashback = (@total*0.003).round(0)
-
+    @rewarding = @user.rewards.select("value").sum("value")
     if @total > 0 && @total <= 1000
       @x = 1000
     elsif @total > 1000 && @total <= 3000
@@ -159,11 +158,16 @@ end
   end
 
   def withdrawcreate
+    @user = User.find(current_user)
+    @bankaccount = BankAccountInfo.find(current_user.bank_account_info)
     @withdraw = Transaction.new(withdraw_params)
     @totalamt=  Transaction.select("transacted_amount").where(user_id: current_user).sum("transacted_amount")
     if @withdraw.transacted_amount.blank?
-      redirect_to transactions_withdraw_path
       flash[:notice] = 'Please enter a valid amount'
+      redirect_to transactions_withdraw_path
+    # elsif @bankaccount.account_no.blank?
+    #   flash[:notice] = 'Please key in your bank details'
+    #   redirect_to profileaccount_path
     elsif @totalamt < @withdraw.transacted_amount
       flash[:notice] = 'Sorry but your withdrawal amount exceeds your total savings amount. Please enter a valid withdrawal amount'
       redirect_to transactions_withdraw_path

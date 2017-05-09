@@ -5,7 +5,7 @@ class HomepageController < ApplicationController
   end
 
   def publicanalysis
-
+    @user = User.new
   end
 
 end
