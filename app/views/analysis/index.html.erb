@@ -2,12 +2,28 @@
   <h1>ANALYSIS TEST</h1>
 
   <h5>Fill up your savings goals to compute an analysis of your savings.</h5>
-  <%= link_to('Enter Savings Goals', edit_profile_path(current_user.id), :method => :get) %>
+  <div class="row">
 
-  <h2>Monthly Income: <%= @user.income.monthly_income %></h2>
-  <h2>Monthly Savings Goal: <%= @user.income.monthly_savings_goal %></h2>
-  <h2>Final Savings Goal: <%= @user.income.final_savings_goal %></h2>
-
+    <%= form_for @income, url: analysis_path(@income), class: "col s12", method: :put do |f| %>
+    <div class="row">
+      <div class="input-field col s4">
+        <%= f.label :monthly_income %>
+        <%= f.text_field :monthly_income %>
+      </div>
+      <div class="input-field col s4">
+        <%= f.label :monthly_savings_goal %>
+        <%= f.text_field :monthly_savings_goal %>
+      </div>
+      <div class="input-field col s4">
+        <%= f.label :final_savings_goal %>
+        <%= f.text_field :final_savings_goal %>
+      </div>
+    </div>
+    <div class="row center">
+      <%= f.submit "Update Savings Goals",class: "waves-effect waves-light btn"%>
+    </div>
+    <% end %>
+  </div>
   <table>
      <thead>
          <th>Monthly Salary $</th>
