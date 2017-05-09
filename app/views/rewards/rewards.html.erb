@@ -3,33 +3,46 @@
   <br>
 
 
-  <h2>YOUR CACHE SAVINGS ACCOUNT HAS $<%=@total%> with <%= @credit-@rewarding %> credits!</h2>
-  <h4>
-    total credits used: <%= @rewarding %>
-  </h4>
+<h1>WELCOME TO YOUR REWARDS PAGE!</h1>
+<h3>Reach the amount in your savings and unlock each tier of rewards!</h3>
+<br>
 
-  <h4 class="savings_message"><%= @milestone_savings.fetch(@total, @random_message) %> </h4>
+<h2>YOUR CACHE SAVINGS ACCOUNT HAS $<%=@total%> with <%= @credit-@rewarding %> credits!</h2>
+<h4>
+  total credits used: <%= @rewarding %>
+</h4>
+
+<h4 class="savings_message"><%= @milestone_savings.fetch(@total_savings, @random_message) %> </h4>
+
+<br>
+<%= link_to 'View Claimed Rewards', '#modal3', class: "modal-trigger waves-effect waves-light btn" %>
+<%= render "rewards/claimed" %>
+
+<div>
+  <h2>LIST OF REWARDS</h2>
+
+  <table>
+    <thead>
+        <th>Value</th>
+        <th>Merchant</th>
+        <th>Category</th>
+        <th>Details</th>
+
+    </thead>
+    <tbody>
+      <tr>
+        <% @rewards_list.each do | each | %>
 
 
-  <br>
+        <td><%=each[:value]%></td>
+        <td><%=each[:merchant]%></td>
+        <td><%=each[:category]%></td>
+        <td>
+          <%= link_to "View More", :controller => "rewards", :action => "rewards_id", :id => each[:id]%>
+        </td>
+      </tr>
+      <%end%>
+    </tbody>
+  </table>
 
-
-  <div class = "card-panel">
-    <h6>Total Savings {Savings Progress to $<%= @x %>}</h6>
-    <div class="progress">
-      <div class="determinate" style="width: <%= @percentage_from_final_goal %>%"></div>
-    </div>
-
-    <h6>You have $<%= @credit %> cache dollars to spend on our Rewards Retailers</h6>
-    <div class="progress">
-        <div class="determinate" style="width: <%= @credit%>%"></div>
-    </div>
-
-    </div>
-    <br>
-    <p><%= @milestone_savings.fetch(@total, @random_message) %> </p>
-  <br>
-  <br>
-
-  <%= render 'rewards/list' %>
 </div>

@@ -2,9 +2,23 @@ class RewardsController < ApplicationController
 before_action :authenticate_user!
 
   def rewards
-
+@user = User.find(current_user)
     @total=  Transaction.select("transacted_amount").where(user_id: current_user).sum("transacted_amount")
-    puts "total #{@total}"
+
+    @credit = (@total*0.007).round(0)
+      #to list all rewards
+      #@rewards = Rewards.all
+@rewarding = @user.rewards.select("value").sum("value")
+@showreward = @user.rewards.select("item", "value", "expiry", "merchant")
+      my_array = [
+        'A Good Start With Saving!',
+        'Great Job On Saving!',
+        'Let\'s Keep Saving!',
+        'Excellent Work To Keep Saving!',
+        'Amazing Saving Skills!',
+        'Keep Up The Good Work!'
+      ]
+      @random_message = my_array.sample
 
     if @total == 0
       redirect_to rewards_rewardslist_path
@@ -77,7 +91,7 @@ before_action :authenticate_user!
     @credit = @total*0.007
     @user = User.find(current_user)
     @rewarding = @user.rewards.select("value").sum("value")
-    if @rewards.value < @credit-@rewarding
+    if @rewards.value <= @credit-@rewarding
       current_user.rewards << Reward.find(params[:id])
       current_user.save
         flash[:notice] = "Promo Code for #{@rewards.merchant} is #{@rewards.item}"
@@ -92,9 +106,11 @@ before_action :authenticate_user!
   #   redirect_to rewards_path
   end
 
+
   def rewardslist
     @rewards_list = Reward.all.order(:value)
 
   end
+
 
 end
