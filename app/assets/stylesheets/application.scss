@@ -20,14 +20,27 @@
  */
 
 body {
-  // font-family: 'Questrial', sans-serif;
+
+  font-family: 'Raleway', sans-serif;
+
   display: flex;
   min-height: 100vh;
   flex-direction: column;
+  background-color: $sand;
 }
 
-#logo{
+#logo,.brand-logo{
   color: $secondary-color;
+  font-family: 'Poiret One',cursive;
+}
+
+#ft{
+  font-family: 'Poiret One',cursive;
+  color: white;
+}
+
+.progress{
+  height: 15px;
 }
 
 .progress {
@@ -48,4 +61,25 @@ body {
 
 .page-footer {
    flex: 1 0 auto;
+}
+
+#tpBtn {
+  display: none;
+  position: fixed;
+  bottom: 20px;
+  right: 30px;
+  z-index: 99;
+  border: none;
+  outline: none;
+  background-color: $secondary-color;
+  color: white;
+  cursor: pointer;
+  border-radius: 10px;
+}
+
+#tpBtn:hover {
+  background-color: $primary-color;
+}
+nav ul li.active {
+  background-color: 'rgba(219, 75, 75, 0.8)';
 }

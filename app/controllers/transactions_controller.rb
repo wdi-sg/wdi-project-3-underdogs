@@ -66,7 +66,7 @@ class TransactionsController < ApplicationController
      begin
        @amount = Float(@amount).round(2)
      rescue
-       flash[:error] = 'Charge not completed. Please enter a valid amount in USD ($).'
+       flash[:error] = 'Charge not completed. Please enter a valid amount in SGD ($).'
        redirect_to new_charge_path
        return
      end
@@ -106,11 +106,6 @@ class TransactionsController < ApplicationController
        redirect_to new_charge_path
   end
 
-  def topup
-    @topup = Transaction.new
-    @topup.save
-  end
-
 
   def create
     @transaction = Transaction.new(transaction_params)
@@ -122,8 +117,8 @@ class TransactionsController < ApplicationController
     end
     @transaction.user_id = @user.id
     if @transaction.transacted_amount.blank?
-      redirect_to transactions_new_path
       flash[:notice] = 'Please enter a valid amount'
+      redirect_to transactions_new_path
     else
     @transaction.save
     flash[:notice] = 'You have successfully topped up your Cache savings account!'
@@ -165,9 +160,11 @@ end
     if @withdraw.transacted_amount.blank?
       flash[:notice] = 'Please enter a valid amount'
       redirect_to transactions_withdraw_path
-    # elsif @bankaccount.account_no.blank?
-    #   flash[:notice] = 'Please key in your bank details'
-    #   redirect_to profileaccount_path
+
+    elsif @bankaccount.account_no.blank?
+      flash[:notice] = 'Please key in your bank details'
+      redirect_to profileaccount_path
+
     elsif @totalamt < @withdraw.transacted_amount
       flash[:notice] = 'Sorry but your withdrawal amount exceeds your total savings amount. Please enter a valid withdrawal amount'
       redirect_to transactions_withdraw_path

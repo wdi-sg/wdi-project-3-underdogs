@@ -1,14 +1,16 @@
 <div class="container">
 
+
   <h3>Welcome to your Rewards Page</h3>
 
   <%= render 'rewards/progressbar' %>
 
     <br>
     <p class='center purple-text darken-3'><%= @milestone_savings.fetch(@total, @random_message) %> <%= @user.first_name %></p>
-
-
+<%= link_to 'View Claimed Rewards', '#modal3', class: "modal-trigger waves-effect waves-light btn" %>
+<%= render 'rewards/claimed' %>
   <%= render 'rewards/list' %>
 
   <br>
+
 </div>

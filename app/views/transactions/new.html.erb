@@ -73,7 +73,8 @@
       key: "<%= Rails.configuration.stripe[:publishable_key] %>",
       locale: 'auto',
       name: 'Cache',
-      description: 'deposit',
+      description: 'Deposit',
+      email: '<%= current_user.email%>',
       token: function(token) {
         $('input#stripeToken').val(token.id);
         $('form').submit();
