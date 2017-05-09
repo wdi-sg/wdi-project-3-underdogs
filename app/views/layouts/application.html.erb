@@ -6,7 +6,7 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-    <%= stylesheet_link_tag 'application', 'https://fonts.googleapis.com/css?family=Questrial', media: 'all' %>
+    <%= stylesheet_link_tag 'application', 'https://fonts.googleapis.com/css?family=Poiret+One|Raleway', media: 'all' %>
   </head>
     <body>
 
@@ -16,10 +16,12 @@
         <%=render 'partials/publicnav' %>
     <%end%>
 
-    <div class = "devise-alerts">
-      <p class="notice"><%= notice %></p>
-      <p class="alert"><%= alert %></p>
-    </div>
+    <% if notice || alert %>
+      <div class = "devise-alerts">
+        <p class="notice"><%= notice %></p>
+        <p class="alert"><%= alert %></p>
+      </div>
+    <% end %>
 
     <%= yield %>
 
