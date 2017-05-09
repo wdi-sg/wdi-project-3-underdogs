@@ -91,7 +91,7 @@ end
 
   def withdrawcreate
     @user = User.find(current_user)
-    @bankaccount = BankAccountInfo.find(current_user)
+    @bankaccount = BankAccountInfo.find(current_user.bank_account_info)
     @withdraw = Transaction.new(withdraw_params)
     @totalamt=  Transaction.select("transacted_amount").where(user_id: current_user).sum("transacted_amount")
     if @withdraw.transacted_amount.blank?
