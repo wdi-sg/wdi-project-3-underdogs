@@ -95,11 +95,16 @@ end
   end
 
   def withdrawcreate
+    @user = User.find(current_user)
+    @bankaccount = BankAccountInfo.find(current_user)
     @withdraw = Transaction.new(withdraw_params)
     @totalamt=  Transaction.select("transacted_amount").where(user_id: current_user).sum("transacted_amount")
     if @withdraw.transacted_amount.blank?
       flash[:notice] = 'Please enter a valid amount'
       redirect_to transactions_withdraw_path
+    elsif @bankaccount.account_no.blank?
+      flash[:notice] = 'Please key in your bank details'
+      redirect_to profileaccount_path
     elsif @totalamt < @withdraw.transacted_amount
       flash[:notice] = 'Sorry but your withdrawal amount exceeds your total savings amount. Please enter a valid withdrawal amount'
       redirect_to transactions_withdraw_path

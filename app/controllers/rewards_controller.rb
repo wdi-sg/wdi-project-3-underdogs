@@ -2,7 +2,7 @@ class RewardsController < ApplicationController
 before_action :authenticate_user!
 
   def rewards
-
+@user = User.find(current_user)
     @total=  Transaction.select("transacted_amount").where(user_id: current_user).sum("transacted_amount")
 
     @credit = (@total*0.007).round(0)
