@@ -1,35 +1,16 @@
 <div class="container">
-  <h3>YOUR CACHE SAVINGS ACCOUNT HAS $<%=@total%>!</h3>
-  <br>
 
 
-  <h2>YOUR CACHE SAVINGS ACCOUNT HAS $<%=@total%> with <%= @credit-@rewarding %> credits!</h2>
-  <h4>
-    total credits used: <%= @rewarding %>
-  </h4>
+  <h3>Welcome to your Rewards Page</h3>
 
-  <h4 class="savings_message"><%= @milestone_savings.fetch(@total, @random_message) %> </h4>
+  <%= render 'rewards/progressbar' %>
 
-
-  <br>
-
-
-  <div class = "card-panel">
-    <h6>Total Savings {Savings Progress to $<%= @x %>}</h6>
-    <div class="progress">
-      <div class="determinate" style="width: <%= @percentage_from_final_goal %>%"></div>
-    </div>
-
-    <h6>You have $<%= @credit %> cache dollars to spend on our Rewards Retailers</h6>
-    <div class="progress">
-        <div class="determinate" style="width: <%= @credit%>%"></div>
-    </div>
-
-    </div>
     <br>
-    <p><%= @milestone_savings.fetch(@total, @random_message) %> </p>
-  <br>
+    <p class='center purple-text darken-3'><%= @milestone_savings.fetch(@total, @random_message) %> <%= @user.first_name %></p>
+<%= link_to 'View Claimed Rewards', '#modal3', class: "modal-trigger waves-effect waves-light btn" %>
+<%= render 'rewards/claimed' %>
+  <%= render 'rewards/list' %>
+
   <br>
 
-  <%= render 'rewards/list' %>
 </div>

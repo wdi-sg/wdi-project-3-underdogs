@@ -23,6 +23,7 @@ Rails.application.routes.draw do
 
   resources :analysis
 
+  
   get 'transactions' => 'transactions#index'
   get 'transactions/new' => 'transactions#new'
   # put 'transactions/new' => 'transactions#create'
@@ -32,10 +33,12 @@ Rails.application.routes.draw do
   put 'transactions/withdraw' => 'transactions#withdrawcreate'
 
   get 'rewards' => 'rewards#rewards'
+
   get 'rewards/rewardslist' => 'rewards#rewardslist'
   get 'rewards/:id' => 'rewards#rewards_id', :as => 'reward'
 
 
   post 'rewards/:id' => 'rewards#claimed' , as:"claimed"
+
 
 end

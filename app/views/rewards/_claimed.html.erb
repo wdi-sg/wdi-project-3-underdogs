@@ -1,0 +1,25 @@
+<div class = "modal" id= "modal3">
+  <div class = "modal-content">
+    <div class = "container">
+<h2>My Rewards</h2>
+<table class="responsive-table">
+  <thead>
+    <th>Merchant:</th>
+    <th>Item:</th>
+    <th>Value:</th>
+    <th>Expiry:</th>
+  </thead>
+  <tbody>
+    <% @showreward.each do |tran| %>
+      <tr>
+        <td><%= tran.merchant %></td>
+        <td><%= tran.item %></td>
+        <td>$<%= tran.value %></td>
+        <td><%= tran.expiry %></td>
+      </tr>
+    <%end%>
+  </tbody>
+</table>
+</div>
+</div>
+</div>
