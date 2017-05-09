@@ -10,7 +10,7 @@ end
 gem 'rails', '~> 5.0.2'
 
 # Using postgres as the database for Active Record
-gem 'pg'
+# gem 'pg'
 
 
 # Use Puma as the app server
@@ -71,6 +71,8 @@ group :development do
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
 end
+
+gem 'rails_12factor', group: :production
 
 group :production do
 
