@@ -8,6 +8,7 @@ before_action :authenticate_user!
       #to list all rewards
       #@rewards = Rewards.all
 @rewarding = @user.rewards.select("value").sum("value")
+@showreward = @user.rewards.select("item", "value", "expiry", "merchant")
       my_array = [
         'A Good Start With Saving!',
         'Great Job On Saving!',
@@ -49,7 +50,7 @@ before_action :authenticate_user!
     @credit = @total*0.007
     @user = User.find(current_user)
     @rewarding = @user.rewards.select("value").sum("value")
-    if @rewards.value < @credit-@rewarding
+    if @rewards.value <= @credit-@rewarding
       current_user.rewards << Reward.find(params[:id])
       current_user.save
         flash[:notice] = "Promo Code for #{@rewards.merchant} is #{@rewards.item}"
@@ -63,5 +64,7 @@ before_action :authenticate_user!
     # end
   #   redirect_to rewards_path
   end
+
+
 
 end

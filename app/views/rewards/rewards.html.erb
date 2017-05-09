@@ -11,6 +11,9 @@
 <h4 class="savings_message"><%= @milestone_savings.fetch(@total_savings, @random_message) %> </h4>
 
 <br>
+<%= link_to 'View Claimed Rewards', '#modal3', class: "modal-trigger waves-effect waves-light btn" %>
+<%= render "rewards/claimed" %>
+
 <div>
   <h2>LIST OF REWARDS</h2>
 

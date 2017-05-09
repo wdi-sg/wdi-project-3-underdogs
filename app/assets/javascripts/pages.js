@@ -1,7 +1,6 @@
-$(document).ready(function () {
-  $('.parallax').parallax()
-})
-
 $(document).on('turbolinks:load', function () {
-  // alert('test')
+  $('.parallax').parallax()
+  $('.button-collapse').sideNav()
+
+ $('.modal').modal();
 })
