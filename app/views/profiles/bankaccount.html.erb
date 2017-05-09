@@ -1,6 +1,5 @@
 <div class="container">
   <h1>COMPLETE YOUR BANK ACCOUNT DETAILS</h1>
-  <%= @user.bank_account_info.inspect %>
 
   <h2>Part 2 of 2</h2>
 
@@ -49,7 +48,7 @@
     current_user.bank_account_info.branch_code.present? &&  %>
         <%= link_to "Go back to Dashboard", transactions_path %>
     <% else %>
-      <%= f.submit "Enter Bank Details"%>
+      <%= f.submit "Enter Bank Details", class: "waves-effect waves-light btn"%>
 
   <% end %>
 

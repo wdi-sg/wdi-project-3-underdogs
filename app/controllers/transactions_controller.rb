@@ -120,10 +120,15 @@ class TransactionsController < ApplicationController
       @transaction.transacted_date = DateTime.now.to_date
     end
     @transaction.user_id = @user.id
+    if @transaction.transacted_amount.blank?
+      redirect_to transactions_new_path
+      flash[:notice] = 'Please enter a valid amount'
+    else
     @transaction.save
     flash[:notice] = 'You have successfully topped up your Cache savings account!'
     redirect_to transactions_path
   end
+end
 
   def withdrawnew
     @user = User.find(current_user)
@@ -156,7 +161,10 @@ class TransactionsController < ApplicationController
   def withdrawcreate
     @withdraw = Transaction.new(withdraw_params)
     @totalamt=  Transaction.select("transacted_amount").where(user_id: current_user).sum("transacted_amount")
-    if @totalamt < @withdraw.transacted_amount
+    if @withdraw.transacted_amount.blank?
+      redirect_to transactions_withdraw_path
+      flash[:notice] = 'Please enter a valid amount'
+    elsif @totalamt < @withdraw.transacted_amount
       flash[:notice] = 'Sorry but your withdrawal amount exceeds your total savings amount. Please enter a valid withdrawal amount'
       redirect_to transactions_withdraw_path
     else

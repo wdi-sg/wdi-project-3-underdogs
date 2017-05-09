@@ -98,7 +98,7 @@
       %>
           <%= link_to "Go back to Dashboard", transactions_path %>
       <% else %>
-          <%= f.submit "Update Profile"%>
+          <%= f.submit "Update Profile", class: "waves-effect waves-light btn"%>
     <% end %>
   <% end %>
 
@@ -115,7 +115,9 @@
     <%= f.label :final_savings_goal %>
     <%= f.text_field :final_savings_goal %>
     <br>
-    <%= f.submit "Update Savings Goals"%>
+    <%= f.submit "Update Savings Goals", class: "waves-effect waves-light btn"%>
 
   <% end %>
+  <br>
+  <br>
 </div>

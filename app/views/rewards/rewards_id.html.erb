@@ -1,29 +1,17 @@
 <div class="container">
-  <h3><%=@rewards.item %></h3>
 
-   <%= image_tag('llaollao.jpg')%>
+  <%= link_to('Back to Rewards List', rewards_path, :method => :get) %>
 
-  <h2>Reward Chosen</h2>
-  <table>
-    <thead>
-      <th>ID</th>
-      <th>Retailer</th>
-      <th>Value</th>
-      <th>Expiry Date</th>
-      <th>Category</th>
-    </thead>
-    <tbody>
-      <tr>
-      <td><%=@rewards.id %></td>
-      <td><%=@rewards.merchant%></td>
-      <td><%=@rewards.value%></td>
-      <td><%=@rewards.expiry%></td>
-      <td><%=@rewards.category%></td>
-    </tr>
-    </tbody>
-  </table>
+  <h3>I want to claim { <%=@rewards.item %> }</h3>
 
-  <p>Promo Code for <%=@rewards.merchant%> will be shown on the next page after claiming selected reward!</p>
+<div class= 'center-align'>
+  <%= image_tag("#{@rewards.id}.jpg")%>
+</div>
 
-  <%= link_to "Claim", claimed_path, :id => @rewards.id, class: "button",method: :post%>
+  <p class='center purple-text darken-3'>The promotion code for <%=@rewards.merchant%> will be shown on the next page after clicking on the Claim button below!</p>
+
+  <%= link_to "Claim", claimed_path, :id => @rewards.id, class: "waves-effect waves-light btn", method: :post%>
+
+  <br>
+  <br>
 </div>
