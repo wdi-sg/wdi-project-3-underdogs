@@ -25,12 +25,19 @@ Rails.application.routes.draw do
 
   get 'transactions' => 'transactions#index'
   get 'transactions/new' => 'transactions#new'
-  put 'transactions/new' => 'transactions#create'
+  # put 'transactions/new' => 'transactions#create'
+  post 'transactions/new' => 'transactions#create'
+  post 'transactions/newstripe' => 'transactions#createstripe'
   get 'transactions/withdraw' => 'transactions#withdrawnew'
   put 'transactions/withdraw' => 'transactions#withdrawcreate'
 
   get 'rewards' => 'rewards#rewards'
-  get 'rewards/:id' => 'rewards#rewards_id'
-  post 'rewards/:id' => 'rewards#claimed' ,as:"claimed"
+
+  get 'rewards/rewardslist' => 'rewards#rewardslist'
+  get 'rewards/:id' => 'rewards#rewards_id', :as => 'reward'
+
+
+  post 'rewards/:id' => 'rewards#claimed' , as:"claimed"
+
 
 end
