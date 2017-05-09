@@ -1,30 +1,33 @@
-<h2>Total Savings: <%= @total %></h2>
+<div class="container">
+  <h3 class="title">My Cache Savings</h3>
 
-<h1>Credits: <%= @credit %></h1>
+  <%= link_to'Complete Profile', edit_profile_path(current_user.id), class: "waves-effect waves-light btn" %>
+  <%= link_to 'Top Up', transactions_new_path, class: "waves-effect waves-light btn" %>
+  <%= link_to 'Withdraw', transactions_withdraw_path, class: "waves-effect waves-light btn" %>
 
-<br />
-<br />
-<%= link_to('Complete Profile', edit_profile_path(current_user.id), :method => :get) %>
+  <br>
+  <br>
+    <%= render 'rewards/progressbar' %>
+
+  <br>
+
+  <h3>Transaction History</h3>
+    <table class="responsive-table bordered centered">
+      <thead>
+        <th>Transaction Date (yyyy/mm/dd)</th>
+        <th>Transaction Amount ($)</th>
+      </thead>
+      <tbody>
+        <% @sumofmoney.each do |tran| %>
+          <tr>
+            <td><%= tran.transacted_date %></td>
+            <td><%= tran.transacted_amount %></td>
+          </tr>
+        <%end%>
+      </tbody>
+    </table>
+</div>
+
 <br>
-
-<%= link_to('Top Up', transactions_new_path, :method => :get) %>
-<%= link_to('Withdraw', transactions_withdraw_path, :method => :get) %>
-<%= link_to('Rewards', rewards_path, :method => :get) %>
-
-<br />
-
-
-<table class="responsive-table">
-  <thead>
-    <th>Transaction Date:</th>
-    <th>Transaction Amount:</th>
-  </thead>
-  <tbody>
-    <% @sumofmoney.each do |tran| %>
-      <tr>
-        <td><%= tran.transacted_date %></td>
-        <td>$<%= tran.transacted_amount %></td>
-      </tr>
-    <%end%>
-  </tbody>
-</table>
+<br>
+<br>

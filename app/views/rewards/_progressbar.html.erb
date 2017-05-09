@@ -1,0 +1,19 @@
+<div class = "card-panel">
+    <h5>You currently have: </h5>
+    <br>
+    <h6>Total Savings: $<%= @total %> {Savings Progress to $<%= @x %>} <%= link_to 'Top Up', transactions_new_path %> </h6>
+    <div class="progress">
+      <div class="determinate" style="width: <%= @percentage_from_final_goal %>%"></div>
+    </div>
+
+    <h6>Cash Back: $<%= @cashback %></h6>
+    <div class="progress">
+      <div class="determinate" style="width: <%= @cashback%>%"></div>
+    </div>
+
+    <h6>Cache Dollars: $<%= @credit %></h6>
+    <div class="progress">
+        <div class="determinate" style="width: <%= @credit%>%"></div>
+    </div>
+    <p>Total credits used: $<%= @rewarding %></p>
+</div>

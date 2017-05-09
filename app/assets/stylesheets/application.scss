@@ -20,39 +20,24 @@
  */
 
 body {
-  font-family: 'Questrial', sans-serif;
-  // line-height: 150%;
+  // font-family: 'Questrial', sans-serif;
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
 }
 
 #logo{
   color: $secondary-color;
 }
 
-// .navbar {
-//     list-style-type: none;
-//     margin: 0;
-//     padding: 0;
-//     overflow: hidden;
-//     background-color: #A23B72;
-// }
-//
-// .navitems {
-//     float: left;
-// }
-//
-// .navitems a {
-//     display: block;
-//     color: white;
-//     text-align: center;
-//     padding: 14px 16px;
-//     text-decoration: none;
-// }
-//
-// /* Change the link color to #111 (black) on hover */
-// .navitems a:hover {
-//     background-color: #2E86AB;
-// }
+.progress {
+  height: 10px;
+}
 
-// h1, h2, h3 {
-//   color: #3B1F2B;
-// }
+.manualform{
+  display: none;
+}
+
+.page-footer {
+   flex: 1 0 auto;
+}

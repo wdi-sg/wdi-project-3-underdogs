@@ -1,23 +1,12 @@
-<h3>YOUR CACHE SAVINGS ACCOUNT HAS $<%=@total%>!</h3>
-<br>
-<br>
+<div class="container">
+
+  <h3>Welcome to your Rewards Page</h3>
+
+  <%= render 'rewards/progressbar' %>
+
+    <br>
+    <p><%= @milestone_savings.fetch(@total, @random_message) %> <%= @user.first_name %></p>
 
 
-<div class = "card-panel">
-  <h6>Total Savings {Savings Progress to $<%= @x %>}</h6>
-  <div class="progress">
-    <div class="determinate" style="width: <%= @percentage_from_final_goal %>%"></div>
-  </div>
-
-  <h6>You have $<%= @credit %> cache dollars to spend on our Rewards Retailers</h6>
-  <div class="progress">
-      <div class="determinate" style="width: <%= @credit%>%"></div>
-  </div>
-
-  </div>
-  <br>
-  <p><%= @milestone_savings.fetch(@total_savings, @random_message) %> </p>
-<br>
-<br>
-
-<%= render 'rewards/list' %>
+  <%= render 'rewards/list' %>
+</div>
