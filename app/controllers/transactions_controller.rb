@@ -25,7 +25,7 @@ class TransactionsController < ApplicationController
      begin
        @amount = Float(@amount).round(2)
      rescue
-       flash[:error] = 'Charge not completed. Please enter a valid amount in USD ($).'
+       flash[:error] = 'Charge not completed. Please enter a valid amount in SGD ($).'
        redirect_to new_charge_path
        return
      end
@@ -63,11 +63,6 @@ class TransactionsController < ApplicationController
      rescue Stripe::CardError => e
        flash[:error] = e.message
        redirect_to new_charge_path
-  end
-
-  def topup
-    @topup = Transaction.new
-    @topup.save
   end
 
 
