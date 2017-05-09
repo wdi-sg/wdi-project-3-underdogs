@@ -49,9 +49,7 @@
 
     <p>At the end of the year you will be getting back $864 worth of stuff just for saving $7,200. Now thats a pretty decent deal, you're happy and so is Hamlet. Out of the $864, you get $216 in cash and $648 worth of Cache rewards! These rewards ranges
       from discounts at eateries or at boutiques.</p>
-
-    <%= link_to 'Sign Up', '#modal1', class: "modal-trigger waves-effect waves-light btn" %></li>
-    <%= render 'homepage/modal' %>
+  <%= link_to('Financial Forecast', publicanalysis_path, :method => :get, class: "modal-trigger waves-effect waves-light btn") %>
     </div>
 </div>
 
@@ -66,7 +64,12 @@
     <p>Ans 1:You can withdraw how much you want but the rewards are calculated on a average daily balance</p>
     <p>Qn 2:Is it always a standard list of rewards we can choose from?</p>
     <p>Ans 2:Our list of rewards always changes and there is something for everyone.</p>
+
+    <%= link_to 'Sign Up Here', '#modal1', class: "modal-trigger waves-effect waves-light btn" %>
+    <%= render 'homepage/signupmodal' %>
+    <%= render 'partials/loginmodal' %>
   </div>
+
 </div>
 <div class="parallax-container">
   <div class="parallax"><%= image_tag('background5.jpg') %></div>
