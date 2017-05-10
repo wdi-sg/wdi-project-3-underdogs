@@ -1,6 +1,10 @@
 <div class="container">
   <h1>ANALYSIS TEST</h1>
-
+<%= @months/12 %>years to achieve your goal by saving 1000 a month
+<br />
+from your current savings, you are <%= @month/12.round(1) %> years away to achieve your goal
+<br />
+you are <%= (@months-@month)/12 %> years ahead of the initial forecast
   <h5>Fill up your savings goals to compute an analysis of your savings.</h5>
   <%= link_to('Enter Savings Goals', edit_profile_path(current_user.id), :method => :get) %>
 
