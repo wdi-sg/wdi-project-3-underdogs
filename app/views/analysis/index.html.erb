@@ -25,6 +25,32 @@
     </div>
     <% end %>
   </div>
+
+  <table>
+   <thead>
+       <th>Monthly Salary $</th>
+       <th>Annual Salary $</th>
+       <th>Savings Ratio %</th>
+       <th>Annual Savings $</th>
+       <th>Cache Awards</th>
+       <th>Cash Back</th>
+       <th>Total Incentives</th>
+   </thead>
+   <tbody>
+     <tr>
+       <td><%= @user.income.monthly_income %></td>
+       <td><%= @user.income.monthly_income * 12 %></td>
+       <td><%= 100 * @user.income.monthly_savings_goal / @user.income.monthly_income rescue 0%></td>
+       <td><%= @user.income.monthly_savings_goal * 12%></td>
+       <td><%= (@user.income.monthly_savings_goal * 12 * 0.045).round(0)%></td>
+       <td><%= (@user.income.monthly_savings_goal * 12 * 0.015).round(0)%></td>
+       <td><%= (@user.income.monthly_savings_goal * 12 * 0.06).round(0)%></td>
+     </tr>
+   </tbody>
+  </table>
+
+  <p>The following table shows you how quickly your savings and rewards can accumulate with Cache! We assume that over time your income and your savings will grow by a modest 10% a year. Based on this assumption, we have provided a hypothetical analysis that shows you what the next 10 years of your savings and rewards might look like with Cache.</p>
+  <br>
   <table>
    <thead>
        <th># of Years</th>

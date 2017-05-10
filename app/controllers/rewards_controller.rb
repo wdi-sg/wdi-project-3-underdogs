@@ -5,7 +5,7 @@ before_action :authenticate_user!
 @user = User.find(current_user)
     @total=  Transaction.select("transacted_amount").where(user_id: current_user).sum("transacted_amount")
 
-    @credit = (@total*0.00075*12).round(0)
+    @credit = (@total*0.0075*12).round(0)
       #to list all rewards
       #@rewards = Rewards.all
 @rewarding = @user.rewards.select("value").sum("value")
@@ -27,7 +27,7 @@ before_action :authenticate_user!
       redirect_to rewards_rewardslist_path
     else
       @user = User.find(current_user)
-      @credit = (@total*0.00075*12).round(0)
+      @credit = (@total*0.0075*12).round(0)
       @rewarding = @user.rewards.select("value").sum("value")
       my_array = [
           'A Good Start With Saving!',
@@ -85,7 +85,7 @@ before_action :authenticate_user!
     #to find the specific reward
     @rewards = Reward.find(params[:id])
     @total=  Transaction.select("transacted_amount").where(user_id: current_user).sum("transacted_amount")
-    @credit = (@total*0.00075*12).round(0)
+    @credit = (@total*0.0075*12).round(0)
     @user = User.find(current_user)
     @rewarding = @user.rewards.select("value").sum("value")
   end
@@ -93,7 +93,7 @@ before_action :authenticate_user!
   def claimed
     @rewards = Reward.find(params[:id])
     @total =  Transaction.select("transacted_amount").where(user_id: current_user).sum("transacted_amount")
-    @credit = @total*0.00075*12
+    @credit = @total*0.0075*12
     @user = User.find(current_user)
     @rewarding = @user.rewards.select("value").sum("value")
     puts @rewards.value

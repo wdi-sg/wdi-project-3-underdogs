@@ -8,12 +8,12 @@
 
     <h6>Cash Back: $<%= @cashback %></h6>
     <div class="progress">
-      <div class="determinate" style="width: <%= @cashback%>%"></div>
+      <div class="determinate" style="width: <%= (@cashback/@total.to_f) * 100%>%"></div>
     </div>
 
     <h6>Cache Dollars: $<%= @credit - @rewarding%></h6>
     <div class="progress">
-        <div class="determinate" style="width: <%= @credit - @rewarding%>%"></div>
+        <div class="determinate" style="width: <%= ((@credit - @rewarding)/ @total.to_f )* 100%>%"></div>
     </div>
     <p>Total Cache Dollars Used: $<%= @rewarding %></p>
 </div>
