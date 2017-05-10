@@ -66,7 +66,7 @@
     <button id='depositButton' class="waves-effect waves-light btn">Deposit</button>
   <% end %>
 
-  <script src="https://checkout.stripe.com/checkout.js"></script>
+
   <script>
   $(document).on('turbolinks:load', function () {
     var handler = StripeCheckout.configure({
@@ -91,7 +91,7 @@
       amount = parseFloat(amount);
 
       if (isNaN(amount)) {
-        $('#error_explanation').html('<p>Please enter a valid amount in USD ($).</p>');
+        $('#error_explanation').html('<p>Please enter a valid amount in SGD ($).</p>');
       }
       else if (amount < 5.00) {
         $('#error_explanation').html('<p>Donation amount must be at least $5.</p>');
