@@ -94,7 +94,7 @@ before_action :authenticate_user!
 
   def rewardslist
     @rewards_list = Reward.all.order(:value)
-
   end
+
 
 end

@@ -47,10 +47,16 @@ gem 'stripe'
 gem 'materialize-sass'
 # Using jquery with turbolinks for materlize
 gem 'jquery-turbolinks'
-
-
+# Adds country dropdown field for profile
 gem 'country_select'
+# Adds nationality dropdown field for profile
 gem 'nationality', '~> 1.0.3'
+# Using gem to find longitude and latitude
+gem 'geocoder'
+# Using gem to get gmaps
+gem 'gmaps4rails'
+# Using gem for underscore a js library
+gem 'underscore-rails'
 
 
 # Use Capistrano for deployment
