@@ -14,9 +14,9 @@
 </div>
 
   <p class='center purple-text darken-3'>The promotion code for <%=@rewards.merchant%> will be shown on the next page after clicking on the Claim button below!</p>
-
+<div class='row center-align'>
   <%= link_to "Claim", claimed_path, :id => @rewards.id, class: "waves-effect waves-light btn", method: :post%>
-
+</div>
   <br>
   <br>
 </div>

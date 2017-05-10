@@ -1,5 +1,5 @@
 <div class="container">
-  <h3>Profile of <%=current_user.email%></h3>
+  <h3 class="title center">Profile of <%=current_user.email%></h3>
   <%= link_to('Enter your Bank Account Details', profileaccount_path) %>
   <br>
   <%= link_to('Change Password', edit_user_registration_path) %>
@@ -85,8 +85,7 @@
       : <%= current_user.mobile_no %>
     <% end%>
   <br>
-  <br>
-
+  <div class='row center-align'>
     <% if current_user.first_name.present? &&
       current_user.last_name.present? &&
       current_user.id_no.present? &&
@@ -101,10 +100,11 @@
       <% else %>
           <%= f.submit "Update Profile", class: "waves-effect waves-light btn"%>
     <% end %>
+  </div>
   <% end %>
 
 
-  <h3 class="title">CREATE OR UPDATE YOUR SAVINGS GOALS</h3>
+  <h3 class="title center">CREATE OR UPDATE YOUR SAVINGS GOALS</h3>
 
 
   <%= form_for @income, url: analysis_path, method: :put do |f| %>
@@ -118,10 +118,10 @@
     <%= f.label :final_savings_goal %>
     <%= f.text_field :final_savings_goal %>
     <br>
-    <%= f.submit "Update Savings Goals", class: "waves-effect waves-light btn"%>
-
+    <div class='row center-align'>
+      <%= f.submit "Update Savings Goals", class: "waves-effect waves-light btn"%>
+    </div>
   <% end %>
-  <br>
   <br>
 </div>
 
