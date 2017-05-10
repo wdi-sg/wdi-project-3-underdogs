@@ -5,10 +5,12 @@ class TransactionsController < ApplicationController
     @user = User.find(current_user)
     @sumofmoney = Transaction.select("transacted_amount", "transacted_date").where(user_id: current_user.id)
     @total =  Transaction.select("transacted_amount").where(user_id: current_user).sum("transacted_amount")
-    @credit = (@total*0.007).round(0)
+    @credit = (@total*0.0075*12).round(0)
+    puts '@CREDIT TIMES 12'
+    puts @credit
     # @date = Transaction.select("created_at").where("created_at >?", 2/4/2017 )
     @rewarding = @user.rewards.select("value").sum("value")
-    @cashback = (@total*0.003).round(0)
+    @cashback = (@total*0.0025*12).round(0)
 
     if @total > 0 && @total <= 1000
       @x = 1000
@@ -35,8 +37,8 @@ class TransactionsController < ApplicationController
 
     @user = User.find(current_user)
     @total=  Transaction.select("transacted_amount").where(user_id: current_user).sum("transacted_amount")
-    @credit = (@total*0.007).round(0)
-    @cashback = (@total*0.003).round(0)
+    @credit = (@total*0.0075*12).round(0)
+    @cashback = (@total*0.0025*12).round(0)
     @rewarding = @user.rewards.select("value").sum("value")
 
     if @total > 0 && @total <= 1000
@@ -130,8 +132,8 @@ end
     @user = User.find(current_user)
     @withdraw = Transaction.new()
     @total=  Transaction.select("transacted_amount").where(user_id: current_user).sum("transacted_amount")
-    @credit = (@total*0.007).round(0)
-    @cashback = (@total*0.003).round(0)
+    @credit = (@total*0.0075*12).round(0)
+    @cashback = (@total*0.0025*12).round(0)
     @rewarding = @user.rewards.select("value").sum("value")
     if @total > 0 && @total <= 1000
       @x = 1000
