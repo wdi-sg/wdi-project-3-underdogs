@@ -25,7 +25,7 @@
     </div>
     <% end %>
   </div>
-
+<p class = "center deep-purple-text darken-4">Current Savings: $<%= @saved %>. Estimated time to reach goal: <%= @finaltime.round(0) %> months. </p>
   <table>
    <thead>
        <th>Monthly Salary $</th>
@@ -49,7 +49,7 @@
    </tbody>
   </table>
 
-  <p>The following table shows you how quickly your savings and rewards can accumulate with Cache! We assume that over time your income and your savings will grow by a modest 10% a year. Based on this assumption, we have provided a hypothetical analysis that shows you what the next 10 years of your savings and rewards might look like with Cache.</p>
+  <p>The following table shows you how quickly your savings and rewards can accumulate with Cache! We assume that over time your income and your savings will grow by a modest 10% a year. Based on this assumption, we have provided a hypothetical analysis that shows you what the next 10 years of your savings and rewards might look like with Cache. With the current monthly savings target, you would require <b class=" deep-purple-text darken-4"><%= (@originaltime/12).round(0) %> years</b> to achieve your final savings target.</p>
   <br>
   <table>
    <thead>

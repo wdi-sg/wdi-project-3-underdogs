@@ -5,6 +5,14 @@ before_action :authenticate_user!
   def index
     @user = User.find(current_user)
     @income = Income.where(user_id: current_user.id)[0]
+    @final = Income.select("final_savings_goal").where(user_id: current_user.id).sum("final_savings_goal")
+    @monthly = Income.select("monthly_savings_goal").where(user_id: current_user.id).sum("monthly_savings_goal")
+    @monthlyinterest = (@monthly*0.003*12)+@monthly
+    @originaltime = @final/@monthlyinterest
+    @saved = Transaction.select("transacted_amount").where(user_id: current_user.id).sum("transacted_amount")
+    @interest = @saved*0.003*12
+    @totalsaved = @saved + @interest
+    @finaltime = @final/@totalsaved
   end
 
   def update
