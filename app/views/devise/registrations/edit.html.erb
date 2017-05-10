@@ -1,7 +1,8 @@
 <div class = "container">
+  <br>
   <%= link_to "Back to Profile", edit_profile_path(current_user.id) %>
 
-  <h3 class="title">Change Password for: <%= current_user.email%></h3>
+  <h3 class="title center">Change Password for: <%= current_user.email%></h3>
 
   <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
     <%= devise_error_messages! %>
@@ -29,7 +30,7 @@
       <%= f.password_field :current_password, autocomplete: "off" %>
     </div>
 
-    <div class="actions">
+    <div class='row center-align'>
       <%= f.submit "Update", class: "waves-effect waves-light btn" %>
     </div>
     <br>
