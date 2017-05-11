@@ -2,7 +2,7 @@
 
 Link to [Cache](http://cachesg.herokuapp.com/)
 
-# **User Story**
+## **User Story**
 
 During the past 20 years, and more recently in the last 10 years, savers have been completely disincentivized by financial institutions to save money. In the 1990s consumers were given interest rates of 8-10% for keeping their money in Singaporean banks. Today, that rate is close to 0%.
 
@@ -18,24 +18,24 @@ People in our plan can earn as much as 12% on each dollar they save over the cou
 
 For our consumer partners it's a great model for customer acquisition as most of their investment is coming back to them as consumers must spend their Cache rewards dollars at the participating consumer partners.
 
-# **The Analysis**
+## **The Analysis**
 
 The project required a lot of programming code for formulas. We first created a financial analysis based on various assumptions, and used these numbers to hard code the static pages like the public analysis. For the private analysis, we needed to construct sophisticated formulas to address various user inputs. Below is a snapshot of our analysis for the project on MS Excel.
 
 ![alt tag](https://github.com/wdi-sg/wdi-project-3-underdogs/blob/vikas/excelForReadme.png)
 
-# **Design and Functionality**
+## **Design and Functionality**
 1. Users can explore the public pages of the site but are asked to sign up for more details
 2. Users must register and login with a username and password. They are asked to create a profile with their bank information and goals.
 3. A private analysis is generated based on the financial figures users input.
 4. Users can deposit or withdraw from their Cache account.
 5. Users can view their rewards balances and redeem from their rewards.
 
-# **Entity Relationship Diagram**
+## **Entity Relationship Diagram**
 
 ![alt tag](https://github.com/wdi-sg/wdi-project-3-underdogs/blob/vikas/CacheERD.png)
 
-# **Languages & Applications**
+## **Languages & Applications**
 - HTML
 - CSS
 - Javascript using Node.js framework
@@ -43,11 +43,11 @@ The project required a lot of programming code for formulas. We first created a 
 - Integration with Postico, a cloud-based database
 - Deployment on Heroku
 
-# **Project Team**
+## **Project Team**
 - Cara Chew
 - Ian Chong
 - Vikas Garg
 - Bao Ling Koh
 
-# **Acknowledgements**
+## **Acknowledgements**
 Thanks to our fellow students and instructors at GA Singapore for their encouragement and support throughout this project!
