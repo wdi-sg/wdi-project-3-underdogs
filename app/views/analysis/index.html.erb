@@ -1,13 +1,32 @@
-<h1>ANALYSIS TEST</h1>
+<div class="container">
+  <h3 class="title center">Savings Analysis</h3>
 
-<h5>Fill up your savings goals to compute an analysis of your savings.</h5>
-<%= link_to('Enter Savings Goals', edit_profile_path(current_user.id), :method => :get) %>
+  <h5 class="center">Fill up your savings goals to compute an analysis of your savings.</h5>
+  <br>
+  <div class="row">
 
-<h2>Monthly Income: <%= @user.income.monthly_income %></h2>
-<h2>Monthly Savings Goal: <%= @user.income.monthly_savings_goal %></h2>
-<h2>Final Savings Goal: <%= @user.income.final_savings_goal %></h2>
-
-<table>
+    <%= form_for @income, url: analysis_path(@income), class: "col s12", method: :put do |f| %>
+    <div class="row">
+      <div class="input-field col s4">
+        <%= f.label :monthly_income %>
+        <%= f.text_field :monthly_income %>
+      </div>
+      <div class="input-field col s4">
+        <%= f.label :monthly_savings_goal %>
+        <%= f.text_field :monthly_savings_goal %>
+      </div>
+      <div class="input-field col s4">
+        <%= f.label :final_savings_goal %>
+        <%= f.text_field :final_savings_goal %>
+      </div>
+    </div>
+    <div class="row center">
+      <%= f.submit "Update Savings Goals",class: "waves-effect waves-light btn"%>
+    </div>
+    <% end %>
+  </div>
+<p class = "center deep-purple-text darken-4">Current Savings: $<%= @saved rescue 0%>. Estimated time to reach goal: <%= @finaltime.round(0) rescue 0 %> months. </p>
+  <table>
    <thead>
        <th>Monthly Salary $</th>
        <th>Annual Salary $</th>
@@ -28,13 +47,11 @@
        <td><%= (@user.income.monthly_savings_goal * 12 * 0.06).round(0)%></td>
      </tr>
    </tbody>
-</table>
-<br>
-<body>
-The following table shows you how quickly your savings and rewards can accumulate with Cache! We assume that over time your income and your savings will grow by a modest 10% a year. Based on this assumption, we have provided a hypothetical analysis that shows you what the next 10 years of your savings and rewards might look like with Cache.
-<br><br>
-</body>
-<table>
+  </table>
+
+  <p>The following table shows you how quickly your savings and rewards can accumulate with Cache! We assume that over time your income and your savings will grow by a modest 10% a year. Based on this assumption, we have provided a hypothetical analysis that shows you what the next 10 years of your savings and rewards might look like with Cache. With the current monthly savings target, you would require <b class=" deep-purple-text darken-4"><%= (@originaltime/12).round(0) rescue 0 %> years</b> to achieve your final savings target.</p>
+  <br>
+  <table>
    <thead>
        <th># of Years</th>
        <th>Total Savings and Cash Back*</th>
@@ -821,7 +838,8 @@ The following table shows you how quickly your savings and rewards can accumulat
      </tr>
    </tbody>
  </table>
- <body>
- *In the example above, 'Total Savings and Cash Back' includes amounts you have contributed into your Cache Savings Plan and the value of cash awards contributed by Cache. It does not include the 'Total Cache Awards', which are amounts that can be used at participating merchants but cannot be redeemed or withdrawn for cash.
- <br><br>
- </body>
+   <body>
+   *In the example above, 'Total Savings and Cash Back' includes amounts you have contributed into your Cache Savings Plan and the value of cash awards contributed by Cache. It does not include the 'Total Cache Awards', which are amounts that can be used at participating merchants but cannot be redeemed or withdrawn for cash.
+   <br><br>
+   </body>
+ </div>

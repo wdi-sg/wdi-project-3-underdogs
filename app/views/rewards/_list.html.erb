@@ -1,0 +1,28 @@
+<h3 >LIST OF REWARDS</h3>
+
+<table >
+  <thead>
+      <th>Value</th>
+      <th>Merchant</th>
+      <th>Item / Service</th>
+      <th>Category</th>
+      <th>Details</th>
+
+  </thead>
+  <tbody>
+    <tr>
+      <% @rewards_list.each do | each | %>
+
+
+      <td><%=each[:value]%></td>
+      <td><%=each[:merchant]%></td>
+      <td><%=each[:item]%></td>
+      <td><%=each[:category]%></td>
+      <td>
+      <%= link_to "View More", :controller => "rewards", :action => "rewards_id", :id => each[:id]  %>
+      </td>
+    </tr>
+    <%end%>
+  </tbody>
+</table>
+</div>

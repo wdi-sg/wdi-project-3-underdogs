@@ -1,39 +1,127 @@
-<section class="section">
-  <h1 class="title">Top Up</h1>
+<div class="container">
+  <section class="section">
+    <%= link_to "Go back to My Savings", transactions_path %>
+    <h3 class="title center">Top Up</h3>
 
-  <%= link_to "Go back to Dashboard", transactions_path %>
-  <br>
-  <br>
+<%= render 'rewards/progressbar' %>
 
-  <%= form_for @transaction, url: transactions_new_path, method: :put do |f| %>
+<br>
 
-    <div class="field">
-      <%= f.label :transacted_amount, class: 'label' %>
-      <p class="control">
-        <%= f.number_field :transacted_amount, class: 'input' %>
-      </p>
+  <div class="manualform">
+    <button type="button" id="stripebtn" class="waves-effect waves-light btn z-depth-5">Click Here for Stripe Transfer</button>
+    <br>
+    <br>
+
+    <%= form_for :transaction, url: transactions_new_path do |f| %>
+
+      <div class="field">
+        <%= f.label :transacted_amount, 'Internet Banking Top Up Amount ($):', class: 'label' %>
+        <p class="control">
+          <%= f.number_field :transacted_amount, class: 'input' %>
+        </p>
+      </div>
+
+      <div class="field">
+        <%= f.label :transaction_date, 'Transaction Date:',class: 'label' %>
+        <p class="control">
+          <%= f.date_field :transacted_date, class: 'input' %>
+        </p>
+      </div>
+
+      <div class="field">
+        <%= f.label :transaction_no, 'Transaction Number:', class: 'label' %>
+        <p class="control">
+          <%= f.number_field :transaction_no, class: 'input' %>
+        </p>
+      </div>
+
+      <div class="field">
+        <p class="control">
+          <%= f.submit 'Submit', class: "waves-effect waves-light btn" %>
+        </p>
+      </div>
+    <% end %>
+  </div>
+
+  <div class="stripeform">
+    <button type="button" id="offbtn" class="waves-effect waves-light btn z-depth-5">Click Here for Internet Banking Transfer</button>
+    <br>
+      <blockquote>You can now top up your Cache savings account via Debit Card here by entering your Top Up amount below.</blockquote>
+    <%= form_tag transactions_newstripe_path do %>
+    <div id="error_explanation">
+      <% if flash[:error].present? %>
+        <p><%= flash[:error] %></p>
+      <% end %>
     </div>
 
-    <div class="field">
-      <%= f.label :transaction_date, class: 'label' %>
-      <p class="control">
-        <%= f.date_field :transacted_date, class: 'input' %>
-      </p>
-    </div>
-
-    <div class="field">
-      <%= f.label :transaction_no, class: 'label' %>
-      <p class="control">
-        <%= f.number_field :transaction_no, class: 'input' %>
-      </p>
-    </div>
-
-    <div class="field">
-      <p class="control">
-        <%= f.submit 'Submit', class: 'button is-primary' %>
-      </p>
-    </div>
+    <br>
+    <br>
+    <article>
+      <%= label_tag(:amount, 'Stripe Top Up Amount ($):') %>
+      <%= text_field_tag(:amount) %>
+    </article>
+    <article>
+      <%= hidden_field_tag(:stripeToken) %>
+    </article>
+    <button id='depositButton' class="waves-effect waves-light btn">Deposit</button>
   <% end %>
 
+  <script src="https://checkout.stripe.com/checkout.js"></script>
+  <script>
+  $(document).on('turbolinks:load', function () {
+    var handler = StripeCheckout.configure({
+      key: "<%= Rails.configuration.stripe[:publishable_key] %>",
+      locale: 'auto',
+      name: 'Cache',
+      description: 'Deposit',
+      email: '<%= current_user.email%>',
+      token: function(token) {
+        $('input#stripeToken').val(token.id);
+        $('form').submit();
+      }
+    });
+    $('#depositButton').on('click', function(e) {
+      e.preventDefault();
 
-</section>
+      $('#error_explanation').html('');
+
+      var amount = $('input#amount').val();
+      amount = amount.replace(/\$/g, '').replace(/\,/g, '')
+
+      amount = parseFloat(amount);
+
+      if (isNaN(amount)) {
+        $('#error_explanation').html('<p>Please enter a valid amount in SGD ($).</p>');
+      }
+      else if (amount < 5.00) {
+        $('#error_explanation').html('<p>Donation amount must be at least $5.</p>');
+      }
+      else {
+        amount = amount * 100; // Needs to be an integer!
+        handler.open({
+          amount: Math.round(amount)
+        })
+      }
+    });
+  })
+
+  // Close Checkout on page navigation
+  $(window).on('popstate', function() {
+    handler.close();
+  });
+  </script>
+  </div>
+
+  <script type="text/javascript">
+  $('#stripebtn').click(function(){
+    $('.manualform').hide()
+    $('.stripeform').show()
+  })
+  $('#offbtn').click(function(){
+    $('.stripeform').hide()
+    $('.manualform').show()
+  })
+  </script>
+
+  </section>
+</div>

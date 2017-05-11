@@ -1,58 +1,60 @@
-<h1>COMPLETE YOUR BANK ACCOUNT DETAILS</h1>
-<%= @user.bank_account_info.inspect %>
+<div class="container">
+  <h3 class = "title center">Complete your Bank Account Details</h3>
 
-<h2>Part 2 of 2</h2>
+  <p>Please fill up your bank account details to process your withdrawal requests.</p>
+  <p>Your bank account details can only be entered once so please check your details carefully before you update your fields.</p>
 
-<h3>Bank Account Details</h3>
-
-<%= form_for @bank, url: profileaccount_path, method: :put do |f| %>
-  <%= f.label :bank_name %>
-  <%  if current_user.bank_account_info.bank_name.blank? %>
-    <%= f.text_field :bank_name %>
-  <% else %>
-  : <%= current_user.bank_account_info.bank_name%>
-  <% end%>
-<br>
-  <%= f.label :bank_currency %>
-  <%  if current_user.bank_account_info.bank_currency.blank? %>
-    <%= f.text_field :bank_currency %>
-  <% else %>
-  : <%= current_user.bank_account_info.bank_currency%>
-  <% end%>
-<br>
-  <%= f.label :account_no %>
-  <%  if current_user.bank_account_info.account_no.blank? %>
-    <%= f.text_field :account_no %>
-  <% else %>
-  : <%= current_user.bank_account_info.account_no%>
-  <% end%>
-<br>
-  <%= f.label :name_on_account %>
-  <%  if current_user.bank_account_info.name_on_account.blank? %>
-    <%= f.text_field :name_on_account %>
-  <% else %>
-  : <%= current_user.bank_account_info.name_on_account%>
-  <% end %>
-<br>
-  <%= f.label :branch_code %>
-  <%  if current_user.bank_account_info.branch_code.blank? %>
-    <%= f.text_field :branch_code %>
-  <% else %>
-  : <%= current_user.bank_account_info.branch_code%>
-  <% end %>
-<br>
-<% if current_user.bank_account_info.bank_name.present? &&
-  current_user.bank_account_info.bank_currency.present? &&
-  current_user.bank_account_info.account_no.present? &&
-  current_user.bank_account_info.name_on_account.present? &&
-  current_user.bank_account_info.branch_code.present? &&  %>
-      <%= link_to "Go back to Dashboard", transactions_path %>
-  <% else %>
-    <%= f.submit "Enter Bank Details"%>
-
-<% end %>
-
-<% end %>
-
-<p>I confirm that by entering your bank details, all information provided above are true and correct to the best of my knowledge and you may rely on the accuracy thereof.</p>
-<p>To update your bank account details, please email us at allaboutcache@gmail.com.</p>
+  <%= form_for @bank, url: profileaccount_path, method: :put do |f| %>
+    <%= f.label :bank_name %>
+    <%  if current_user.bank_account_info.bank_name.blank? %>
+      <%= f.text_field :bank_name %>
+    <% else %>
+    : <%= current_user.bank_account_info.bank_name%>
+    <% end%>
+  <br>
+    <%= f.label :bank_currency %>
+    <%  if current_user.bank_account_info.bank_currency.blank? %>
+      <%= f.text_field :bank_currency %>
+    <% else %>
+    : <%= current_user.bank_account_info.bank_currency%>
+    <% end%>
+  <br>
+    <%= f.label :account_no %>
+    <%  if current_user.bank_account_info.account_no.blank? %>
+      <%= f.text_field :account_no %>
+    <% else %>
+    : <%= current_user.bank_account_info.account_no%>
+    <% end%>
+  <br>
+    <%= f.label :name_on_account %>
+    <%  if current_user.bank_account_info.name_on_account.blank? %>
+      <%= f.text_field :name_on_account %>
+    <% else %>
+    : <%= current_user.bank_account_info.name_on_account%>
+    <% end %>
+  <br>
+    <%= f.label :branch_code %>
+    <%  if current_user.bank_account_info.branch_code.blank? %>
+      <%= f.text_field :branch_code %>
+    <% else %>
+    : <%= current_user.bank_account_info.branch_code%>
+    <% end %>
+  <br>
+  <br>
+  <div class='row center-align'>
+    <% if current_user.bank_account_info.bank_name.present? &&
+      current_user.bank_account_info.bank_currency.present? &&
+      current_user.bank_account_info.account_no.present? &&
+      current_user.bank_account_info.name_on_account.present? &&
+      current_user.bank_account_info.branch_code.present? &&  %>
+          <%= link_to "Go back to My Savings", transactions_path %>
+      <% else %>
+        <%= f.submit "Enter Bank Details", class: "waves-effect waves-light btn"%>
+        <% end %>
+        <% end %>
+  </div>
+      <p>I confirm that by entering your bank details, all information provided above are true and correct to the best of my knowledge and you may rely on the accuracy thereof.</p>
+      <p>To update your bank account details, please email us at allaboutcache@gmail.com.</p>
+  <br>
+  <br>
+</div>

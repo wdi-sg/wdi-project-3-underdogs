@@ -1,71 +1,83 @@
+<!-- Scroll to Top Button -->
+<a class="waves-effect waves-light btn" id="tpBtn" onclick="topFunction()"><i class="material-icons left">swap_vert</i>Top</a>
+
+<!-- Image #1 -->
 <div class="parallax-container">
   <div class="parallax"><%= image_tag('background3.jpg') %></div>
   <h1 class="center-align" id='logo'>Cache</h1>
 </div>
-<div class="section white">
-  <div class="row container">
-    <h2 class="header">Saving has never been easier</h2>
-    <p class="grey-text text-darken-3 lighten-3">Ever found yourself having too much month at the end of your money? If you do then Cache is the perfect saving plan for you! And if you don't find yourself in that predicament...Cache is still the perfect saving plan for you as well! Who wouldn't like having more cash and attractive awards on the side?!</p>
-    <p>So you wanna find out more about Cache! Not too worry we got your back.</p>
-    <p>Think of Cache as a digital floating cloud piggy bank. Just deposit a portion of your monthly income and get awesome stuff (ranging from cash back and even discounts from retailers!) from just saving money in your digital cloud pig! (lets call it 'Hamlet') <i class="em em-pig"></i> For every $100 you deposit you get back $1, 25% of that $1 ($0.25) would be cash, where you can spend anywhere or you could save it too. The other 75% of that $1 ($0.75) would be pooled into your Cache reward balance, where it can be converted into discount or promotion for our retail partners!</p>
-    <p>Getting too confusing? Do not fret, below is a little break down as to how this saving works and how much stand to earn!</p>
-  </div>
-</div>
+
+<!-- Introduction Text Section #1 -->
+<%= render 'homepage/intro' %>
+
+<!-- Image #2 -->
 <div class="parallax-container">
   <div class="parallax"><%= image_tag('background2.jpg') %></div>
 </div>
+
+<!-- Financial Brief Text Section #2 -->
 <div class="section white">
   <div class="row container">
-    <h2 class="header">Breaking it down</h2>
+    <h2 class="header center">Breaking it down money-wise</h2>
     <p class="grey-text text-darken-3 lighten-3">Alright, lets assume you are earning a modest $3000 per month. And you save a healthy chunk of 20% from paycheck, the table below shows the annual saving and awards you get back!</p>
 
-    <table>
-       <thead>
-           <th>Monthly Salary</th>
-           <th>Annual Salary</th>
-           <th>Savings Ratio</th>
-           <th>Annual Savings</th>
-           <th>Cache Awards</th>
-           <th>Cash Back</th>
-           <th>Total Incentives</th>
-       </thead>
-       <tbody>
-         <tr>
-           <td>$3,000</td>
-           <td>$36,000</td>
-           <td>20%</td>
-           <td>$7,200</td>
-           <td>$648</td>
-           <td>$216</td>
-           <td>$864</td>
-         </tr>
-       </tbody>
-    </table>
+    <br>
 
-   <p>At the end of the year you will be getting back $864 worth of stuff just for saving $7,200. Now thats a pretty decent deal, you're happy and so is Hamlet. Out of the $864, you get $216 in cash and $648 worth of Cache rewards! These rewards ranges from discounts at eateries or at boutiques.</p>
+    <%= render 'homepage/calculation' %>
+
+    <br>
+
+    <p>At the end of the year you will be getting back <%= number_to_currency(@twelve_percent_of_savings, precision: 0) %> worth of stuff just for saving <%= number_to_currency(@annual_savings /12, precision: 0) %> per month for 1 year. Now thats a pretty decent deal, you're happy and so is Hamlet. <i class="em em-pig"></i></p>
+    <p>Out of the <%= number_to_currency(@annual_savings, precision: 0) %>, you get <%= number_to_currency(@twelve_percent_of_savings * 0.3, precision: 0) %> in cash and <%= number_to_currency(@twelve_percent_of_savings * 0.7, precision: 0) %> worth of Cache rewards! These rewards ranges from discounts at eateries or at boutiques.</p>
+    <div class='row center-align'>
+      <%= link_to('Financial Forecast', publicanalysis_path, :method => :get, class: "waves-effect waves-light btn") %>
+    </div>
   </div>
 </div>
+
+<!-- Image #3 -->
 <div class="parallax-container">
   <div class="parallax"><%= image_tag('background1.jpg') %></div>
 </div>
+
+<!-- FAQ Text Section #3 -->
 <div class="section white">
   <div class="row container">
     <h2 class="header">Common Questions</h2>
-    <p>Qn 1:How long do I have to keep my money in there for?</p>
-    <p>Ans 1:You can withdraw how much you want but the rewards are calculated on a average daily balance</p>
-    <p>Qn 2:Is it always a standard list of rewards we can choose from?</p>
-    <p>Ans 2:Our list of rewards always changes and there is something for everyone.</p>
+    <p>Qn 1: How long do I have to keep my money in there for?</p>
+    <p>Ans 1: Cache savings account is your savings You can withdraw how much you want but the rewards are calculated on an average daily balance.</p>
+    <p>Qn 2: Is it always a standard list of rewards we can choose from?</p>
+    <p>Ans 2: Our list of rewards always changes and there is something for everyone.</p>
+  <div class='row center-align'>
+    <%= link_to 'Sign Up Here', '#modal1', class: "modal-trigger waves-effect waves-light btn" %>
   </div>
+    <%= render 'homepage/signupmodal' %>
+    <%= render 'partials/loginmodal' %>
+  </div>
+
+<!-- Image #4 -->
 </div>
 <div class="parallax-container">
   <div class="parallax"><%= image_tag('background5.jpg') %></div>
 </div>
-<div class="section white">
-  <div class="row container">
-    <h2 class="header">Partners</h2>
 
-  </div>
-</div>
+<!-- Partners Text Section #4 -->
+<%= render 'homepage/partners' %>
+
+<!-- Image #5 -->
 <div class="parallax-container">
   <div class="parallax"><%= image_tag('background6.jpg') %></div>
 </div>
+
+<!-- For the scroll to top button -->
+<script type="text/javascript">
+window.onscroll = function () { scrollFunction()}
+
+function scrollFunction () {
+  if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+    document.getElementById('tpBtn').style.display = 'block'
+  } else {
+    document.getElementById('tpBtn').style.display = 'none'
+  }
+}
+</script>

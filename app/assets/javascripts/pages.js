@@ -1,7 +1,16 @@
-$(document).ready(function () {
-  $('.parallax').parallax()
-})
-
 $(document).on('turbolinks:load', function () {
-  // alert('test')
+  $('.parallax').parallax()
+  $('.button-collapse').sideNav()
+
+
+  $('#tpBtn').click(function(){
+    $("body, html").animate({
+    scrollTop: $("body").position().top
+},500)
+  })
+
+ $('.modal').modal();
+
+
+
 })
