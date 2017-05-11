@@ -1,2 +1,3 @@
 module RewardsHelper
+
 end

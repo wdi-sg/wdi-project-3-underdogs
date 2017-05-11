@@ -5,7 +5,7 @@ before_action :authenticate_user!
 @user = User.find(current_user)
     @total=  Transaction.select("transacted_amount").where(user_id: current_user).sum("transacted_amount")
 
-    @credit = (@total*0.007).round(0)
+    @credit = (@total*0.0075*12).round(0)
       #to list all rewards
       #@rewards = Rewards.all
 @rewarding = @user.rewards.select("value").sum("value")
@@ -20,13 +20,16 @@ before_action :authenticate_user!
       ]
       @random_message = my_array.sample
 
+    puts "total #{@total}"
+    @cashback = (@total*0.0025*12).round(0)
+
     if @total == 0
       redirect_to rewards_rewardslist_path
     else
       @user = User.find(current_user)
-      @credit = (@total*0.0075).round(0)
-@rewarding = @user.rewards.select("value").sum("value")
-        my_array = [
+      @credit = (@total*0.0075*12).round(0)
+      @rewarding = @user.rewards.select("value").sum("value")
+      my_array = [
           'A Good Start With Saving!',
           'Great Job On Saving!',
           'Let\'s Keep Saving!',
@@ -82,19 +85,23 @@ before_action :authenticate_user!
     #to find the specific reward
     @rewards = Reward.find(params[:id])
     @total=  Transaction.select("transacted_amount").where(user_id: current_user).sum("transacted_amount")
-    @credit = (@total*0.0075).round(0)
+    @credit = (@total*0.0075*12).round(0)
+    @user = User.find(current_user)
+    @rewarding = @user.rewards.select("value").sum("value")
   end
 
   def claimed
     @rewards = Reward.find(params[:id])
     @total =  Transaction.select("transacted_amount").where(user_id: current_user).sum("transacted_amount")
-    @credit = @total*0.007
+    @credit = @total*0.0075*12
     @user = User.find(current_user)
     @rewarding = @user.rewards.select("value").sum("value")
+    puts @rewards.value
+    puts @credit-@rewarding
     if @rewards.value <= @credit-@rewarding
       current_user.rewards << Reward.find(params[:id])
       current_user.save
-        flash[:notice] = "Promo Code for #{@rewards.merchant} is #{@rewards.item}"
+        flash[:notice] = "You have claimed #{@rewards.item} from #{@rewards.merchant}. Please flash this page to our retailers upon redemption and cite this promotion code: #{@rewards.merchant_code}."
         redirect_to rewards_path
     else
       flash[:notice] = "You do not have enough Cache Dollars to redeem this reward."

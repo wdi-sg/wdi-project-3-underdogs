@@ -1,14 +1,17 @@
 <div class="container">
   <section class="section">
-    <h1 class="title">Withdraw</h1>
+    <h1 class="title center">Withdraw</h1>
 
-    <%= link_to "Go back to Dashboard", transactions_path %>
+    <%= link_to "Go back to My Savings", transactions_path %>
+
+    <%= render 'rewards/progressbar' %>
+
     <br>
-    <br>
+
     <%= form_for :withdraw, url: transactions_withdraw_path, method: :put do |f| %>
 
       <div class="field">
-        <%= f.label :transacted_amount, class: 'label' %>
+        <%= f.label :transacted_amount, 'Withdrawal Amount ($):', class: 'label' %>
         <p class="control">
           <%= f.number_field :transacted_amount, class: 'input' %>
         </p>
@@ -17,7 +20,7 @@
 
       <div class="field">
         <p class="control">
-          <%= f.submit 'Submit', class: 'button is-primary' %>
+          <%= f.submit 'Submit', class: 'waves-effect waves-light btn' %>
         </p>
 
       </div>

@@ -1,12 +1,12 @@
 <div class="container">
-  <h1>COMPLETE YOUR FREAKIN PROFILE: <%=current_user.email%></h1>
-
-  <p>Your profile can only be inputted once so please check your details carefully before you update your fields.</p>
-  <p>If you would like to edit your details, please contact us at account@cache.com.</p>
-
+  <h3 class="title center">Profile of <%=current_user.email%></h3>
   <%= link_to('Enter your Bank Account Details', profileaccount_path) %>
   <br>
   <%= link_to('Change Password', edit_user_registration_path) %>
+
+  <p>Your profile can only be entered once so please check your details carefully before you update your fields.</p>
+  <p>If you would like to edit your details, please contact us at allaboutcache@gmail.com.</p>
+
 
 
   <%= form_for @user, url: profile_path, method: :put do |f| %>
@@ -85,7 +85,7 @@
       : <%= current_user.mobile_no %>
     <% end%>
   <br>
-
+  <div class='row center-align'>
     <% if current_user.first_name.present? &&
       current_user.last_name.present? &&
       current_user.id_no.present? &&
@@ -98,11 +98,14 @@
       %>
           <%= link_to "Go back to Dashboard", transactions_path %>
       <% else %>
-          <%= f.submit "Update Profile"%>
+          <%= f.submit "Update Profile", class: "waves-effect waves-light btn"%>
     <% end %>
+  </div>
   <% end %>
 
-  <h1>CREATE OR UPDATE YOUR SAVINGS GOALS</h1>
+
+  <h3 class="title center">CREATE OR UPDATE YOUR SAVINGS GOALS</h3>
+
 
   <%= form_for @income, url: analysis_path, method: :put do |f| %>
 
@@ -115,7 +118,15 @@
     <%= f.label :final_savings_goal %>
     <%= f.text_field :final_savings_goal %>
     <br>
-    <%= f.submit "Update Savings Goals"%>
-
+    <div class='row center-align'>
+      <%= f.submit "Update Savings Goals", class: "waves-effect waves-light btn"%>
+    </div>
   <% end %>
+  <br>
 </div>
+
+<script>
+  $(document).ready(function() {
+    $('select').material_select(); //for Materialize-css framework - to load the dropdown menu
+  })
+</script>

@@ -1,38 +1,40 @@
-<h2>Change Password for:</h2>
-<h3><%= current_user.email%></h3>
+<div class = "container">
+  <br>
+  <%= link_to "Back to Profile", edit_profile_path(current_user.id) %>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-  <%= devise_error_messages! %>
+  <h3 class="title center">Change Password for: <%= current_user.email%></h3>
 
-  <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-    <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
-  <% end %>
+  <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+    <%= devise_error_messages! %>
 
-  <div class="field">
-    <h4>Please enter your new password.</h4>
-    <%= f.label :password %>
-    <%= f.password_field :password, autocomplete: "off" %>
-    <% if @minimum_password_length %>
+    <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+      <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+    <% end %>
+
+    <div >
+      <%= f.label :password, 'Enter Your New Password:'%>
+      <%= f.password_field :password, autocomplete: "off" %>
+      <% if @minimum_password_length %>
       <br />
       <em><%= @minimum_password_length %> characters minimum</em>
-    <% end %>
-  </div>
+      <% end %>
+    </div>
 
-  <div class="field">
-    <h4>Please confirm your new password.</h4>
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "off" %>
-  </div>
+    <div >
+      <%= f.label :password_confirmation, 'Verify Your New Password:' %><br />
+      <%= f.password_field :password_confirmation, autocomplete: "off" %>
+    </div>
 
-  <div class="field">
-    <h4>Please enter your current password to verify your request to change password.</h4>
-    <%= f.label :current_password %><br />
-    <%= f.password_field :current_password, autocomplete: "off" %>
-  </div>
+    <div >
+      <%= f.label :current_password, 'Enter your existing password to verify request:' %><br />
+      <%= f.password_field :current_password, autocomplete: "off" %>
+    </div>
 
-  <div class="actions">
-    <%= f.submit "Update" %>
-  </div>
-<% end %>
+    <div class='row center-align'>
+      <%= f.submit "Update", class: "waves-effect waves-light btn" %>
+    </div>
+    <br>
+  <% end %>
 
-<%= link_to "Back", :back %>
+
+</div>
