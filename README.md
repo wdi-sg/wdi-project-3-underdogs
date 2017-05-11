@@ -1,8 +1,6 @@
 # **Cache, cashing in on savings!**
 
-# **The Site**
-
-[Cache](http://cachesg.herokuapp.com/)
+Link to [Cache](http://cachesg.herokuapp.com/)
 
 # **User Story**
 
