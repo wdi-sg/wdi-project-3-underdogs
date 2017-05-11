@@ -24,18 +24,18 @@ The project required a lot of programming code for formulas. We first created a 
 
 ![alt tag](https://github.com/wdi-sg/wdi-project-3-underdogs/blob/vikas/excelForReadme.png)
 
-## **Design and Functionality**
+# **Design and Functionality**
 1. Users can explore the public pages of the site but are asked to sign up for more details
 2. Users must register and login with a username and password. They are asked to create a profile with their bank information and goals.
 3. A private analysis is generated based on the financial figures users input.
 4. Users can deposit or withdraw from their Cache account.
 5. Users can view their rewards balances and redeem from their rewards.
 
-## **Entity Relationship Diagram**
+# **Entity Relationship Diagram**
 
 ![alt tag](https://github.com/wdi-sg/wdi-project-3-underdogs/blob/vikas/CacheERD.png)
 
-## **Languages & Applications**
+# **Languages & Applications**
 - HTML
 - CSS
 - Javascript using Node.js framework
@@ -43,11 +43,11 @@ The project required a lot of programming code for formulas. We first created a 
 - Integration with Postico, a cloud-based database
 - Deployment on Heroku
 
-## **Project Team**
+# **Project Team**
 - Cara Chew
 - Ian Chong
 - Vikas Garg
 - Bao Ling Koh
 
-## **Acknowledgements**
+# **Acknowledgements**
 Thanks to our fellow students and instructors at GA Singapore for their encouragement and support throughout this project!
