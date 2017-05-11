@@ -53,23 +53,3 @@ The project required a lot of programming code for formulas. We first created a 
 
 ## **Acknowledgements**
 Thanks to our fellow students and instructors at GA Singapore for their encouragement and support throughout this project!
-
-
-
-# README text from before
-
-# A FINTECH product
-
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-* System dependencies
-* Configuration
-* Database creation
-* Database initialization
-* How to run the test suite
-* Services (job queues, cache servers, search engines, etc.)
-* Deployment instructions
