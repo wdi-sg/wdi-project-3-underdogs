@@ -35,7 +35,7 @@ The project required a lot of programming code for formulas. We first created a 
 
 ## **Entity Relationship Diagram**
 
-
+![alt tag](https://github.com/wdi-sg/wdi-project-3-underdogs/blob/vikas/CacheERD.png)
 
 ## **Languages & Applications**
 - HTML
