@@ -9,6 +9,7 @@
 
   <p class = "center"><em>Current Cache Dollars:</em> $<%= @credit - @rewarding%> <em>Cache Value for Reward:</em> $<%=@rewards.value %></p>
 
+
 <div class= 'center-align'>
   <%= image_tag("#{@rewards.id}.jpg")%>
 </div>
@@ -17,6 +18,9 @@
 <div class='row center-align'>
   <%= link_to "Claim", claimed_path, :id => @rewards.id, class: "waves-effect waves-light btn", method: :post%>
 </div>
-  <br>
-  <br>
+
+  <h3 class = "title center">Outlets Nearby</h3>
+<%= render 'partials/maps' %>
+<br>
+
 </div>

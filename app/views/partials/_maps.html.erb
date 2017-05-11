@@ -1,0 +1,88 @@
+<div id="map"></div>
+<script type="text/javascript">
+// This example requires the Places library. Include the libraries=places
+    // parameter when you first load the API. For example:
+    // <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&libraries=places">
+
+    var map;
+    var infoWindow;
+
+    //initialize map to the center of sinpore if no geolocation is added
+    function initMap() {
+      var singapore = {lat: 1.352, lng: 103.819};
+      map = new google.maps.Map(document.getElementById('map'), {
+        center: singapore,
+        zoom: 15
+      });
+
+      //google map window itself
+      infoWindow = new google.maps.InfoWindow();
+
+      // Try HTML5 geolocation.
+        if (navigator.geolocation) {
+          navigator.geolocation.getCurrentPosition(function(position) {
+            var pos = {
+              lat: position.coords.latitude,
+              lng: position.coords.longitude
+            };
+
+            // setting marker of current location
+            infoWindow.setPosition(pos);
+            var marker = new google.maps.Marker({
+              map: map,
+              position: pos
+            });
+            // adding in infobox when clicking on marker
+            google.maps.event.addListener(marker, 'click', function() {
+              infoWindow.setContent('Current Location');
+              infoWindow.open(map, this);
+            });
+            map.setCenter(pos);
+          }, function() {
+            handleLocationError(true, infoWindow, map.getCenter());
+          });
+        } else {
+          // Browser doesn't support Geolocation
+          handleLocationError(false, infoWindow, map.getCenter());
+        }
+
+   function handleLocationError(browserHasGeolocation, infoWindow, pos) {
+        infoWindow.setPosition(pos);
+        infoWindow.setContent(browserHasGeolocation ?
+                              'Error: The Geolocation service failed.' :
+                              'Error: Your browser doesn\'t support geolocation.');
+        infoWindow.open(map);
+      }
+
+      // looking for places with the same merchant name
+      var service = new google.maps.places.PlacesService(map);
+      service.textSearch({
+        location: singapore,
+        query: '<%=@rewards.merchant%>'
+      }, callback);
+    }
+
+    // creating a loop to run thru all the places found
+    function callback(results, status) {
+      if (status === google.maps.places.PlacesServiceStatus.OK) {
+        for (var i = 0; i < results.length; i++) {
+          createMarker(results[i]);
+        }
+      }
+    }
+
+    //creating marker for each of the place
+    function createMarker(place) {
+      var placeLoc = place.geometry.location;
+      var marker = new google.maps.Marker({
+        map: map,
+        position: place.geometry.location
+      });
+
+      google.maps.event.addListener(marker, 'click', function() {
+        infoWindow.setContent(place.name);
+        infoWindow.open(map, this);
+      });
+    }
+</script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDtHj8tjiZM12fgzt9Dqc7VymEej48SwaU&libraries=places&callback=initMap" async defer></script>

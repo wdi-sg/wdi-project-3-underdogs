@@ -9,9 +9,9 @@
 
   <div class="manualform">
     <button type="button" id="stripebtn" class="waves-effect waves-light btn z-depth-5">Click Here for Stripe Transfer</button>
-    <br>
-    <br>
-
+<blockquote>
+  Make top-up transferrable to DBS bank account number: 274-29394-0
+</blockquote>
     <%= form_for :transaction, url: transactions_new_path do |f| %>
 
       <div class="field">
@@ -54,8 +54,6 @@
       <% end %>
     </div>
 
-    <br>
-    <br>
     <article>
       <%= label_tag(:amount, 'Stripe Top Up Amount ($):') %>
       <%= text_field_tag(:amount) %>
