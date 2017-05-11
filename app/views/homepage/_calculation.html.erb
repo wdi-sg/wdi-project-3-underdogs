@@ -1,0 +1,18 @@
+<table class="responsive-table bordered centered">
+  <thead>
+    <% @financial_header_array.each do | e | %>
+      <th><%= e %></th>
+    <% end %>
+  </thead>
+  <tbody>
+    <tr>
+      <td><%= number_to_currency(@mthly_sal, precision: 0) %></td>
+      <td><%= number_to_currency(@mthly_sal * 12, precision: 0) %></td>
+      <td><%= number_to_percentage(@save_ratio, precision: 0) %></td>
+      <td><%= number_to_currency(@annual_savings, precision: 0) %></td>
+      <td><%= number_to_currency(@twelve_percent_of_savings * 0.35, precision: 0) %></td>
+      <td><%= number_to_currency(@twelve_percent_of_savings * 0.15, precision: 0) %></td>
+      <td><%= number_to_currency(@twelve_percent_of_savings * 0.5, precision: 0) %></td>
+    </tr>
+  </tbody>
+</table>

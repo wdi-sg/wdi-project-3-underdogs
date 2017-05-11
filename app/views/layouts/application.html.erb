@@ -3,10 +3,13 @@
   <head>
     <title>Cache</title>
     <%= csrf_meta_tags %>
-
+    <%= favicon_link_tag 'favicon.ico' %>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <%= stylesheet_link_tag 'application', 'https://fonts.googleapis.com/css?family=Poiret+One|Raleway', media: 'all' %>
+
+    <%= javascript_include_tag 'https://checkout.stripe.com/checkout.js' %>
+
   </head>
     <body>
 
@@ -16,12 +19,22 @@
         <%=render 'partials/publicnav' %>
     <%end%>
 
-    <% if notice || alert %>
-      <div class = "devise-alerts">
-        <p class="notice"><%= notice %></p>
-        <p class="alert"><%= alert %></p>
-      </div>
+
+
+    <% if flash %>
+      <% flash.each do |key, value| %>
+        <% if value.class == String %>
+          <p class="alert"><%= value %></p>
+        <% else %>
+         <% value.each do |k,v| %>
+           <p class="alert"><%= v[0] %></p>
+         <% end %>
+      <% end %>
+
+      <% end %>
     <% end %>
+
+
 
     <%= yield %>
 
@@ -30,6 +43,7 @@
     <!-- <script type='text/javascript' src="js/jquery.min.js"></script>
     <script type="text/javascript" src="js/materialize.min.js"></script> -->
   </body>
+
   <%= render 'partials/footer' %>
 
 </html>

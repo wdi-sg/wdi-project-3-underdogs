@@ -1,7 +1,9 @@
 <div class="container">
   <section class="section">
     <%= link_to "Go back to My Savings", transactions_path %>
-    <h3 class="title">Top Up</h3>
+
+    <h3 class="title center">Top Up</h3>
+
 
 <%= render 'rewards/progressbar' %>
 
@@ -9,8 +11,10 @@
 
   <div class="manualform">
     <button type="button" id="stripebtn" class="waves-effect waves-light btn z-depth-5">Click Here for Stripe Transfer</button>
-    <br>
-    <br>
+
+<blockquote>
+  Make top-up transferrable to DBS bank account number: 274-29394-0
+</blockquote>
 
     <%= form_for :transaction, url: transactions_new_path do |f| %>
 
@@ -54,8 +58,6 @@
       <% end %>
     </div>
 
-    <br>
-    <br>
     <article>
       <%= label_tag(:amount, 'Stripe Top Up Amount ($):') %>
       <%= text_field_tag(:amount) %>
@@ -66,7 +68,7 @@
     <button id='depositButton' class="waves-effect waves-light btn">Deposit</button>
   <% end %>
 
-  <script src="https://checkout.stripe.com/checkout.js"></script>
+
   <script>
   $(document).on('turbolinks:load', function () {
     var handler = StripeCheckout.configure({
@@ -91,7 +93,7 @@
       amount = parseFloat(amount);
 
       if (isNaN(amount)) {
-        $('#error_explanation').html('<p>Please enter a valid amount in USD ($).</p>');
+        $('#error_explanation').html('<p>Please enter a valid amount in SGD ($).</p>');
       }
       else if (amount < 5.00) {
         $('#error_explanation').html('<p>Donation amount must be at least $5.</p>');

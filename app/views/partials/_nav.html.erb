@@ -1,6 +1,6 @@
 <nav>
     <div class="nav-wrapper">
-      <a href="/transactions" class="brand-logo">Cache</a>
+      <a href="/transactions" class="brand-logo"><i class="fa fa-database" aria-hidden="true"></i>Cache</a>
       <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
       <ul class="right hide-on-med-and-down">
         <li class="<%= (request.original_url.include? 'transactions') ? 'active' : '' %>"><%= link_to('My Savings', transactions_path, :method => :get) %></li>
