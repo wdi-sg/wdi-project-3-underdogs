@@ -13,7 +13,10 @@
 
     </div>
 
-    <h6>Cache Dollars: $<%= @credit - @rewarding%></h6>
+    <h6>Cache Dollars: $<% if @credit-@rewarding <0 %>
+      <%= 0 %>
+      <% else %><%= @credit - @rewarding%>
+    <% end %></h6>
     <div class="progress">
 
         <div class="determinate" style="width: <%= ((@credit - @rewarding)/ @total.to_f )* 100%>%"></div>

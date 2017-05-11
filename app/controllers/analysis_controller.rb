@@ -13,9 +13,9 @@ before_action :authenticate_user!
     @originaltime = @final.to_f/@monthlyinterest.to_f
     @saved = Transaction.select("transacted_amount").where(user_id: current_user.id).sum("transacted_amount")
     @interest = @saved*0.003*6
-    @totalsaved = @saved + @interest
+    @totalsaved = @saved+@interest
     @diffamount = @final-@totalsaved
-    @finaltime = @diffamount/@monthly
+    @finaltime = @diffamount/@monthlyinterest
   end
 
   def update
