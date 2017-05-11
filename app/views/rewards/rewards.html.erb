@@ -4,8 +4,9 @@
 
   <%= render 'rewards/progressbar' %>
 
-    <br>
+<% if @total > 0 %>
     <p class='center purple-text darken-3'><%= @milestone_savings.fetch(@total, @random_message) %> <%= @user.first_name %></p>
+<% end  %>
     <div class='row center-align'>
       <%= link_to 'View Claimed Rewards', '#modal3', class: "modal-trigger waves-effect waves-light btn" %>
     </div>
