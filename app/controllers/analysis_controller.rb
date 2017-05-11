@@ -11,7 +11,7 @@ before_action :authenticate_user!
     @monthly = Income.select("monthly_savings_goal").where(user_id: current_user.id).sum("monthly_savings_goal")
     @monthlyinterest = (@monthly*0.003*6).to_f
     @totalmonthly = @monthlyinterest+@monthly
-    @originaltime = @final.to_f/@totalmonthly.to_f
+    @originaltime = @final.to_f/@totalmonthly.to_f rescue 0
     @saved = Transaction.select("transacted_amount").where(user_id: current_user.id).sum("transacted_amount")
     @interest = @saved*0.003*6
     @totalsaved = @saved+@interest

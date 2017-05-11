@@ -24,10 +24,10 @@ before_action :authenticate_user!
 
     @cashback = (@total*0.0025*6).round(0)
 
-    # if @total == 0
-    #   redirect_to rewards_rewardslist_path
-    # else
-      # @user = User.find(current_user)
+    if @total == 0
+      redirect_to rewards_rewardslist_path
+    else
+      @user = User.find(current_user)
 
       @credit = (@total*0.0075*6).round(0)
 
@@ -81,7 +81,7 @@ before_action :authenticate_user!
           @x = 1
         end
           @percentage_from_final_goal = (@total.round(2) / @x) * 100
-      # end
+      end
   end
 
   def rewards_id

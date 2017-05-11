@@ -27,7 +27,12 @@
     <% end %>
 
   </div>
-<p class = "center deep-purple-text darken-4">Current Cache Savings: $<%= @saved rescue 0%>. Estimated time to reach goal: <%= @finaltime.round(1) rescue 0 %> month(s). <br />(Assuming $<%= @monthly %> is deposited for the rest of every month) </p>
+<p class = "center deep-purple-text darken-4">Current Cache Savings: $<%= @saved %>. Estimated time to reach goal:
+<% if @final == 0 %>
+<%= 0 %> month(s)
+<% else %>
+  <%= @finaltime.round(1) rescue 0 %> month(s).
+  <% end  %><br />(Assuming $<%= @monthly %> is deposited for the rest of every month) </p>
 
 
   <table>
@@ -54,7 +59,13 @@
   </table>
 
   <p>The following table shows you how quickly your savings and rewards can accumulate with Cache! We assume that over time your income and your savings will grow by a modest 10% a year. Based on this assumption, we have provided a hypothetical analysis that shows you what the next 10 years of your savings and rewards might look like with Cache.<br /><br />
-  When you choose to deposit your money with Cache, you would take <b class=" deep-purple-text darken-4"><%= @originaltime.round(1) rescue 0 %> months</b> to achieve your final savings target.</p>
+  When you choose to deposit your money with Cache, you would take <b class=" deep-purple-text darken-4">
+<% if @final == 0 %>
+<%= 0 %> month(s)
+<% else  %>
+    <%= @originaltime.round(1) rescue 0 %>months
+    <% end %>
+    </b> to achieve your final savings target.</p>
   <br>
   <table>
    <thead>
