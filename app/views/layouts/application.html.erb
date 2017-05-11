@@ -17,12 +17,20 @@
         <%=render 'partials/publicnav' %>
     <%end%>
 
-    <% if notice || alert %>
-      <div class = "devise-alerts">
-        <p class="notice"><%= notice %></p>
-        <p class="alert"><%= alert %></p>
-      </div>
+    <% if flash %>
+      <% flash.each do |key, value| %>
+        <% if value.class == String %>
+          <p class="alert"><%= value %></p>
+        <% else %>
+         <% value.each do |k,v| %>
+           <p class="alert"><%= v[0] %></p>
+         <% end %>
+      <% end %>
+
+      <% end %>
     <% end %>
+
+
 
     <%= yield %>
 

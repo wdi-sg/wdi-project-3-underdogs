@@ -13,10 +13,15 @@ def edit
 end
 
 def update
-  @user = User.find(current_user)
-  @user.update(user_params)
 
-  redirect_to edit_profile_path
+  @user = User.find(current_user)
+  if @user.update(user_params)
+    redirect_to edit_profile_path
+  else
+    puts "inspect #{@user.errors.inspect}"
+    flash[:notice] = @user.errors.messages
+    redirect_to edit_profile_path
+  end
 end
 
 def bankaccount
@@ -38,6 +43,7 @@ private
 
 def user_params
   params.require(:user).permit(:first_name, :last_name, :id_no, :dob, :gender, :nationality, :address, :country, :postal_code, :mobile_no)
+
 end
 
 def bank_account_info_params

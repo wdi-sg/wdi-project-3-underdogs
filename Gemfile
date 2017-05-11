@@ -51,8 +51,7 @@ gem 'jquery-turbolinks'
 
 gem 'country_select'
 gem 'nationality', '~> 1.0.3'
-
-
+gem 'validates_timeliness', '~> 4.0'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
