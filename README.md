@@ -1,5 +1,9 @@
 # **Cache, cashing in on savings!**
 
+# **The Site**
+
+[Cache](http://cachesg.herokuapp.com/)
+
 # **User Story**
 
 During the past 20 years, and more recently in the last 10 years, savers have been completely disincentivized by financial institutions to save money. In the 1990s consumers were given interest rates of 8-10% for keeping their money in Singaporean banks. Today, that rate is close to 0%.
@@ -21,9 +25,6 @@ For our consumer partners it's a great model for customer acquisition as most of
 The project required a lot of programming code for formulas. We first created a financial analysis based on various assumptions, and used these numbers to hard code the static pages like the public analysis. For the private analysis, we needed to construct sophisticated formulas to address various user inputs. Below is a snapshot of our analysis for the project on MS Excel.
 
 ![alt tag](https://github.com/wdi-sg/wdi-project-3-underdogs/blob/vikas/excelForReadme.png)
-
-# **The Site**
-[Cache](http://cachesg.herokuapp.com/)
 
 ## **Design and Functionality**
 1. Users can explore the public pages of the site but are asked to sign up for more details
