@@ -1,5 +1,4 @@
-# **Cache**
-# **Rewarding Consumers for Saving!**
+# **Cache, cashing in on savings!**
 
 # **User Story**
 
