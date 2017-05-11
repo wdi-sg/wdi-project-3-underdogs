@@ -73,6 +73,8 @@ GEM
     faraday (0.12.1)
       multipart-post (>= 1.2, < 3)
     ffi (1.9.18)
+    font-awesome-sass (4.7.0)
+      sass (>= 3.2)
     geocoder (1.4.3)
     globalid (0.4.0)
       activesupport (>= 4.2.0)
@@ -211,6 +213,7 @@ DEPENDENCIES
   country_select
   devise
   faker
+  font-awesome-sass
   geocoder
   gmaps4rails
   jbuilder (~> 2.5)

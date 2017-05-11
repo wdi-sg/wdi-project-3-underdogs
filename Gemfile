@@ -57,6 +57,8 @@ gem 'geocoder'
 gem 'gmaps4rails'
 # Using gem for underscore a js library
 gem 'underscore-rails'
+# Using font awesome for icons
+gem 'font-awesome-sass'
 
 
 # Use Capistrano for deployment

@@ -2,6 +2,8 @@
 @import "variables";
 @import "materialize";
 @import "rewards";
+@import "font-awesome-sprockets";
+@import "font-awesome";
 
 /*
  * This is a manifest file that'll be compiled into application.css, which will include all the files
@@ -70,9 +72,15 @@ nav ul li.active {
   background-color: 'rgba(219, 75, 75, 0.8)';
 }
 
-
-
 #map {
         height: 60vh;
         width: 70vw;
       }
+
+nav .brand-logo{
+  padding: 0 10px;
+}
+
+nav .brand-logo i{
+  margin-right: 7px;
+}
