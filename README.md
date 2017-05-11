@@ -46,10 +46,10 @@ The project required a lot of programming code for formulas. We first created a 
 - Deployment on Heroku
 
 ## **Project Team**
-Cara Chew
-Ian Chong
-Vikas Garg
-Bao Ling Koh
+- Cara Chew
+- Ian Chong
+- Vikas Garg
+- Bao Ling Koh
 
 ## **Acknowledgements**
 Thanks to our fellow students and instructors at GA Singapore for their encouragement and support throughout this project!
@@ -66,19 +66,10 @@ application up and running.
 Things you may want to cover:
 
 * Ruby version
-
 * System dependencies
-
 * Configuration
-
 * Database creation
-
 * Database initialization
-
 * How to run the test suite
-
 * Services (job queues, cache servers, search engines, etc.)
-
 * Deployment instructions
-
-* ...
