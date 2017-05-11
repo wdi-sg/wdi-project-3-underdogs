@@ -4,10 +4,10 @@
 
   <%= link_to('Back to Rewards List', rewards_path, :method => :get) %>
 
-  <h3>I want to claim </h3>
-  <h4>{ <%=@rewards.item %> }</h4>
+  <h3 class="title center">I want to claim </h3>
+  <h4 class="title center">{ <%=@rewards.item %> }</h4>
 
-  <p><em>Current Cache Dollars:</em> $<%= @credit - @rewarding%> <em>Cache Value for Reward:</em> $<%=@rewards.value %></p>
+  <p class = "center"><em>Current Cache Dollars:</em> $<%= @credit - @rewarding%> <em>Cache Value for Reward:</em> $<%=@rewards.value %></p>
 
 <div class= 'center-align'>
   <%= image_tag("#{@rewards.id}.jpg")%>
