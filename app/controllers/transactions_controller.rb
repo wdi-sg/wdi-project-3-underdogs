@@ -2,13 +2,15 @@ class TransactionsController < ApplicationController
 
 
   def index
+    if(params[:from] && params[:to])
+      @sumofmoney = Transaction.select("transacted_amount", "transacted_date").where(:transacted_date => params[:from]..params[:to]).where(user_id: current_user.id)
+    else
+      @sumofmoney = Transaction.select("transacted_amount", "transacted_date").where(user_id: current_user.id)
+    end
     @user = User.find(current_user)
-    @sumofmoney = Transaction.select("transacted_amount", "transacted_date").where(user_id: current_user.id)
     @total =  Transaction.select("transacted_amount").where(user_id: current_user).sum("transacted_amount")
     @credit = (@total*0.0075*6).round(0)
-    puts '@CREDIT TIMES 6'
-    puts @credit
-    # @date = Transaction.select("created_at").where("created_at >?", 2/4/2017 )
+
     @rewarding = @user.rewards.select("value").sum("value")
     @cashback = (@total*0.0025*6).round(0)
 
@@ -28,13 +30,14 @@ class TransactionsController < ApplicationController
       @x = 1
     end
 
+
     @percentage_from_final_goal = (@total.round(2) / @x) * 100
+
   end
 
 
   def new
     @transaction = Transaction.new
-
     @user = User.find(current_user)
     @total=  Transaction.select("transacted_amount").where(user_id: current_user).sum("transacted_amount")
     @credit = (@total*0.0075*6).round(0)
