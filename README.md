@@ -1,37 +1,48 @@
-# **KYURETA, by Vikas Garg**
+# **Cache**
+# **Rewarding Consumers for Saving!**
 
 # **User Story**
 
-For my WDI Project 2 I wanted to create and deploy a website that demystifies, and simplifies, the art of cooking! Some of the world's most famous chefs serve dishes in their flagship restaurants that are often very simple and often the most popular items on their menus. With just a few ingredients and a little effort, these dishes can be prepared in less than 30 minutes!
+During the past 20 years, and more recently in the last 10 years, savers have been completely disincentivized by financial institutions to save money. In the 1990s consumers were given interest rates of 8-10% for keeping their money in Singaporean banks. Today, that rate is close to 0%.
+
+![alt tag](https://github.com/wdi-sg/wdi-project-3-underdogs/blob/vikas/depositRateForReadme.png)
+
+What does that mean for an entire generation of millennials and under-40 consumers? It means that the money people save doesn't earn any return unless they take a lot more risk and invest in the stock market or less liquid assets like real estate.
+
+Meanwhile, technology has given us the opportunity to better understand consumer behavior, and we know that for most of us, we spend much of our discretionary income on the same things... food, travel, clothing, technology and that once in a while special experience.
+
+We created Cache as a way for savers to earn a very high risk-free return, like interest from a bank savings account. Except that "interest" comes in the form of rewards from consumer partners that want younger consumers to come through their doors.
+
+People in our plan can earn as much as 12% on each dollar they save over the course of a year! That's real savings that can be spent on great consumer partners. And we even given them 25% of those savings in cash back!
+
+For our consumer partners it's a great model for customer acquisition as most of their investment is coming back to them as consumers must spend their Cache rewards dollars at the participating consumer partners.
+
+# **The Analysis**
+
+The project required a lot of programming code for formulas. We first created a financial analysis based on various assumptions, and used these numbers to hard code the static pages like the public analysis. For the private analysis, we needed to construct sophisticated formulas to address various user inputs. Below is a snapshot of our analysis for the project on MS Excel.
+
+![alt tag](https://github.com/wdi-sg/wdi-project-3-underdogs/blob/vikas/excelForReadme.png)
 
 # **The Site**
-[KYURETA](https://dry-citadel-50559.herokuapp.com)
-
-Pick something that you like and try making it! Better yet, share some recipes from your favorite chefs from around the world!
-
-Finding recipes is as easy as searching [Google](https://www.google.com) for recipes from your favorite chef. Most chefs have websites listing a few of their favorite recipes. Don't know any chefs by name? Check out the following resources online:
-
-[World's 50 Best Restaurants](http://www.theworlds50best.com/list/1-50-winners): great resource to see the chef's behind some of the world's best restaurants.
-
-[World's Most Decorated Michelin Star Chefs](https://trulyexperiences.com/blog/2015/03/decorated-michelin-star-chefs-still-business/): guide to the most awarded chefs around the world.
-
-[Singapore's Most Interesting Chefs & Restaurants](http://sethlui.com/best-restaurants-singapore-where-chefs-eat/): check out the best of the Singapore food scene!
+[Cache](http://cachesg.herokuapp.com/)
 
 ## **Design and Functionality**
-1. Users must register and login with a username and password.
-2. Users can view existing chefs and recipes that any other user has added to the site. They can add new chefs and recipes and also add recipes to chefs that other users have added.
-3. Users can edit or delete chefs and recipes they've created however they cannot edit or delete entries other users have created.
+1. Users can explore the public pages of the site but are asked to sign up for more details
+2. Users must register and login with a username and password. They are asked to create a profile with their bank information and goals.
+3. A private analysis is generated based on the financial figures users input.
+4. Users can deposit or withdraw from their Cache account.
+5. Users can view their rewards balances and redeem from their rewards.
 
 ## **Entity Relationship Diagram**
-In the ERD below, pages are illustrated using ellipses and navigation buttons using rectangles.
 
-![alt tag](https://github.com/vikasgarg1/wdiproject2new/blob/master/ERD.jpg?raw=true)
+
 
 ## **Languages & Applications**
 - HTML
 - CSS
 - Javascript using Node.js framework
-- Integration with mLab, a cloud-based database
+- Ruby on Rails v. 5.0.2
+- Integration with Postico, a cloud-based database
 - Deployment on Heroku
 
 ## **Project Team**
@@ -45,7 +56,7 @@ Thanks to our fellow students and instructors at GA Singapore for their encourag
 
 
 
-# README
+# README text from before
 
 # A FINTECH product
 
