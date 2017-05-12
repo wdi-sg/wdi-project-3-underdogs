@@ -2,14 +2,14 @@ class RewardsController < ApplicationController
 before_action :authenticate_user!
 
   def rewards
-@user = User.find(current_user)
+    @user = User.find(current_user)
     @total=  Transaction.select("transacted_amount").where(user_id: current_user).sum("transacted_amount")
 
     @credit = (@total*0.0075*6).round(0)
       #to list all rewards
       #@rewards = Rewards.all
-@rewarding = @user.rewards.select("value").sum("value")
-@showreward = @user.rewards.select("item", "value", "expiry", "merchant")
+      @rewarding = @user.rewards.select("value").sum("value")
+      @showreward = @user.rewards.select("item", "value", "expiry", "merchant")
       my_array = [
         'A Good Start With Saving!',
         'Great Job On Saving!',
