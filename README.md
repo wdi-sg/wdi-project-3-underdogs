@@ -14,7 +14,7 @@ Meanwhile, technology has given us the opportunity to better understand consumer
 
 We created Cache as a way for savers to earn a very high risk-free return, like interest from a bank savings account. Except that "interest" comes in the form of rewards from consumer partners that want younger consumers to come through their doors.
 
-People in our plan can earn as much as 12% on each dollar they save over the course of a year! That's real savings that can be spent on great consumer partners. And we even given them 25% of those savings in cash back!
+People in our plan can earn as much as 12% on each dollar they save over the course of a year! That's real savings that can be spent on great consumer partners. And we even give them 25% of those savings in cash back!
 
 For our consumer partners it's a great model for customer acquisition as most of their investment is coming back to them as consumers must spend their Cache rewards dollars at the participating consumer partners.
 
