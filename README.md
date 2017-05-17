@@ -20,7 +20,7 @@ For our consumer partners it's a great model for customer acquisition as most of
 
 ## **The Analysis**
 
-The project required a lot of programming code for formulas. We first created a financial analysis based on various assumptions, and used these numbers to hard code the static pages like the public analysis. For the private analysis, we needed to construct sophisticated formulas to address various user inputs. Below is a snapshot of our analysis for the project on MS Excel.
+The project required a lot of programming code for formulas. We first created a financial analysis based on various assumptions, and used these numbers to hard code the static pages like the public analysis. For the private analysis, we needed to code formulas to address various user inputs. Below is a snapshot of our analysis for the project on MS Excel.
 
 ![alt tag](https://github.com/wdi-sg/wdi-project-3-underdogs/blob/vikas/excelForReadme.png)
 
