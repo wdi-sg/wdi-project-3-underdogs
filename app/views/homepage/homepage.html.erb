@@ -32,7 +32,7 @@
 
     <br>
 
-    <p>At the end of the year you will be getting back <%= number_to_currency(@twelve_percent_of_savings * 0.5, precision: 0) %> worth of stuff just for saving <%= number_to_currency(@annual_savings /12, precision: 0) %> per month for 1 year. Now thats a pretty decent deal, you're happy and so is Hamlet. <i class="em em-pig"></i></p>
+    <p>At the end of the year you will be getting back <%= number_to_currency(@twelve_percent_of_savings * 0.5, precision: 0) %> worth of stuff just for saving <%= number_to_currency(@annual_savings /12, precision: 0) %> per month for 1 year. Now thats a pretty decent deal.</p>
     <p>Out of the <%= number_to_currency(@twelve_percent_of_savings * 0.5, precision: 0) %>, you get <%= number_to_currency(@twelve_percent_of_savings * 0.15, precision: 0) %> in cash and <%= number_to_currency(@twelve_percent_of_savings * 0.35, precision: 0) %> worth of Cache rewards! You can spend the money however you like at the consumer partners, or choose from featured rewards and discounts in your Cache app!</p>
     <div class='row center-align'>
       <%= link_to('Financial Forecast', publicanalysis_path, :method => :get, class: "waves-effect waves-light btn") %>
